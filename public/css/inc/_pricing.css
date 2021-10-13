@@ -1,0 +1,106 @@
+/* ---------------------------------------------------------------------------------------------*/
+/*  PRICING SECTION START */
+/* ---------------------------------------------------------------------------------------------*/
+
+.grid--pricing {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.section-pricing {
+  padding: 9.6rem 0;
+}
+
+.pricing-plan {
+  border-radius: 11px;
+  padding: 4.8rem;
+  /* width: 50%; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  
+}
+
+.pricing-plan--starter {
+  /* justify-self: end; */
+  border: 5px solid var(--color-primary-lighter);
+  /* padding: 4.6rem; */
+}
+
+.pricing-plan--pro {
+  background-color: #d2f1f5;
+  /* padding: 4.8rem; */
+  position: relative;
+
+  box-shadow: 0 0 40px 40px rgba(0, 0, 0, 0.075);
+
+  overflow: hidden;
+}
+
+.pricing-plan--pro::after {
+  content: "Best Value";
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  top: 6%;
+  right: -17%;
+  color: var(--color-grey-darker);
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+
+  transform: rotate(45deg);
+}
+
+.pricing-plan--complete {
+  border: 5px solid var(--color-primary-lighter);
+  /* background-color: var(--color-primary-lighter); */
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.plan-name {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: var(--color-grey-darker);
+  margin-bottom: 1.6rem;
+}
+
+.plan-price span {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-right: 0.8rem;
+  color: var(--color-primary);
+}
+
+.plan-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.plan-signup {
+  margin-top: 4.8rem;
+  text-align: center;
+}
+
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------*/
+/*  PRICING SECTION END */
+/* ---------------------------------------------------------------------------------------------*/

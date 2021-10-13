@@ -1,0 +1,68 @@
+/* ---------------------------------------------------------------------------------------------*/
+/*  SECTION HOW IT WORKS SECTION START*/
+/* ---------------------------------------------------------------------------------------------*/
+
+.section-howitworks {
+  padding: 9.6rem 0;
+  /* background-color: var(--color-primary-lighter); */
+}
+
+.step-number {
+  font-size: 9.8rem;
+  font-weight: 600;
+  color: #bbb;
+  margin-bottom: 1.2rem;
+}
+
+.step-description {
+  font-size: 2rem;
+  line-height: 1.8;
+}
+
+.step-img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  content: "";
+  display: block;
+
+  border-radius: 50%;
+  /* height: 60%; */
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.step-img-box::before {
+  width: 60%;
+
+  background-color: var(--color-primary-lighter);
+
+  /* 60% of the parent's width */
+  padding-bottom: 60%;
+
+  z-index: -2;
+}
+
+.step-img-box::after {
+  width: 50%;
+  padding-bottom: 50%;
+  background-color: #bdd9dd;
+
+  z-index: -1;
+}
+
+.step-img {
+  width: 40%;
+}
+
+/* ---------------------------------------------------------------------------------------------*/
+/*  SECTION HOW IT WORKS SECTION END*/
+/* ---------------------------------------------------------------------------------------------*/
