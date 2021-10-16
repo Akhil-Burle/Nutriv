@@ -1,44 +1,156 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
+const validator = require("validator");
 
 const dishSchema = new mongoose.Schema(
   {
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Name
+    ----------------------------------------------------------------------------------------------------------
+    */
+
     name: {
       type: String,
       required: [true, "A dish must have a name"],
       unique: true,
+      trim: true,
+      maxlength: [
+        40,
+        "A dish must have name less or eequal than 40 characters",
+      ],
+      /* validate: [
+        validator.isAlpha,
+        "The name of the dish should be in ENGLISH only!",
+      ], */
     },
     slug: String,
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Delivery Time
+    ----------------------------------------------------------------------------------------------------------
+    */
     deliveryTime: {
       type: Number,
       required: [true, "A Dish must have a delivery duration!"],
     },
-    ratingsAverage: { type: Number },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Ratings
+    ----------------------------------------------------------------------------------------------------------
+    */
+    ratingsAverage: {
+      type: Number,
+      min: [1, "Rating must be above 1.0"],
+      max: [5, "Ratings must be lesser than 5.0"],
+    },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Number of Ratings
+    ----------------------------------------------------------------------------------------------------------
+    */
     ratingsQuantity: { type: Number, default: 0 },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Price
+    ----------------------------------------------------------------------------------------------------------
+    */
     price: { type: Number, required: [true, "A dish must have a price"] },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Rarity like Available or no.
+    ----------------------------------------------------------------------------------------------------------
+    */
     rarity: {
       type: String,
       required: [true, "A dish must have Availability.."],
     },
-    priceDiscount: Number,
-    foodType: [String],
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Discount price for dish
+    ----------------------------------------------------------------------------------------------------------
+    */
+
+    priceDiscount: {
+      type: Number,
+
+      // Custom validater val is the value inputed the return return false or true.
+      validate: {
+        message: "Disount price ({VALUE}) should be below the regular price!",
+        validator: function (val) {
+          // this only points to the current doc on NEW docment creation
+          return val > this.price;
+        },
+      },
+    },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Food Type like Vegan, Paleo, veg, non veg
+    ----------------------------------------------------------------------------------------------------------
+    */
+    foodType: {
+      type: String,
+      required: [true, "A dish must have a difficulty"],
+      enum: {
+        values: ["Vegan", "Paleo", "Vegetarian", "Non Vegetarian"],
+        message:
+          "Difficulty is either: Vegan, Paleo, Vegetarian and Non Vegetarian",
+      },
+    },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Summary of the dish
+    ----------------------------------------------------------------------------------------------------------
+    */
     summary: {
       type: String,
       trim: true, //Removes white spaces on the begining and the end
       required: [true, "A dish must have a small description!"],
     },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Description of the dish
+    ----------------------------------------------------------------------------------------------------------
+    */
     description: { type: String, trim: true },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Cover image of a dish
+    ----------------------------------------------------------------------------------------------------------
+    */
     imageCover: {
       type: String,
       required: [true, "A dish must have a image..."],
     },
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Some images of the dish
+    ----------------------------------------------------------------------------------------------------------
+    */
     images: [String],
+
+    /*
+    ----------------------------------------------------------------------------------------------------------
+    Time of creation **not entered by user**
+    ----------------------------------------------------------------------------------------------------------
+    */
     createdAt: {
       type: Date,
       default: Date.now(),
       select: false,
     },
-    secretTour: {
+    secretDish: {
       type: Boolean,
       default: false,
     },
@@ -53,7 +165,7 @@ dishSchema.virtual("deliveryTimeHours").get(function () {
   return this.deliveryTime / 60;
 });
 
-// Document Middleware and runs before the save command and the .create command when used .insertMany() it wil lnot toggle only on .create and save it gets executed
+// Document Middleware and runs before the .save() command and the .create() command when used .insertMany() it will not toggle only on .create and save it gets executed
 dishSchema.pre("save", function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
@@ -72,7 +184,7 @@ dishSchema.post("save", function (doc, next) {
 
 // Query Middleware:
 dishSchema.pre(/^find/, function (next) {
-  this.find({ secretTour: { $ne: true } });
+  this.find({ secretDish: { $ne: true } });
 
   this.start = Date.now();
   next();
