@@ -85,7 +85,7 @@ const dishSchema = new mongoose.Schema(
         message: "Disount price ({VALUE}) should be below the regular price!",
         validator: function (val) {
           // this only points to the current doc on NEW docment creation
-          return val > this.price;
+          return val < this.price;
         },
       },
     },
