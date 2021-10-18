@@ -54,15 +54,6 @@ Ways of Writing root file:
   --para-font-size: 1.8rem;
   --para-line-height: 1.8;
 }
-/* :root {
-  --color-primary: #e67e22;
-  --color-primary-lighter: #fdf2e9;
-  --color-primary-darker: #cf711f;
-  --color-grey: #555;
-  --color-grey-darker: #333;
-  --para-font-size: 1.8rem;
-  --para-line-height: 1.8;
-} */
 
 * {
   padding: 0;
@@ -73,6 +64,16 @@ Ways of Writing root file:
 *:focus {
   outline: none;
   box-shadow: 0 0 0 0.8rem rgba(31, 187, 207, 0.596);
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  /* color: #fff; */
+}
+
+::selection {
+  background-color: var(--color-primary);
+  /* color: #fff; */
 }
 
 html {
