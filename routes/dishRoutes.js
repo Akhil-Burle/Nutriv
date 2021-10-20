@@ -1,5 +1,6 @@
 const express = require("express");
 const dishController = require("./../controllers/dishController");
+const authController = require("./../controllers/authController.js");
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.route("/monthly-plan/:year").get(dishController.getMonthlyPlan);
 
 router
   .route("/")
-  .get(dishController.getAllDishes)
+  .get(authController.protect, dishController.getAllDishes)
   .post(dishController.createDish);
 
 router
