@@ -77,6 +77,7 @@ Password Confirmation
     },
     message: "The passwords aren't same try again!",
   },
+  passwordChangedAt: { type: Date },
 });
 
 userSchema.pre("save", async function (next) {
@@ -96,6 +97,19 @@ userSchema.methods.correctDetails = async function (
   userDetails
 ) {
   return await bcrypt.compare(candidateDetails, userDetails);
+};
+
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+  if (this.passwordChangedAt) {
+    const changedTimestamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+
+    return JWTTimestamp < changedTimestamp;
+  }
+
+  return false;
 };
 
 const User = mongoose.model("User", userSchema);
