@@ -111,5 +111,19 @@
     "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "imageCover": "dish-8-cover.jpg",
     "images": ["dish-8-1.jpg", "dish-8-2.jpg", "dish-8-3.jpg"]
+  },
+  {
+    "name": "Pav Bhaji",
+    "deliveryTime": 30,
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 28000,
+    "price": 90,
+    "rarity": "Available",
+    "priceDiscount": 20,
+    "foodType": ["Vegetarian"],
+    "summary": "The most remote and stunningly beautiful places for seeing the night sky",
+    "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "imageCover": "dish-8-cover.jpg",
+    "images": ["dish-8-1.jpg", "dish-8-2.jpg", "dish-8-3.jpg"]
   }
 ]

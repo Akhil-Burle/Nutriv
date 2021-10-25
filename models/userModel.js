@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
@@ -25,21 +26,6 @@ Email of the user
     lowercase: true,
     validate: [validator.isEmail, "Please provide a valid email!"],
   },
-
-  /*
-----------------------------------------------------------------------------------------------------------
-Phone-Number of the user
-----------------------------------------------------------------------------------------------------------
-*/
-  phone: {
-    type: String,
-    // validate: [
-    //   validator.isMobilePhoneLocales,
-    //   ['en-IN'],
-    //   "Please provite a valid phone number",
-    // ],
-  },
-
   /*
 ----------------------------------------------------------------------------------------------------------
 Photo
@@ -47,6 +33,17 @@ Photo
 */
   photo: {
     type: String,
+  },
+
+  /*
+----------------------------------------------------------------------------------------------------------
+Roles of a user
+----------------------------------------------------------------------------------------------------------
+*/
+  role: {
+    type: String,
+    enum: ["user", "admin", "manager"],
+    default: "user",
   },
 
   /*
@@ -78,17 +75,26 @@ Password Confirmation
     message: "The passwords aren't same try again!",
   },
   passwordChangedAt: { type: Date },
+  passwordResetToken: String,
+  passwordResetExpires: Date,
+  active: {
+    type: Boolean,
+    default: true,
+    select: false,
+  },
 });
 
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
   this.password = await bcrypt.hash(this.password, 12);
-  // this.email = await bcrypt.hash(this.email, 8);
-  // this.email = await bcrypt.hash(this.email, 8);
-  // this.phone = await bcrypt.hash(this.phone, 8);
 
   this.passwordConfirm = undefined;
+  next();
+});
+
+userSchema.pre(/^find/, function (next) {
+  this.find({ active: { $ne: false } });
   next();
 });
 
@@ -98,6 +104,15 @@ userSchema.methods.correctDetails = async function (
 ) {
   return await bcrypt.compare(candidateDetails, userDetails);
 };
+
+userSchema.pre("save", function (next) {
+  if (!this.isModified("password") || this.isNew) {
+    return next();
+  }
+
+  this.passwordChangedAt = Date.now() - 1000;
+  next();
+});
 
 userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
@@ -110,6 +125,21 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   }
 
   return false;
+};
+
+userSchema.methods.createPasswordResetToken = function () {
+  const resetToken = crypto.randomBytes(32).toString("hex");
+
+  this.passwordResetToken = crypto
+    .createHash("sha256")
+    .update(resetToken)
+    .digest("hex");
+
+  console.log({ resetToken }, this.passwordResetToken);
+
+  this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
+
+  return resetToken;
 };
 
 const User = mongoose.model("User", userSchema);

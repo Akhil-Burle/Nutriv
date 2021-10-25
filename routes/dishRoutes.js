@@ -22,6 +22,10 @@ router
   .route("/:id")
   .get(dishController.getDish)
   .patch(dishController.updateDish)
-  .delete(dishController.deleteDish);
+  .delete(
+    authController.protect,
+    authController.restrictTo("admin", "manager"),
+    dishController.deleteDish
+  );
 
 module.exports = router;

@@ -89,6 +89,7 @@ const dishSchema = new mongoose.Schema(
         },
       },
     },
+    priceAfterDiscount: this.price - this.priceDiscount,
 
     /*
     ----------------------------------------------------------------------------------------------------------
@@ -153,6 +154,10 @@ const dishSchema = new mongoose.Schema(
     secretDish: {
       type: Boolean,
       default: false,
+    },
+    valid: {
+      type: Boolean,
+      default: true,
     },
   },
   {
