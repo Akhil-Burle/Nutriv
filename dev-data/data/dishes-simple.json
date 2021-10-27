@@ -7,11 +7,33 @@
     "price": 397,
     "rarity": "Available",
     "priceDiscount": 20,
-    "foodType": ["Vegetarian"],
+    "foodType": "Vegetarian",
     "summary": "Breathtaking hike through the Canadian Banff National Park",
     "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "imageCover": "dish-1-cover.jpg",
-    "images": ["dish-1-1.jpg", "dish-1-2.jpg", "dish-1-3.jpg"]
+    "images": ["dish-1-1.jpg", "dish-1-2.jpg", "dish-1-3.jpg"],
+    "availableIn": [
+      {
+        "description": "Lummus Park Beach",
+        "type": "Point",
+        "coordinates": [77.718495, 12.955379]
+      },
+      {
+        "description": "Islamorada",
+        "type": "Point",
+        "coordinates": [-80.647885, 24.909047]
+      },
+      {
+        "description": "Sombrero Beach",
+        "type": "Point",
+        "coordinates": [-81.0784, 24.707496]
+      },
+      {
+        "description": "West Key",
+        "type": "Point",
+        "coordinates": [-81.768719, 24.552242]
+      }
+    ]
   },
   {
     "name": "Masala Dosa",
@@ -21,12 +43,28 @@
     "price": 120,
     "rarity": "Available",
     "priceDiscount": 20,
-    "foodType": ["Vegetarian"],
+    "foodType": "Vegetarian",
     "summary": "Exploring the jaw-dropping US east coast by foot and by boat",
     "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "imageCover": "dish-2-cover.jpg",
     "images": ["dish-2-1.jpg", "dish-2-2.jpg", "dish-2-3.jpg"],
-    "startDates": ["2021-06-19,10:00", "2021-07-20,10:00", "2021-08-18,10:00"]
+    "availableIn": [
+      {
+        "description": "Banff National Park",
+        "type": "Point",
+        "coordinates": [-116.214531, 51.417611]
+      },
+      {
+        "description": "Jasper National Park",
+        "type": "Point",
+        "coordinates": [-118.076152, 52.875223]
+      },
+      {
+        "description": "Glacier National Park of Canada",
+        "type": "Point",
+        "coordinates": [-117.490309, 51.261937]
+      }
+    ]
   },
   {
     "name": "Veg Meals",
@@ -36,11 +74,23 @@
     "price": 150,
     "rarity": "Not Available",
     "priceDiscount": 20,
-    "foodType": ["Vegetarian"],
+    "foodType": "Vegetarian",
     "summary": "Exciting adventure in the snow with snowboarding and skiing",
     "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!\nDolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, exercitation ullamco laboris nisi ut aliquip. Lorem ipsum dolor sit amet, consectetur adipisicing elit!",
     "imageCover": "dish-3-cover.jpg",
-    "images": ["dish-3-1.jpg", "dish-3-2.jpg", "dish-3-3.jpg"]
+    "images": ["dish-3-1.jpg", "dish-3-2.jpg", "dish-3-3.jpg"],
+    "availableIn": [
+      {
+        "description": "Aspen Highlands",
+        "type": "Point",
+        "coordinates": [-106.855385, 39.182677]
+      },
+      {
+        "description": "Beaver Creek",
+        "type": "Point",
+        "coordinates": [-106.516623, 39.60499]
+      }
+    ]
   },
   {
     "name": "Pan pizza 4pcs",
@@ -50,11 +100,33 @@
     "price": 120,
     "rarity": "Available",
     "priceDiscount": 20,
-    "foodType": ["Vegetarian"],
+    "foodType": "Vegetarian",
     "summary": "Living the life of Wanderlust in the US' most beatiful cities",
     "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat lorem ipsum dolor sit amet.\nConsectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat!",
     "imageCover": "dish-4-cover.jpg",
-    "images": ["dish-4-1.jpg", "dish-4-2.jpg", "dish-4-3.jpg"]
+    "images": ["dish-4-1.jpg", "dish-4-2.jpg", "dish-4-3.jpg"],
+    "availableIn": [
+      {
+        "description": "Zion Canyon National Park",
+        "type": "Point",
+        "coordinates": [-112.987418, 37.198125]
+      },
+      {
+        "description": "Antelope Canyon",
+        "type": "Point",
+        "coordinates": [-111.376161, 36.86438]
+      },
+      {
+        "description": "Grand Canyon National Park",
+        "type": "Point",
+        "coordinates": [-112.115763, 36.058973]
+      },
+      {
+        "description": "Joshua Tree National Park",
+        "type": "Point",
+        "coordinates": [-116.107963, 34.011646]
+      }
+    ]
   },
   {
     "name": "Pasta (Large)",
@@ -64,11 +136,28 @@
     "price": 200,
     "rarity": "Available",
     "priceDiscount": 20,
-    "foodType": ["Vegetarian"],
+    "foodType": "Vegetarian",
     "summary": "Breathing in Nature in America's most spectacular National Parks",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum!",
     "imageCover": "dish-5-cover.jpg",
-    "images": ["dish-5-1.jpg", "dish-5-2.jpg", "dish-5-3.jpg"]
+    "images": ["dish-5-1.jpg", "dish-5-2.jpg", "dish-5-3.jpg"],
+    "availableIn": [
+      {
+        "description": "New York",
+        "type": "Point",
+        "coordinates": [-73.967696, 40.781821]
+      },
+      {
+        "description": "Los Angeles",
+        "type": "Point",
+        "coordinates": [-118.324396, 34.097984]
+      },
+      {
+        "description": "San Francisco",
+        "type": "Point",
+        "coordinates": [-122.408865, 37.787825]
+      }
+    ]
   },
   {
     "name": "Burger Large Veg",
@@ -78,11 +167,38 @@
     "price": 250,
     "rarity": "Available",
     "priceDiscount": 20,
-    "foodType": ["Vegetarian"],
+    "foodType": "Vegetarian",
     "summary": "Surfing, skating, parajumping, rock climbing and more, all in one dish",
     "description": "Nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\nVoluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur!",
     "imageCover": "dish-6-cover.jpg",
-    "images": ["dish-6-1.jpg", "dish-6-2.jpg", "dish-6-3.jpg"]
+    "images": ["dish-6-1.jpg", "dish-6-2.jpg", "dish-6-3.jpg"],
+    "availableIn": [
+      {
+        "description": "Point Dume Beach",
+        "type": "Point",
+        "coordinates": [-118.809361, 34.003098]
+      },
+      {
+        "description": "Venice Skate Park",
+        "type": "Point",
+        "coordinates": [-118.47549, 33.987367]
+      },
+      {
+        "description": "San Diego Skydive",
+        "type": "Point",
+        "coordinates": [-116.830104, 33.022843]
+      },
+      {
+        "description": "Kern River Rafting",
+        "type": "Point",
+        "coordinates": [-118.4547, 35.710359]
+      },
+      {
+        "description": "Yosemite National Park",
+        "type": "Point",
+        "coordinates": [-119.600492, 37.742371]
+      }
+    ]
   },
   {
     "name": "Cheese Pizza (Large)",
@@ -92,11 +208,28 @@
     "price": 250,
     "rarity": "Available",
     "priceDiscount": 20,
-    "foodType": ["Vegetarian"],
+    "foodType": "Vegetarian",
     "summary": "Exquisite wines, scenic views, exclusive barrel tastings,  and much more",
     "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\nIrure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "imageCover": "dish-7-cover.jpg",
-    "images": ["dish-7-1.jpg", "dish-7-2.jpg", "dish-7-3.jpg"]
+    "images": ["dish-7-1.jpg", "dish-7-2.jpg", "dish-7-3.jpg"],
+    "availableIn": [
+      {
+        "description": "Natural Bridges National Monument",
+        "type": "Point",
+        "coordinates": [-109.99953, 37.629017]
+      },
+      {
+        "description": "Horseshoe Bend",
+        "type": "Point",
+        "coordinates": [-111.50954, 36.883269]
+      },
+      {
+        "description": "Death Valley National Park",
+        "type": "Point",
+        "coordinates": [-117.07399, 36.501435]
+      }
+    ]
   },
   {
     "name": "Pasta (large) Non-Veg",
@@ -106,11 +239,18 @@
     "price": 200,
     "rarity": "Available",
     "priceDiscount": 20,
-    "foodType": ["NON-Vegetarian"],
+    "foodType": "NON-Vegetarian",
     "summary": "The most remote and stunningly beautiful places for seeing the night sky",
     "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "imageCover": "dish-8-cover.jpg",
-    "images": ["dish-8-1.jpg", "dish-8-2.jpg", "dish-8-3.jpg"]
+    "images": ["dish-8-1.jpg", "dish-8-2.jpg", "dish-8-3.jpg"],
+    "availableIn": [
+      {
+        "description": "Yellowknife",
+        "type": "Point",
+        "coordinates": [-114.406097, 62.439943]
+      }
+    ]
   },
   {
     "name": "Pav Bhaji",
@@ -120,10 +260,27 @@
     "price": 90,
     "rarity": "Available",
     "priceDiscount": 20,
-    "foodType": ["Vegetarian"],
+    "foodType": "Vegetarian",
     "summary": "The most remote and stunningly beautiful places for seeing the night sky",
     "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "imageCover": "dish-8-cover.jpg",
-    "images": ["dish-8-1.jpg", "dish-8-2.jpg", "dish-8-3.jpg"]
+    "images": ["dish-8-1.jpg", "dish-8-2.jpg", "dish-8-3.jpg"],
+    "availableIn": [
+      {
+        "description": "Beringer Vineyards",
+        "type": "Point",
+        "coordinates": [-122.479887, 38.510312]
+      },
+      {
+        "description": "Clos Pegase Winery & Tasting Room",
+        "type": "Point",
+        "coordinates": [-122.582948, 38.585707]
+      },
+      {
+        "description": "Raymond Vineyard and Cellar",
+        "type": "Point",
+        "coordinates": [-122.434697, 38.482181]
+      }
+    ]
   }
 ]

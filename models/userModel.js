@@ -42,7 +42,7 @@ Roles of a user
 */
   role: {
     type: String,
-    enum: ["user", "admin", "manager"],
+    enum: ["user", "admin", "manager", "chef"],
     default: "user",
   },
 
@@ -76,11 +76,17 @@ Password Confirmation
   },
   passwordChangedAt: { type: Date },
   passwordResetToken: String,
+  emailVerifyToken: String,
   passwordResetExpires: Date,
+  emailVerifyExpires: Date,
   active: {
     type: Boolean,
     default: true,
     select: false,
+  },
+  isVerified: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -135,11 +141,22 @@ userSchema.methods.createPasswordResetToken = function () {
     .update(resetToken)
     .digest("hex");
 
-  console.log({ resetToken }, this.passwordResetToken);
-
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 
   return resetToken;
+};
+
+userSchema.methods.createEmailVerificationToken = function () {
+  const verifyToken = crypto.randomBytes(32).toString("hex");
+
+  this.emailVerifyToken = crypto
+    .createHash("sha256")
+    .update(verifyToken)
+    .digest("hex");
+
+  this.emailVerifyExpires = Date.now() + 10 * 60 * 1000;
+
+  return verifyToken;
 };
 
 const User = mongoose.model("User", userSchema);

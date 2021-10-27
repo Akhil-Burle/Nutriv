@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
 const validator = require("validator");
+// const User = require("./userModel.js");
 
 const dishSchema = new mongoose.Schema(
   {
@@ -89,7 +90,6 @@ const dishSchema = new mongoose.Schema(
         },
       },
     },
-    priceAfterDiscount: this.price - this.priceDiscount,
 
     /*
     ----------------------------------------------------------------------------------------------------------
@@ -98,11 +98,11 @@ const dishSchema = new mongoose.Schema(
     */
     foodType: {
       type: String,
-      required: [true, "A dish must have a difficulty"],
+      required: [true, "A dish must have a type"],
       enum: {
-        values: ["Vegan", "Paleo", "Vegetarian", "Non Vegetarian"],
+        values: ["Vegan", "Paleo", "Vegetarian", "NON-Vegetarian"],
         message:
-          "Difficulty is either: Vegan, Paleo, Vegetarian and Non Vegetarian",
+          "Food Type is either: Vegan, Paleo, Vegetarian and Non-Vegetarian",
       },
     },
 
@@ -159,6 +159,20 @@ const dishSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    availableIn: [
+      {
+        // GeoJson
+        type: {
+          type: String,
+          default: "Point",
+          enum: ["Point"],
+        },
+        coordinates: [Number],
+        address: String,
+        description: String,
+      },
+    ],
+    chefs: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
   },
   {
     toJSON: { virtuals: true },
@@ -175,6 +189,14 @@ dishSchema.pre("save", function (next) {
   this.slug = slugify(this.name, { lower: true });
   next();
 });
+
+/* 
+For Embedding
+dishSchema.pre("save", async function (next) {
+  const chefsPromises = this.chefs.map(async (id) => await User.findById(id));
+  this.chefs = await Promise.all(chefsPromises);
+  next();
+}); */
 
 /* dishSchema.pre("save", function (next) {
   console.log("Will save document");
@@ -200,6 +222,14 @@ dishSchema.pre(/^find/, function (next) {
 //   console.log(docs);
 //   next();
 // });
+
+dishSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: "chefs",
+    select: "-__v -passwordChangedAt",
+  });
+  next();
+});
 
 // Aggregation Middleware:
 dishSchema.pre("aggregate", function (next) {

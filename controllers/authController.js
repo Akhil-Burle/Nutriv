@@ -45,11 +45,98 @@ exports.signup = catchAsync(async (req, res, next) => {
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
     phone: req.body.phone,
+    role: req.body.role,
+    photo: req.body.photo,
   });
 
   // const newUser = await User.create(req.body);
 
+  const verifyToken = newUser.createEmailVerificationToken();
+  await newUser.save({ validateBeforeSave: false });
+
+  const resetURL = `${req.protocol}://${req.get(
+    "host"
+  )}/api/v1/users/verifyEmail/${verifyToken}`;
+
+  const message = `Verify your email before getting started!  ${resetURL}.`;
+
+  try {
+    await sendEmail({
+      email: newUser.email,
+      subject: "Nutriv Email verification",
+      message,
+    });
+
+    /*     res.status(200).json({
+      status: "success",
+      message: "Token sent to email",
+    }); */
+  } catch (err) {
+    (newUser.emailVerifyToken = undefined),
+      (newUser.emailVerifyExpires = undefined);
+    await newUser.save({ validateBeforeSave: false });
+
+    return next(
+      new AppError(
+        "There was an error sending the email, Try again later!",
+        500
+      )
+    );
+  }
   createSendToken(newUser, 201, res);
+});
+
+exports.verify = catchAsync(async (req, res, next) => {
+  const user = await User.findOne({ email: req.body.email });
+  const verifyToken = user.createEmailVerificationToken();
+  await user.save({ validateBeforeSave: false });
+
+  const resetURL = `${req.protocol}://${req.get(
+    "host"
+  )}/api/v1/users/verifyEmail/${verifyToken}`;
+
+  const message = `Verify your email before getting started!  ${resetURL}.`;
+
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: "Nutriv Email verification",
+      message,
+    });
+  } catch (err) {
+    (user.emailVerifyToken = undefined), (user.emailVerifyExpires = undefined);
+    await user.save({ validateBeforeSave: false });
+
+    return next(
+      new AppError(
+        "There was an error sending the email, Try again later!",
+        500
+      )
+    );
+  }
+  createSendToken(user, 200, res);
+});
+
+exports.verifyEmail = catchAsync(async (req, res, next) => {
+  const hashedEmailToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
+  const user = await User.findOne({
+    emailVerifyToken: hashedEmailToken,
+    emailVerifyExpires: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return next(new AppError("Token is invalid or has expired try again!"));
+  }
+  user.emailVerifyToken = undefined;
+  user.isVerified = true;
+  user.emailVerifyExpires = undefined;
+
+  await user.save({ validateBeforeSave: false });
+
+  createSendToken(user, 200, res);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -66,6 +153,12 @@ exports.login = catchAsync(async (req, res, next) => {
   // 2: Check if the user exists
 
   const user = await User.findOne({ email }).select("+password");
+
+  if (user.isVerified === false) {
+    return next(
+      new AppError("Please verify your account before getting started!")
+    );
+  }
 
   if (!user || !(await user.correctDetails(password, user.password))) {
     return next(new AppError("Incorrect email or password", 401));
@@ -102,7 +195,17 @@ exports.protect = catchAsync(async (req, res, next) => {
     );
   }
 
-  // 4: Check if user changed the password after token was issued
+  // 4: Check if the user is verified:
+  /*   if (currentUser.isVerified === false) {
+    return next(
+      new AppError(
+        "The user is not verified please Verify your self to continue",
+        401
+      )
+    );
+  } */
+
+  // 5: Check if user changed the password after token was issued
   if (currentUser.changedPasswordAfter(decoded.iat)) {
     return next(
       new AppError("User recently changed password! Please log in again.", 401)

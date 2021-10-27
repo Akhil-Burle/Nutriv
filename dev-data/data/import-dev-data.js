@@ -10,6 +10,8 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 
+// Run using: node ./dev-data/data/import-dev-data.js --import / --delete
+
 mongoose.connect(DB).then(() => console.log("DB connection successful!"));
 
 // READ JSON FILE
