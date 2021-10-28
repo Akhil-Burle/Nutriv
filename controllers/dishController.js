@@ -30,7 +30,7 @@ exports.getAllDishes = catchAsync(async (req, res, next) => {
 });
 
 exports.getDish = catchAsync(async (req, res, next) => {
-  const dish = await Dish.findById(req.params.id);
+  const dish = await Dish.findById(req.params.id).populate("reviews");
   // Dish.findOne({ _id: req.params.id })
 
   if (!dish) {

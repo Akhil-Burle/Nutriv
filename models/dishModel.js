@@ -184,6 +184,12 @@ dishSchema.virtual("deliveryTimeHours").get(function () {
   return this.deliveryTime / 60;
 });
 
+dishSchema.virtual("reviews", {
+  ref: "Review",
+  foreignField: "dish",
+  localField: "_id",
+});
+
 // Document Middleware and runs before the .save() command and the .create() command when used .insertMany() it will not toggle only on .create and save it gets executed
 dishSchema.pre("save", function (next) {
   this.slug = slugify(this.name, { lower: true });
