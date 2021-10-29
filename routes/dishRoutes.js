@@ -1,10 +1,13 @@
 const express = require("express");
 const dishController = require("./../controllers/dishController");
 const authController = require("./../controllers/authController.js");
+const reviewRouter = require("./reviewRoutes.js");
 
 const router = express.Router();
 
 // router.param('id', dishController.checkID);
+
+router.use("/:dishId/reviews", reviewRouter);
 
 router
   .route("/top-5-cheap")

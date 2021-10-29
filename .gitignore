@@ -1,6 +1,4 @@
 node_modules
 config.env
-package-lock.json
 Nutriv API testing collections.json
-Nutriv Data Model.drawio
-dev-data
+Nutriv Flow Charts.drawio
