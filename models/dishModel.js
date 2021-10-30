@@ -180,6 +180,10 @@ const dishSchema = new mongoose.Schema(
   }
 );
 
+// dishSchema.index({ price: 1 });
+dishSchema.index({ price: 1, ratingsAverage: -1 });
+dishSchema.index({ slug: 1 });
+
 dishSchema.virtual("deliveryTimeHours").get(function () {
   return this.deliveryTime / 60;
 });

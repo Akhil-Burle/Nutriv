@@ -1,7 +1,7 @@
 const express = require("express");
 const dishController = require("./../controllers/dishController");
 const authController = require("./../controllers/authController.js");
-const reviewRouter = require("./reviewRoutes.js");
+const reviewRouter = require("./../routes/reviewRoutes.js");
 
 const router = express.Router();
 
@@ -14,17 +14,31 @@ router
   .get(dishController.aliasTopDishes, dishController.getAllDishes);
 
 router.route("/dish-stats").get(dishController.getDishStats);
-router.route("/monthly-plan/:year").get(dishController.getMonthlyPlan);
+router
+  .route("/monthly-plan/:year")
+  .get(
+    authController.protect,
+    authController.restrictTo("admin", "manager", "chef"),
+    dishController.getMonthlyPlan
+  );
 
 router
   .route("/")
-  .get(authController.protect, dishController.getAllDishes)
-  .post(dishController.createDish);
+  .get(dishController.getAllDishes)
+  .post(
+    authController.restrictTo("manager", "admin"),
+    authController.protect,
+    dishController.createDish
+  );
 
 router
   .route("/:id")
   .get(dishController.getDish)
-  .patch(dishController.updateDish)
+  .patch(
+    authController.protect,
+    authController.restrictTo("admin", "manager"),
+    dishController.updateDish
+  )
   .delete(
     authController.protect,
     authController.restrictTo("admin", "manager"),

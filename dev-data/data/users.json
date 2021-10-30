@@ -44,7 +44,7 @@
     "name": "Leo Gillespie",
     "email": "leo@nutriv.com",
     "password": "leo@nutriv.com",
-    "role": "guide",
+    "role": "chef",
     "active": true,
     "photo": "user-5.jpg",
     "isVerified": true
@@ -54,7 +54,7 @@
     "name": "Jennifer Hardy",
     "email": "jennifer@nutriv.com",
     "password": "jennifer@nutriv.com",
-    "role": "guide",
+    "role": "chef",
     "active": true,
     "photo": "user-6.jpg",
     "isVerified": true
@@ -64,7 +64,7 @@
     "name": "Kate Morrison",
     "email": "kate@nutriv.com",
     "password": "kate@nutriv.com",
-    "role": "guide",
+    "role": "chef",
     "active": true,
     "photo": "user-7.jpg",
     "isVerified": true
@@ -94,7 +94,7 @@
     "name": "Steve T. Scaife",
     "email": "steve@nutriv.com",
     "password": "steve@nutriv.com",
-    "role": "lead-guide",
+    "role": "manager",
     "active": true,
     "photo": "user-10.jpg",
     "isVerified": true
@@ -104,7 +104,7 @@
     "name": "Aarav Lynn",
     "email": "aarav@nutriv.com",
     "password": "aarav@nutriv.com",
-    "role": "lead-guide",
+    "role": "manager",
     "active": true,
     "photo": "user-11.jpg",
     "isVerified": true
@@ -114,7 +114,7 @@
     "name": "Miyah Myles",
     "email": "miyah@nutriv.com",
     "password": "miyah@nutriv.com",
-    "role": "lead-guide",
+    "role": "manager",
     "active": true,
     "photo": "user-12.jpg",
     "isVerified": true
@@ -124,7 +124,7 @@
     "name": "Ben Hadley",
     "email": "ben@nutriv.com",
     "password": "ben@nutriv.com",
-    "role": "guide",
+    "role": "chef",
     "active": true,
     "photo": "user-13.jpg",
     "isVerified": true

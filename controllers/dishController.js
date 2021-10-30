@@ -1,7 +1,7 @@
 const Dish = require("../models/dishModel");
-const APIFeatures = require("../utils/apiFeatures");
 const catchAsync = require("../utils/catchAsync.js");
-const AppError = require("../utils/appError");
+// const AppError = require("../utils/appError");
+const factory = require("./handlerFactory.js");
 
 exports.aliasTopDishes = (req, res, next) => {
   req.query.limit = "5";
@@ -10,82 +10,15 @@ exports.aliasTopDishes = (req, res, next) => {
   next();
 };
 
-exports.getAllDishes = catchAsync(async (req, res, next) => {
-  // EXECUTE QUERY
-  const features = new APIFeatures(Dish.find(), req.query)
-    .filter()
-    .sort()
-    .limitFields()
-    .paginate();
-  const dishes = await features.query;
+exports.getAllDishes = factory.getAll(Dish);
 
-  // SEND RESPONSE
-  res.status(200).json({
-    status: "success",
-    results: dishes.length,
-    data: {
-      dishes,
-    },
-  });
-});
+exports.getDish = factory.getOne(Dish, { path: "reviews" });
 
-exports.getDish = catchAsync(async (req, res, next) => {
-  const dish = await Dish.findById(req.params.id).populate("reviews");
-  // Dish.findOne({ _id: req.params.id })
+exports.createDish = factory.createOne(Dish);
 
-  if (!dish) {
-    return next(new AppError("No tour found with that ID", 404));
-  }
+exports.updateDish = factory.updateOne(Dish);
 
-  res.status(200).json({
-    status: "success",
-    data: {
-      dish,
-    },
-  });
-});
-
-exports.createDish = catchAsync(async (req, res, next) => {
-  const newDish = await Dish.create(req.body);
-
-  res.status(201).json({
-    status: "success",
-    data: {
-      dish: newDish,
-    },
-  });
-});
-
-exports.updateDish = catchAsync(async (req, res, next) => {
-  const dish = await Dish.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
-
-  if (!dish) {
-    return next(new AppError("No tour found with that ID", 404));
-  }
-
-  res.status(200).json({
-    status: "success",
-    data: {
-      dish,
-    },
-  });
-});
-
-exports.deleteDish = catchAsync(async (req, res, next) => {
-  const dish = await Dish.findByIdAndDelete(req.params.id);
-
-  if (!dish) {
-    return next(new AppError("No tour found with that ID", 404));
-  }
-
-  res.status(204).json({
-    status: "success",
-    data: null,
-  });
-});
+exports.deleteDish = factory.deleteOne(Dish);
 
 exports.getDishStats = catchAsync(async (req, res, next) => {
   const stats = await Dish.aggregate([
@@ -164,3 +97,86 @@ exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+/* 
+
+exports.getAllDishes = catchAsync(async (req, res, next) => {
+  // EXECUTE QUERY
+  const features = new APIFeatures(Dish.find(), req.query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+  const dishes = await features.query;
+
+  // SEND RESPONSE
+  res.status(200).json({
+    status: "success",
+    results: dishes.length,
+    data: {
+      dishes,
+    },
+  });
+}); 
+
+exports.getDish = catchAsync(async (req, res, next) => {
+  const dish = await Dish.findById(req.params.id).populate("reviews");
+  // Dish.findOne({ _id: req.params.id })
+
+  if (!dish) {
+    return next(new AppError("No tour found with that ID", 404));
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      dish,
+    },
+  });
+}); 
+
+ exports.createDish = catchAsync(async (req, res, next) => {
+  const newDish = await Dish.create(req.body);
+
+  res.status(201).json({
+    status: "success",
+    data: {
+      dish: newDish,
+    },
+  });
+});
+
+exports.deleteDish = catchAsync(async (req, res, next) => {
+  const dish = await Dish.findByIdAndDelete(req.params.id);
+
+  if (!dish) {
+    return next(new AppError("No tour found with that ID", 404));
+  }
+
+  res.status(204).json({
+    status: "success",
+    data: null,
+  });
+});
+
+exports.updateDish = catchAsync(async (req, res, next) => {
+  const dish = await Dish.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  if (!dish) {
+    return next(new AppError("No tour found with that ID", 404));
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      dish,
+    },
+  });
+});
+
+
+
+*/
