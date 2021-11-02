@@ -183,6 +183,7 @@ const dishSchema = new mongoose.Schema(
 // dishSchema.index({ price: 1 });
 dishSchema.index({ price: 1, ratingsAverage: -1 });
 dishSchema.index({ slug: 1 });
+dishSchema.index({ availableIn: "2dsphere" });
 
 dishSchema.virtual("deliveryTimeHours").get(function () {
   return this.deliveryTime / 60;
@@ -242,12 +243,12 @@ dishSchema.pre(/^find/, function (next) {
 });
 
 // Aggregation Middleware:
-dishSchema.pre("aggregate", function (next) {
+/* dishSchema.pre("aggregate", function (next) {
   this.pipeline().unshift({ $match: { secretDish: { $ne: true } } });
 
   console.log(this.pipeline());
   next();
-});
+}); */
 
 const Dish = mongoose.model("Dish", dishSchema);
 

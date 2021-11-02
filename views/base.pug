@@ -1,0 +1,322 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    // Important for responsive design!
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='description' content="Nutriv is an AI-powered food subscription that will make you eat healthy again, 365 days per year. It's tailored to your personal taste and needs...")
+    link(rel='apple-touch-icon' href='img/apple.png')
+    link(rel='icon' href='img/favicon1.png')
+    link(rel='manifest' href='manifest.webmanifest')
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,700&display=swap' rel='stylesheet')
+    //
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+        />
+    //
+        <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+        />
+    script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
+    script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
+    script(defer='' src='https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js')
+    script(defer='' src='js/script.js')
+    // Style CSS links
+    link(rel='stylesheet' href='css/style.css')
+    link(rel='stylesheet' href='css/general.css')
+    link(rel='stylesheet' href='css/queries.css')
+    title Nutriv &mdash; Never cook again!
+// header nav-open
+include inc/_header
+main
+    section.section-hero
+        .hero
+            // <img src="img/nutriv-logo.png" alt="" class="logo" />
+            .hero-text-box
+                h1.heading-primary
+                    | A healthy meal delivered to your door, every single day
+                p.hero-description
+                    | The smart 365-days-per-year food subscription that will make you
+                    | eat healthy again. Tailored to your personal tastes and
+                    | nutritional needs. We have delivered 1,00,00,000+ meals last year!
+                a.btn.btn--full.margin-right-small(href='#signup') Start Eating Well!
+                a.btn.btn--light(href='#features') Learn More &darr;
+                .delivered-meals
+                    .delivered-imgs
+                        img(src='img/customers/customer-1.jpg' alt='Customer Photo')
+                        img(src='img/customers/customer-2.jpg' alt='Customer Photo')
+                        img(src='img/customers/customer-3.jpg' alt='Customer Photo')
+                        img(src='img/customers/customer-4.jpg' alt='Customer Photo')
+                        img(src='img/customers/customer-5.jpg' alt='Customer Photo')
+                        img(src='img/customers/customer-6.jpg' alt='Customer Photo')
+                    p.delivered-text
+                        span 1000k+
+                        |  meals delivered last year!
+            .hero-img-box
+                img.hero-image(src='img/hero.png' alt='Images')
+    section.section-featured
+        .container
+            h2.heading-featured-in As featured in
+            .logos
+                img(src='img/logos/techcrunch.png' alt='Tech Crunch Logo')
+                img(src='img/logos/business-insider.png' alt='Business Insider Logo')
+                img(src='img/logos/the-new-york-times.png' alt='New York Times Logo')
+                img(src='img/logos/forbes.png' alt='Forbes Logo')
+                img(src='img/logos/usa-today.png' alt='USA Today Logo')
+    section#features.features
+        .container.grid.grid--4-cols
+            // FEATURE 1
+            .feature
+                ion-icon.feature-icon(name='infinite-outline')
+                p.feature-title Never cook again!
+                p.feature-text
+                    | We&apos;re open almost everyday! Even including major holidays.
+            // FEATURE 2
+            .feature
+                ion-icon.feature-icon(name='nutrition-outline')
+                p.feature-title Local and organic
+                p.feature-text
+                    | Our cooks only use local, fresh, and organic products to prepare
+                    | your meals.
+            // FEATURE 3
+            .feature
+                ion-icon.feature-icon(name='leaf-outline')
+                p.feature-title No waste
+                p.feature-text
+                    | All our partners only use reusable containers to package all your
+                    | meals.
+            // FEATURE 4
+            .feature
+                ion-icon.feature-icon(name='earth-outline')
+                p.feature-title Anytime, anywhere!
+                p.feature-text
+                    | Out hotels are almost in every place in the world, if not in your
+                    | location we&apos;ll make sure to deliver from the nearest one!
+    section#howitworks.section-howitworks
+        .container
+            span.subheading How it Works
+            h2.heading-secondary
+                | Your daily dose of health in 3 simple steps
+        .container.grid.grid--2-cols.grid--center-vertical
+            // STEP 1
+            .step-text-box
+                p.step-number 01
+                h3.heading-tertiary
+                    | Tell us what you like (and what not)
+                p.step-description
+                    | Never again waste time thinking about what to eat! Nutriv AI will
+                    | create a 100% personalized weekly meal plan just for you. It makes
+                    | sure you get all the nutrients and vitamins you need, no matter
+                    | what diet you follow!
+            .step-img-box
+                img.step-img(src='img/app/app-screen-1.png' alt='Nutriv App Preferences selection screen')
+            // STEP 2
+            .step-img-box
+                img.step-img(src='img/app/app-screen-2.png' alt='Nutriv App Meal Approving plan')
+            .step-text-box
+                p.step-number 02
+                h3.heading-tertiary Approve your weekly meal plan
+                p.step-description
+                    | Once per week, approve the meal plan generated for you by Nutriv
+                    | AI. You can change ingredients, swap entire meals, or even add
+                    | your own recipes.
+            // STEP 3
+            .step-text-box
+                p.step-number 03
+                h3.heading-tertiary Receive meals at convenient time
+                p.step-description
+                    | Best chefs in town will cook your selected meal every day, and we
+                    | will deliver it to your door whenever works best for you. You can
+                    | change delivery schedule and address daily!
+            .step-img-box
+                img.step-img(src='img/app/app-screen-3.png' alt='Nutriv App Delivery screen')
+    section#meals.section-meals
+        .container.center-text
+            span.subheading Meals
+            h2.heading-secondary
+                | Nutriv AI chooses from 1,000,000+ recipes
+        .container.grid.grid--3-cols.margin-bottom-medium
+            // Meal 1
+            .meal
+                img.meal-img(src='img/meals/meal-1.jpg' alt='Japanese Gyozas')
+                .meal-content
+                    .meal-tags
+                        span.tag.tag--vegetarian Vegetarian
+                    p.meal-title Japanese Gyozas
+                    ul.meal-attributes
+                        li.meal-attribute
+                            // <i class="bi bi-symmetry-vertical meal-icon"></i>
+                            ion-icon.meal-icon(name='flame-outline')
+                            span
+                                strong 650
+                                |  Calories
+                        li.meal-attribute
+                            ion-icon.meal-icon(name='restaurant-outline')
+                            span
+                                | NutriScore &reg; 
+                                strong 74
+                        li.meal-attribute
+                            ion-icon.meal-icon(name='star-outline')
+                            span
+                                strong 4.9
+                                |  rating (537)
+            // Meal 2
+            .meal
+                img.meal-img(src='img/meals/meal-2.jpg' alt='Avocado Salad')
+                .meal-content
+                    .meal-tags
+                        span.tag.tag--vegan Vegan
+                        span.tag.tag--paleo Paleo 
+                    p.meal-title= dish
+                    ul.meal-attributes
+                        li.meal-attribute
+                            // <i class="bi bi-symmetry-vertical meal-icon"></i>
+                            ion-icon.meal-icon(name='flame-outline')
+                            span
+                                strong 400
+                                |  Calories
+                        li.meal-attribute
+                            ion-icon.meal-icon(name='restaurant-outline')
+                            span
+                                | NutriScore &reg; 
+                                strong 92
+                        li.meal-attribute
+                            ion-icon.meal-icon(name='star-outline')
+                            span
+                                strong 4.8
+                                |  rating (441)
+            // List of diets
+            .diets
+                h3.list-title Nutriv works with any diet:
+                ul.list
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Vegetarian
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Vegan
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Pescatarian
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Gluten-free
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Lactose-free
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Keto
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Paleo
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Low FODMAP
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Kid-friendly
+        .contaner.menu
+            p See the biggest menu in the world
+            a.link(href='/menu' target='_self' rel='noreferrer') Click here
+            p.beta Beta
+    section#testimonials.section-testimonials
+        .testimonials-container
+            span.subheading Testimonials
+            h2.heading-secondary Once you try it, you can&apos;t go back!
+            .testimonials
+                // Review 1
+                figure.testimonial
+                    img.testimonial-img(src='img/customers/dave.jpg' alt='Image Of customer Dave Bryson ')
+                    blockquote.testimonial-text
+                        | Inexpensive, healthy and great-tasting meals, without even
+                        | having to order manually! It feels truly magical.
+                    p.testimonial-name
+                        | &ndash; Dave Bryson
+                        // <ion-icon class="verified-icon" name="checkmark-outline"></ion-icon>
+                        // Review 2
+                        figure.testimonial
+                            img.testimonial-img(src='img/customers/ben.jpg' alt='Image Of customer Ben Hadley ')
+                            blockquote.testimonial-text
+                                | The AI algorithm is crazy good, it chooses the right meals for
+                                | me every time. It&apos;s amazing not to worry about food anymore!
+                            p.testimonial-name &ndash; Ben Hadley
+                        // Review 3
+                        figure.testimonial
+                            img.testimonial-img(src='img/customers/steve.jpg' alt='Image Of customer Steve Miller ')
+                            blockquote.testimonial-text
+                                | Nutriv is a life saver! I just started a company, so there&apos;s no
+                                | time for cooking. I couldn&apos;t live without my daily meals now!
+                            p.testimonial-name &ndash; Steve Miller
+                        // Review 4
+                        figure.testimonial
+                            img.testimonial-img(src='img/customers/hannah.jpg' alt='Image Of customer Hannah Smith ')
+                            blockquote.testimonial-text
+                                | I got Nutriv for the whole family, and it frees up so much time!
+                                | Plus, everything is organic and vegan and without plastic.
+                            p.testimonial-name &ndash; Hannah Smith
+        .gallery
+            figure.gallery-item
+                img(src='img/gallery/gallery-1.jpg' alt='Photo of food')
+                // <figcaption>Captions</figcaption>
+            figure.gallery-item
+                img(src='img/gallery/gallery-2.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-3.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-4.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-5.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-6.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-7.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-8.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-9.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-10.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-11.jpg' alt='Photo of food')
+            figure.gallery-item
+                img(src='img/gallery/gallery-12.jpg' alt='Photo of food')
+
+    section#signup.section-signup
+        .container
+            .signup
+                .signup-text-box
+                    h2.heading-secondary Get your first meal for free!
+                    p.signup-text
+                        | Healthy, tasty and hassle-free meals are waiting for you. Start
+                        | eating well today. You can cancel or pause anytime. And the
+                        | first meal is on us!
+                    form.signup-form(action='#' netlify='')
+                        div
+                            label(for='full-name') Full Name
+                            input#full-name(type='text' placeholder='John Smith' required='')
+                        div
+                            label(for='email') Email address
+                            input#email(type='email' placeholder='me@example.com' required='')
+                        div
+                            label(for='select-where') Where did you hear from us?
+                            select#select-where(required='')
+                                option(value='') Please choose one option:
+                                option(value='friends') Friends and family
+                                option(value='youtube') YouTube video
+                                option(value='podcast') Podcast
+                                option(value='ad') Facebook ad
+                                option(value='others') Others
+                        button.btn.btn--form Sign up now
+                        //
+                            <input type="checkbox" />
+                            <input type="number" />
+                .signup-img-box(role='img' aria-label='Food')
+
+include inc/_footer

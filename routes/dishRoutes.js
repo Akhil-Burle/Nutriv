@@ -23,6 +23,11 @@ router
   );
 
 router
+  .route("/hotels-within/:distance/center/:latlng/unit/:unit")
+  .get(dishController.getHotelsWithin);
+
+router.route("/distances/:latlng/unit/:unit").get(dishController.getDistances);
+router
   .route("/")
   .get(dishController.getAllDishes)
   .post(
