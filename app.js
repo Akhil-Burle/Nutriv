@@ -6,12 +6,14 @@ const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
+const cookieParser = require("cookie-parser");
 
 const appError = require("./utils/appError.js");
 const globalErrorHandler = require("./controllers/errorController.js");
 const dishRouter = require("./routes/dishRoutes");
 const userRouter = require("./routes/userRoutes");
 const reviewRouter = require("./routes/reviewRoutes.js");
+const viewRouter = require("./routes/viewRoutes.js");
 
 const app = express();
 
@@ -21,7 +23,7 @@ app.set("views", path.join(__dirname, "./views"));
 // 1) GLOBAL MIDDLEWARES
 
 // Security HTTP headers
-app.use(helmet());
+// app.use(helmet());
 
 // Development loggin
 if (process.env.NODE_ENV === "development") {
@@ -38,12 +40,13 @@ app.use("/api", limiter);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: "10kb" }));
+app.use(cookieParser());
 
 // Data sanitization against NoSQL query injection:
 app.use(mongoSanitize());
 
 // Data sanitization against XSS:
-app.use(xss());
+// app.use(xss());
 
 // Prevent parameter pollution:
 app.use(
@@ -65,30 +68,13 @@ app.use(express.static(path.join(__dirname, "public")));
 // Test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  // console.log(req.headers);
+  console.log(req.cookies);
   next();
 });
 
 // 3) ROUTES
-app.get("/", (req, res) => {
-  res.status(200).render("base", {
-    dish: "Pizza",
-    user: "Akhil",
-  });
-});
 
-app.get("/menu", (req, res) => {
-  res.status(200).render("menu", {
-    title: "All Items",
-  });
-});
-
-app.get("/dish", (req, res) => {
-  res.status(200).render("dish", {
-    title: "Pizza",
-  });
-});
-
+app.use("/", viewRouter);
 app.use("/api/v1/menu", dishRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reviews", reviewRouter);

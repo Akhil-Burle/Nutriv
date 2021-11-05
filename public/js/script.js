@@ -1,4 +1,4 @@
-document.addEventListener("contextmenu", function (e) {
+/* document.addEventListener("contextmenu", function (e) {
   e.preventDefault();
 });
 
@@ -28,7 +28,7 @@ document.onkeydown = function (e) {
   if (e.ctrlKey && e.keyCode == "S".charCodeAt(0)) {
     return false;
   }
-};
+}; */
 
 ///////////////////////////////////////////////////////////
 // Make mobile navigation work

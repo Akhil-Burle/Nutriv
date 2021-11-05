@@ -13,7 +13,7 @@
   /* Top / right / bottom / left */
   padding: 9.8rem 0 12.8rem 0;
   border-top: 2px solid #eee;
-  background-color: var(--color-primary-lighter);
+  background-color: #fff;
 }
 
 .grid-footer {
