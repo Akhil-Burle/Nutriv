@@ -14,6 +14,7 @@ head
   script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
   script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
   script(defer='' src='https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js')
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   link(rel='stylesheet' href='css/queries.css')
 
 include inc/_header
@@ -22,10 +23,10 @@ section#meals.section-meals
     span.subheading Meals
     h2.heading-secondary
       | Nutriv AI chooses from 1,000,000+ recipes
-
   .container.grid.grid--3-cols.margin-bottom-medium
     each dish in dishes
       .meal
+        img.menu-logo(src="img/favicon.png", alt="logo")
         img.meal-img(src='img/meals/meal-1.jpg' alt=`${dish.name}`)
         .meal-content
           .meal-tags
@@ -51,5 +52,29 @@ section#meals.section-meals
                 | &#x20B9;
                 strong 500
           a.book-now(href=`menu/${dish.slug}`) Order now
+
+        //-         .product-card
+        //- .logo-cart
+        //-   img(src='/img/favicon.png' alt='logo')
+        //- .main-images
+        //-   img#blue.blue.active(src='/img/meals/meal-1.jpg' alt='blue')
+        //- .dish-details
+        //-   span.dish_name=`${dish.name}`
+        //-   p
+        //-     | Lorem ipsum dolor sit lorenm i amet, consectetur adipisicing elit. Eum, ea, ducimus!
+        //-   .stars
+        //-     i.bx.bxs-star
+        //-     i.bx.bxs-star
+        //-     i.bx.bxs-star
+        //-     i.bx.bxs-star
+        //-     i.bx.bx-star
+        //- .color-price
+        //-   .color-option
+            
+        //-   .price
+        //-     span.price_num ₹09.00
+        //- .button
+        //-   .button-layer
+        //-     button Order now!
 
 include inc/_footer
