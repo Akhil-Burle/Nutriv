@@ -118,6 +118,7 @@
     width: 100%;
     height: 100vh;
     transform: translateX(100%);
+    z-index: 99999999;
 
     display: flex;
     /* flex-direction: column; */

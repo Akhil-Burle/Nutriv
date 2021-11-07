@@ -36,14 +36,14 @@ const login = async (email, password) => {
   }
 };
 
-document.querySelector(".signup-form").addEventListener("submit", (event) => {
+document.querySelector(".login-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   login(email, password);
 });
 
-/* const logout = async () => {
+const logout = async () => {
   try {
     const res = await axios({
       method: "GET",
@@ -56,7 +56,6 @@ document.querySelector(".signup-form").addEventListener("submit", (event) => {
     showAlert("error", "Error loggin out! Try again.");
   }
 };
-const logOutBtn = document.querySelector(".main-nav-link");
+const logOutBtn = document.querySelector(".logout");
 
-if (logOutBtn) logoutBtn.addEventListener("click", logout());
- */
+if (logOutBtn) logOutBtn.addEventListener("click", logout());

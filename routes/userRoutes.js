@@ -1,6 +1,9 @@
 const express = require("express");
+const multer = require("multer");
 const userController = require("./../controllers/userController.js");
 const authController = require("./../controllers/authController.js");
+
+const upload = multer({ dest: "public/img/users" });
 
 const router = express.Router();
 
@@ -9,6 +12,7 @@ router.post("/verify", authController.verify);
 router.get("/verifyEmail/:token", authController.verifyEmail);
 router.post("/login", authController.login);
 router.get("/logout", authController.logout);
+
 router.post("/forgotPassword", authController.forgotPassword);
 router.patch("/resetPassword/:token", authController.resetPassword);
 
@@ -19,7 +23,7 @@ router.patch("/updateMyPassword", authController.updatePassword);
 
 router.get("/me", userController.getMe, userController.getUser);
 
-router.patch("/updateMe", userController.updateMe);
+router.patch("/updateMe", upload.single("photo"), userController.updateMe);
 router.delete("/deleteMe", userController.deleteMe);
 
 // All the below are only for the admin:

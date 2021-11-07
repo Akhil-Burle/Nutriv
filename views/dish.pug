@@ -12,68 +12,70 @@ head
     link(rel='manifest' href='manifest.webmanifest')
 
     link(rel='stylesheet' href='/css/item.css')
+    link(rel='stylesheet' href='/css/general.css')
+    link(rel='stylesheet' href='/css/style.css')
+    link(rel='stylesheet' href='/css/queries.css')
 
     title=`Nutriv | ${dish.name}`
     script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
     script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
+    script(src="/js/script.js" defer='') 
     //- script(src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js')
     //- link(href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' )
 
 
-//- include inc/_header
-
-
-.container
-    .card
-        .shoeBackground
-            .gradients
-                .gradient.second(color='blue')
-                .gradient(color='red')
-                .gradient(color='green')
-                .gradient(color='orange')
-                .gradient(color='black')
-            img.logo(src='/img/favicon.png' alt='')
-            a.share(href='#')
+include inc/_header
+.item-container
+    .item-card
+        .item-shoeBackground
+            .item-gradients
+                .item-gradient.second(color='blue')
+                .item-gradient(color='red')
+                .item-gradient(color='green')
+                .item-gradient(color='orange')
+                .item-gradient(color='black')
+            img.item-logo(src='/img/favicon.png' alt='')
+            a.item-share(href='#')
                 i.fas.fa-share-alt
-            img.shoe.show(src='/img/meals/meal-1.jpg' alt='' color='blue')
-            p.rating
-                ion-icon.star(name='star')
-                ion-icon.star(name='star')
-                ion-icon.star(name='star')
-                ion-icon.star(name='star')
-                ion-icon.star(name='star-half')
-        .info
-            .shoeName
+            img.item-shoe.item-show(src='/img/meals/meal-1.jpg' alt='' color='blue')
+            p.item-rating
+                ion-icon.item-star(name='star')
+                ion-icon.item-star(name='star')
+                ion-icon.item-star(name='star')
+                ion-icon.item-star(name='star')
+                ion-icon.item-star(name='star-half')
+        .item-info
+            .item-shoeName
                 div
-                    p.big=`${dish.name}`
-                    span.new=`${dish.ratingsAverage}(${dish.ratingsQuantity})`
-                h3.small=`${dish.foodType}`
-            .description
-                p.title About
-                p.text=`${dish.summary}`
+                    h1.item-big=`${dish.name}`
+                    span.item-new=`${dish.ratingsAverage}(${dish.ratingsQuantity})`
+                p.item-small=`${dish.foodType}`
+            .item-description
+                p.item-title About
+                p.item-text=`${dish.summary}`
+            .item-size-container
+                p.item-title quantity
+                .item-sizes
+                    span.item-size.item-active 1
+                    span.item-size 2
+                    span.item-size 3
+                    span.item-size 4
+                    span.item-size 5
+                    span.item-size 6
             .size-container
-                p.title quantity
-                .sizes
-                    span.size.active 1
-                    span.size 2
-                    span.size 3
-                    span.size 4
-                    span.size 5
-                    span.size 6
-            .size-container
-                p.title=`who made ${dish.name}?`
-                .chef-details
-                    img.chef-img(src=`/img/users/${dish.chefs[0].photo}` alt=`Image of ${dish.chefs[0].name}`)
-                    span.chef-name=`${dish.chefs[0].name.split(' ')[0]}`
-                    ion-icon.verify(name='checkmark-circle')
-                    img.chef-img(src=`/img/users/${dish.chefs[1].photo}` alt=`Image of ${dish.chefs[1].name}`)
-                    span.chef-name=`${dish.chefs[1].name.split(' ')[0]}`
-                    ion-icon.verify(name='checkmark-circle')
-            .buy-price
-                a.buy(href='#')
+                p.item-title=`who made ${dish.name}?`
+                .item-chef-details
+                    img.item-chef-img(src=`/img/users/${dish.chefs[0].photo}` alt=`Image of ${dish.chefs[0].name}`)
+                    span.item-chef-name=`${dish.chefs[0].name.split(' ')[0]}`
+                    ion-icon.item-verify(name='checkmark-circle')
+                    img.item-chef-img(src=`/img/users/${dish.chefs[1].photo}` alt=`Image of ${dish.chefs[1].name}`)
+                    span.item-chef-name=`${dish.chefs[1].name.split(' ')[0]}`
+                    ion-icon.item-verify(name='checkmark-circle')
+            .item-buy-price
+                a.item-buy(href='#')
                     i.fas.fa-shopping-cart
                     | Order Now!
-                h1.price=`${dish.price}`
+                h1.item-price=`${dish.price}`
 
                 //- <div class="price">
                 //-     <i class="fas fa-dollar-sign"></i>
@@ -84,4 +86,4 @@ section.section-map
 script(src='/js/item.js')
 script(src="/js/mapbox.js") 
 
-//- include inc/_footer
+include inc/_footer

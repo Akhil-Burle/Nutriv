@@ -70,6 +70,7 @@
 .icon-mobile-nav {
   height: 4.8rem;
   width: 4.8rem;
+  z-index: 9999999;
   color: var(--color-grey-darker);
 }
 

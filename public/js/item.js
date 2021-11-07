@@ -1,9 +1,9 @@
-const sizes = document.querySelectorAll(".size");
-const colors = document.querySelectorAll(".color");
-const shoes = document.querySelectorAll(".shoe");
-const gradients = document.querySelectorAll(".gradient");
-const shoeBg = document.querySelector(".shoeBackground");
-const price = document.querySelector(".price");
+const sizes = document.querySelectorAll(".item-size");
+const colors = document.querySelectorAll(".item-color");
+const shoes = document.querySelectorAll(".item-shoe");
+const gradients = document.querySelectorAll(".item-gradient");
+const shoeBg = document.querySelector(".item-shoeBackground");
+const price = document.querySelector(".item-price");
 const currentprice = price.textContent;
 
 let prevColor = "blue";

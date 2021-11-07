@@ -18,6 +18,8 @@ exports.getReview = factory.getOne(Review);
 
 exports.getAllReviews = factory.getAll(Review);
 
+
+
 /*
 exports.getAllReviews = catchAsync(async (req, res, next) => {
   let filter = {};
@@ -31,7 +33,7 @@ exports.getAllReviews = catchAsync(async (req, res, next) => {
       reviews,
     },
   });
-}); 
+});
 
 exports.createReview = catchAsync(async (req, res, next) => {
   const newReview = await Review.create(req.body);

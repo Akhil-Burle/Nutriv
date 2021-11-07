@@ -10,9 +10,9 @@ header.header
         nav.main-nav
             ul.main-nav-list
                 li
-                    a.main-nav-link(href='/logout') Log Out
+                    a.main-nav-link.logout(href='/logout') Log Out
                 li
-                    a.main-nav-link(href='#')= user.name.split(' ')[0]
+                    a.main-nav-link(href='/me')= user.name.split(' ')[0]
         button.btn-mobile-nav
             ion-icon.icon-mobile-nav(name='menu-outline')
             ion-icon.icon-mobile-nav(name='close-outline')

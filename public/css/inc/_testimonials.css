@@ -55,15 +55,10 @@
   transform: scale(1.1);
 }
 
-/* .verified-icon{
-  background-color: var(--color-primary-darker);
-  color: #fff;
-  font-weight: bold;
-  height: 1.6rem;
-  width: 1.6rem;
-  border-radius: 50%;
-  padding: 0.6rem;
-} */
+.verified-icon {
+  margin-right: 1rem;
+  color: #2175f5;
+}
 
 /* ---------------------------------------------------------------------------------------------*/
 /*  TESTIMONIALS SECTION END */
