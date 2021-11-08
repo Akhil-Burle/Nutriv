@@ -8,8 +8,12 @@
 @import url(inc/_pricing.css);
 @import url(inc/_signup.css);
 @import url(inc/_footer.css);
-/* @import url(inc/_login-signup.css); */
+@import url(inc/_emailVerify.css);
 
+/* @import url(inc/_login-signup.css); */
+input[type="file"] {
+  display: none;
+}
 .alert {
   position: fixed;
   top: 0;

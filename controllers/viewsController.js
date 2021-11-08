@@ -35,8 +35,16 @@ exports.getDish = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getEmailVerifyPage = (req, res) => {
+  res.status(200).render("emailVerify");
+};
+
 exports.getLoginForm = (req, res) => {
   res.status(200).render("login");
+};
+
+exports.getSignupForm = (req, res) => {
+  res.status(200).render("signup");
 };
 
 exports.getAccount = (req, res) => {

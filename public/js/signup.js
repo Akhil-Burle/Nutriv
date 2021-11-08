@@ -1,6 +1,3 @@
-// import axios from "axios";
-// import { showAlert } from "./alerts.js";
-
 const hideAlert = () => {
   const el = document.querySelector(".alert");
   if (el) el.parentElement.removeChild(el);
@@ -14,22 +11,26 @@ const showAlert = (type, msg) => {
   window.setTimeout(hideAlert, 5000);
 };
 
-const login = async (email, password) => {
+const signup = async (name, email, password, passwordConfirm, photo) => {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://127.0.0.1:3000/api/v1/users/login",
+      url: "http://127.0.0.1:3000/api/v1/users/signup",
       data: {
+        name: name,
         email: email,
         password: password,
+        passwordConfirm: passwordConfirm,
+        photo: photo,
       },
     });
 
     if (res.data.status === "success") {
-      showAlert("success", "Logged in successfully!");
-      window.setTimeout(() => {
+      showAlert("success", "Please verify your email before getting started!!");
+      location.assign("/emailVerify");
+      /*       window.setTimeout(() => {
         location.assign("/menu");
-      }, 1500);
+      }, 1500); */
     }
   } catch (err) {
     showAlert("error", err.response.data.message);
@@ -38,24 +39,11 @@ const login = async (email, password) => {
 
 document.querySelector(".signup-form").addEventListener("submit", (event) => {
   event.preventDefault();
+  const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  login(email, password);
+  const passwordConfirm = document.getElementById("confirm-password").value;
+  const photo = document.getElementById("photo").value;
+  //   console.log(email, password, passwordConfirm, photo);
+  signup(name, email, password, passwordConfirm, photo);
 });
-
-const logout = async () => {
-  try {
-    const res = await axios({
-      method: "GET",
-      url: "http://127.0.0.1:3000/api/v1/users/logout",
-    });
-    if ((res.data.status = "success")) {
-      location.reload(true);
-    }
-  } catch (err) {
-    showAlert("error", "Error loggin out! Try again.");
-  }
-};
-const logOutBtn = document.querySelector(".logout");
-
-if (logOutBtn) logOutBtn.addEventListener("click", logout());

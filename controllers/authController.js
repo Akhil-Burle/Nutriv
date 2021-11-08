@@ -45,7 +45,6 @@ exports.signup = catchAsync(async (req, res, next) => {
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
     phone: req.body.phone,
-    role: req.body.role,
     photo: req.body.photo,
   });
 
@@ -66,11 +65,6 @@ exports.signup = catchAsync(async (req, res, next) => {
       subject: "Nutriv Email verification",
       message,
     });
-
-    /*     res.status(200).json({
-      status: "success",
-      message: "Token sent to email",
-    }); */
   } catch (err) {
     (newUser.emailVerifyToken = undefined),
       (newUser.emailVerifyExpires = undefined);
@@ -83,7 +77,11 @@ exports.signup = catchAsync(async (req, res, next) => {
       )
     );
   }
-  createSendToken(newUser, 201, res);
+  // createSendToken(newUser, 201, res);
+
+  res.status(201).json({
+    status: "success",
+  });
 });
 
 exports.verify = catchAsync(async (req, res, next) => {

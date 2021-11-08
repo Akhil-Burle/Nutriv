@@ -1,0 +1,9 @@
+.verifyEmail {
+  font-size: 5rem;
+  text-align: center;
+  /* margin-top: 10%;
+  margin-bottom: 10%; */
+  background-color: var(--color-primary);
+  padding: 20rem;
+  line-height: 65px;
+}
