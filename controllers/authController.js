@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("./../models/userModel.js");
 const catchAsync = require("./../utils/catchAsync.js");
 const AppError = require("./../utils/appError.js");
-const sendEmail = require("./../utils/email.js");
+const Email = require("./../utils/email");
 
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -53,18 +53,15 @@ exports.signup = catchAsync(async (req, res, next) => {
   const verifyToken = newUser.createEmailVerificationToken();
   await newUser.save({ validateBeforeSave: false });
 
-  const resetURL = `${req.protocol}://${req.get(
+  const verifyURL = `${req.protocol}://${req.get(
     "host"
   )}/api/v1/users/verifyEmail/${verifyToken}`;
 
-  const message = `Verify your email before getting started!  ${resetURL}.`;
+  // const message = `Verify your email before getting started!  ${verifyURL}.`;
 
   try {
-    await sendEmail({
-      email: newUser.email,
-      subject: "Nutriv Email verification",
-      message,
-    });
+    const url = verifyURL;
+    await new Email(newUser, url).sendWelcome();
   } catch (err) {
     (newUser.emailVerifyToken = undefined),
       (newUser.emailVerifyExpires = undefined);
@@ -89,18 +86,13 @@ exports.verify = catchAsync(async (req, res, next) => {
   const verifyToken = user.createEmailVerificationToken();
   await user.save({ validateBeforeSave: false });
 
-  const resetURL = `${req.protocol}://${req.get(
+  const verifyURL = `${req.protocol}://${req.get(
     "host"
   )}/api/v1/users/verifyEmail/${verifyToken}`;
 
-  const message = `Verify your email before getting started!  ${resetURL}.`;
-
   try {
-    await sendEmail({
-      email: user.email,
-      subject: "Nutriv Email verification",
-      message,
-    });
+    const url = verifyURL;
+    await new Email(user, url).emailVerify();
   } catch (err) {
     (user.emailVerifyToken = undefined), (user.emailVerifyExpires = undefined);
     await user.save({ validateBeforeSave: false });
@@ -296,11 +288,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const message = `Fogot your password? Submit a PATCH request with your new password and confirm your password to ${resetURL}.\nIf you din't forget your password, please ignore this email!`;
 
   try {
-    await sendEmail({
-      email: user.email,
-      subject: "Your password reset token (only valid of 10 min)",
-      message,
-    });
+    await new Email(user, resetURL).sendPasswordReset();
 
     res.status(200).json({
       status: "success",

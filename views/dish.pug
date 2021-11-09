@@ -20,6 +20,7 @@ head
     script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
     script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
     script(src="/js/script.js" defer='') 
+    script(src="/js/item.js" defer='') 
     //- script(src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js')
     //- link(href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' )
 
@@ -37,7 +38,7 @@ include inc/_header
             img.item-logo(src='/img/favicon.png' alt='')
             a.item-share(href='#')
                 i.fas.fa-share-alt
-            img.item-shoe.item-show(src='/img/meals/meal-1.jpg' alt='' color='blue')
+            img.item-shoe.item-show(src=`/img/dishes/${dish.imageCover}` alt='' color='blue')
             p.item-rating
                 ion-icon.item-star(name='star')
                 ion-icon.item-star(name='star')

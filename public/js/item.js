@@ -10,15 +10,15 @@ let prevColor = "blue";
 let animationEnd = true;
 
 function changeSize() {
-  sizes.forEach((size) => size.classList.remove("active"));
+  sizes.forEach((size) => size.classList.remove("item-active"));
 
   // console.log(size.textContent);
   // console.log(sizes.textContent);
   // console.log(price.textContent);
 
-  this.classList.add("active");
+  this.classList.add("item-active");
 
-  const active = document.querySelector(".active");
+  const active = document.querySelector(".item-active");
 
   price.textContent = currentprice * active.textContent;
 }
@@ -33,8 +33,8 @@ function changeColor() {
 
   if (color == prevColor) return;
 
-  colors.forEach((c) => c.classList.remove("active"));
-  this.classList.add("active");
+  colors.forEach((c) => c.classList.remove("item-active"));
+  this.classList.add("item-active");
 
   document.documentElement.style.setProperty("--primary", primary);
 

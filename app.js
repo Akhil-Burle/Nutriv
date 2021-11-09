@@ -13,6 +13,7 @@ const globalErrorHandler = require("./controllers/errorController.js");
 const dishRouter = require("./routes/dishRoutes");
 const userRouter = require("./routes/userRoutes");
 const reviewRouter = require("./routes/reviewRoutes.js");
+const bookingRouter = require("./routes/bookingRoutes.js");
 const viewRouter = require("./routes/viewRoutes.js");
 
 const app = express();
@@ -78,6 +79,7 @@ app.use("/", viewRouter);
 app.use("/api/v1/menu", dishRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reviews", reviewRouter);
+app.use("/api/v1/bookings", bookingRouter);
 
 app.all("*", (req, res, next) => {
   /*  res.status(404).json({

@@ -253,7 +253,8 @@ body {
 }
 
 .meal-img {
-  width: 100%;
+  width: 360px;
+  height: 240px;
   /* margin-top: 8rem; */
   border-radius: 12px;
 }

@@ -147,7 +147,8 @@ body {
 } */
 
 .item-shoe {
-  width: 90%;
+  width: 380px;
+  height: 250px;
   margin-top: 8rem;
   margin-left: 1rem;
   border-radius: 11px;
@@ -196,8 +197,9 @@ body {
 .item-shoeName .item-small {
   font-weight: 500;
   color: #444;
-  margin-top: 3px;
+  margin-top: 1rem;
   text-transform: capitalize;
+  font-size: 1.8rem;
 }
 
 .item-shoeName,
@@ -214,13 +216,15 @@ body {
 .item-title {
   color: #3a3a3a;
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
 .item-text {
   color: #555;
-  font-size: 17px;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
 }
 
 .item-color-container {
@@ -293,7 +297,7 @@ body {
   margin: 0 10px;
   text-align: center;
   line-height: 40px;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   font-weight: 500;
   cursor: pointer;
   transition: 0.3s;
@@ -310,6 +314,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 1.8rem;
 }
 
 .item-price {
@@ -337,8 +342,9 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   transition: 0.5s;
+  padding: 1.3rem;
 }
 
 .item-buy:hover {
@@ -498,6 +504,8 @@ body {
 
 .item-star {
   color: var(--primary);
+  font-size: 1.8rem;
+  margin-top: 0.5rem;
 }
 
 .item-chef-details {
@@ -507,17 +515,19 @@ body {
 }
 
 .item-chef-img {
-  width: 12%;
+  width: 13%;
   border-radius: 50px;
   margin-right: 0.5rem;
 }
 
 .item-chef-name {
   margin-right: 0.2rem;
+  font-size: 1.5rem;
 }
 .item-verify {
   margin-right: 1rem;
   color: var(--primary);
+  font-size: 1.8rem;
 }
 
 #map {
