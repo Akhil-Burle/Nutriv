@@ -6,11 +6,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 body {
-  background-color: #efefef;
+  /* background-color: #efefef; */
   background-image: url("../img/map.png");
 }
 
@@ -75,26 +75,6 @@ body {
   z-index: -1;
 }
 
-/* .gradient[color="blue"] {
-  background-image: linear-gradient(45deg, #0136af, #22abfa);
-}
-
-.gradient[color="red"] {
-  background-image: linear-gradient(45deg, #d62926, #ee625f);
-}
-
-.gradient[color="green"] {
-  background-image: linear-gradient(45deg, #11998e, #1ce669);
-}
-
-.gradient[color="orange"] {
-  background-image: linear-gradient(45deg, #fc4a1a, #f7b733);
-}
-
-.gradient[color="black"] {
-  background-image: linear-gradient(45deg, #111, #666);
-} */
-
 .item-logo {
   position: absolute;
   width: 100px;
@@ -135,16 +115,6 @@ body {
   color: #fff;
   opacity: 0.1;
 }
-
-/* .shoe {
-  position: absolute;
-  width: 90%;
-  opacity: 0;
-  bottom: 0;
-  right: 0;
-  transform: rotate(-20deg);
-  transition: 0.5s;
-} */
 
 .item-shoe {
   width: 380px;
@@ -530,7 +500,7 @@ body {
   font-size: 1.8rem;
 }
 
-#map {
+/* #map {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -557,3 +527,4 @@ body {
   -webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
 }
+ */

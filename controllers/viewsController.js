@@ -4,7 +4,7 @@ const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
 
 exports.index = (req, res, next) => {
-  res.status(200).render("base");
+  res.status(200).render("index", { title: "Never Cook Again!" });
 };
 
 exports.getOverview = catchAsync(async (req, res, next) => {
@@ -15,7 +15,7 @@ exports.getOverview = catchAsync(async (req, res, next) => {
 
   // Render template:
   res.status(200).render("menu", {
-    title: "All Items",
+    title: "All Dishes",
     dishes,
   });
 });
@@ -30,7 +30,7 @@ exports.getDish = catchAsync(async (req, res, next) => {
     return next(new AppError("There is no dish with that name!", 404));
   }
   res.status(200).render("dish", {
-    title: "Pizza",
+    title: `${dish.name}`,
     dish,
   });
 });
@@ -40,11 +40,11 @@ exports.getEmailVerifyPage = (req, res) => {
 };
 
 exports.getLoginForm = (req, res) => {
-  res.status(200).render("login");
+  res.status(200).render("login", { title: "Login" });
 };
 
 exports.getSignupForm = (req, res) => {
-  res.status(200).render("signup");
+  res.status(200).render("signup", { title: "Create a new account" });
 };
 
 exports.getAccount = (req, res) => {

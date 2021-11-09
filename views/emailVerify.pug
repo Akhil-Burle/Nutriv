@@ -1,30 +1,6 @@
-head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+extends base
 
+block append header
+    include inc/_header
 
-    script(src='https://kit.fontawesome.com/a81368914c.js')
-    link(href='https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap' rel='stylesheet')
-    link(rel='apple-touch-icon' href='/img/apple.png')
-    link(rel='icon' href='/img/favicon1.png')
-    link(rel='manifest' href='manifest.webmanifest')
-
-    link(rel="stylesheet", href="/css/style.css")
-    link(rel="stylesheet", href="/css/general.css")
-    link(rel="stylesheet", href="/css/queries.css")
-    link(rel="stylesheet", href="/css/inc/_emailVerify.css")
-
-    script(defer='' src='/js/script.js') 
-    script(defer='' src='/js/countdown.js') 
-
-    title=`Verify your account | Nutriv `
-    script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
-    script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js") 
-
-include inc/_header
 p.verifyEmail Please verify your email address by clicking on the link sent to the email address provided.
-
-
-include inc/_footer

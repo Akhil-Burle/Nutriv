@@ -1,61 +1,43 @@
-head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible' content='ie=edge')
+extends base
 
-
-    script(src='https://kit.fontawesome.com/a81368914c.js')
-    link(href='https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap' rel='stylesheet')
-    link(rel='apple-touch-icon' href='/img/apple.png')
-    link(rel='icon' href='/img/favicon1.png')
-    link(rel='manifest' href='manifest.webmanifest')
-
-    link(rel="stylesheet", href="/css/style.css")
-    link(rel="stylesheet", href="/css/general.css")
-    link(rel="stylesheet", href="/css/queries.css")
-
-    script(defer='' src='/js/script.js') 
-    script(defer='' src='/js/signup.js') 
-
-    title=`Create a new account | Nutriv `
-    script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
-    script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
+block append head
     script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js") 
-
-include inc/_header
-
-section#signup.section-signup
-    .container
-        .signup
-            .signup-text-box
-                h2.heading-secondary Get your first meal for free!
-                p.signup-text
-                    | Healthy, tasty and hassle-free meals are waiting for you. Start
-                    | eating well today. You can cancel or pause anytime. And the
-                    | first meal is on us!
-                form.signup-form
-                    div
-                        label(for='name') Full Name
-                        input#name(type='text' placeholder='John Smith' required='')
-                    div
-                        label(for='email') Email address
-                        input#email(type='email' placeholder='me@example.com' required='')
-                    div
-                        label(for='password') Password
-                        input#password(type='password' placeholder='••••••••' required='')
-                    div
-                        label(for='confirm-password') Confirm Password
-                        input#confirm-password(type='password' placeholder='••••••••' required='')
-                    div
-                        label Profile Photo
-                        input#photo(type='file' placeholder='••••••••' accept='image/*')
-                        label(for="photo" class='label') Choose a Photo 
-
-                    button.btn.btn--form Sign up now
-                        //
-                            <input type="checkbox" />
-                            <input type="number" />
-            .signup-img-box(role='img' aria-label='Food')
+    script(src='/js/signup.js' defer='')
 
 
-include inc/_footer
+block append header
+    include inc/_header
+
+block content
+    section#signup.section-signup
+        .container
+            .signup
+                .signup-text-box
+                    h2.heading-secondary Get your first meal for free!
+                    p.signup-text
+                        | Healthy, tasty and hassle-free meals are waiting for you. Start
+                        | eating well today. You can cancel or pause anytime. And the
+                        | first meal is on us!
+                    form.signup-form
+                        div
+                            label(for='name') Full Name
+                            input#name(type='text' placeholder='John Smith' required='')
+                        div
+                            label(for='email') Email address
+                            input#email(type='email' placeholder='me@example.com' required='')
+                        div
+                            label(for='password') Password
+                            input#password(type='password' placeholder='••••••••' required='')
+                        div
+                            label(for='confirm-password') Confirm Password
+                            input#confirm-password(type='password' placeholder='••••••••' required='')
+                        div
+                            label Profile Photo
+                            input#photo(type='file' placeholder='••••••••' accept='image/*')
+                            label(for="photo" class='label') Choose a Photo 
+
+                        button.btn.btn--form Sign up now
+                            //
+                                <input type="checkbox" />
+                                <input type="number" />
+                .signup-img-box(role='img' aria-label='Food')

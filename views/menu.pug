@@ -1,80 +1,43 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Nutriv | Our Menu
-  link(rel='stylesheet' href='css/menu.css')
-  link(rel='stylesheet' href='css/general.css')
-  link(rel='stylesheet' href='css/inc/_footer.css')
-  link(rel='stylesheet' href='css/style.css')
-  link(rel='apple-touch-icon' href='/img/apple.png')
-  link(rel='icon' href='/img/favicon1.png')
-  link(rel='manifest' href='../manifest.webmanifest')
-  script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
-  script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
-  script(defer='' src='https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js')
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  link(rel='stylesheet' href='css/queries.css')
+extends base
 
-include inc/_header
-section#meals.section-meals
-  .container.center-text
-    span.subheading Dishes
-    h2.heading-secondary
-      | Nutriv AI chooses from 1,000,000+ recipes
-  .container.grid.grid--3-cols.margin-bottom-medium
-    each dish in dishes
-      .meal
-        img.menu-logo(src="img/favicon.png", alt="logo")
-        img.meal-img(src=`img/dishes/${dish.imageCover}` alt=`${dish.name}`)
-        .meal-content
-          .meal-tags
-            span.tag.tag--vegetarian=`${dish.foodType}`
-          p.meal-title=`${dish.name}`
-          ul.meal-attributes
-            li.meal-attribute
-              // <i class="bi bi-symmetry-vertical meal-icon"></i>
-              ion-icon.meal-icon(name='flame-outline')
-              span= `Delivery Time: ${dish.deliveryTime} m`
+block append head
+  link(rel="stylesheet", href="/css/menu.css")
 
-            li.meal-attribute
-              ion-icon.meal-icon(name='restaurant-outline')
-              span
-                | Available In &reg; 
-                strong 74
-            li.meal-attribute
-              ion-icon.meal-icon(name='star-outline')
-              span=`${dish.ratingsAverage} / 5 (${dish.ratingsQuantity})`
-            li.meal-attribute
-              ion-icon.meal-icon(name='card')
-              span
-                | &#x20B9;
-                strong=`${dish.price}`
-          a.book-now(href=`menu/${dish.slug}`) Order now
+block append header
+  include inc/_header
 
-        //-         .product-card
-        //- .logo-cart
-        //-   img(src='/img/favicon.png' alt='logo')
-        //- .main-images
-        //-   img#blue.blue.active(src='/img/meals/meal-1.jpg' alt='blue')
-        //- .dish-details
-        //-   span.dish_name=`${dish.name}`
-        //-   p
-        //-     | Lorem ipsum dolor sit lorenm i amet, consectetur adipisicing elit. Eum, ea, ducimus!
-        //-   .stars
-        //-     i.bx.bxs-star
-        //-     i.bx.bxs-star
-        //-     i.bx.bxs-star
-        //-     i.bx.bxs-star
-        //-     i.bx.bx-star
-        //- .color-price
-        //-   .color-option
-            
-        //-   .price
-        //-     span.price_num ₹09.00
-        //- .button
-        //-   .button-layer
-        //-     button Order now!
+block content
+  section#meals.section-meals
+    .container.center-text
+      span.subheading Dishes
+      h2.heading-secondary
+        | Nutriv AI chooses from 1,000,000+ recipes
+    .container.grid.grid--3-cols.margin-bottom-medium
+      each dish in dishes
+        .meal
+          img.menu-logo(src="img/favicon.png", alt="logo")
+          img.meal-img(src=`img/dishes/${dish.imageCover}` alt=`${dish.name}`)
+          .meal-content
+            .meal-tags
+              span.tag.tag--vegetarian=`${dish.foodType}`
+            p.meal-title=`${dish.name}`
+            ul.meal-attributes
+              li.meal-attribute
+                // <i class="bi bi-symmetry-vertical meal-icon"></i>
+                ion-icon.meal-icon(name='flame-outline')
+                span= `Delivery Time: ${dish.deliveryTime} m`
 
-include inc/_footer
+              li.meal-attribute
+                ion-icon.meal-icon(name='restaurant-outline')
+                span
+                  | Available In &reg; 
+                  strong 74
+              li.meal-attribute
+                ion-icon.meal-icon(name='star-outline')
+                span=`${dish.ratingsAverage} / 5 (${dish.ratingsQuantity})`
+              li.meal-attribute
+                ion-icon.meal-icon(name='card')
+                span
+                  | &#x20B9;
+                  strong=`${dish.price}`
+            a.book-now(href=`menu/${dish.slug}`) Order now

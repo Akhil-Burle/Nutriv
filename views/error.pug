@@ -1,25 +1,17 @@
-doctype html
-head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible' content='ie=edge')
-    link(rel='apple-touch-icon' href='/img/apple.png')
-    link(rel='icon' href='/img/favicon1.png')
-    link(rel='manifest' href='manifest.webmanifest')
-    title Page Not found | Nutriv
+extends base
+
+block append head
     link(rel='stylesheet' href='/css/error.css')
-    link(rel='stylesheet' href='/css/style.css')
-    link(rel='stylesheet' href='/css/general.css')
-    link(rel='stylesheet' href='/css/queries.css')
 
-    script(src="/js/script.js") 
+block append header 
+    include inc/_header
 
-include inc/_header
-.page-wrap
-    p.big-text=code
-    .content
-        h2 Something went very wrong 😢
+block content
+    .page-wrap
+        p.big-text=code
+        .content
+            h2 Something went very wrong 😢
 
-        h3=msg
-        a.button(href='#') GO HOME
-include inc/_footer
+            h3=msg
+            a.button(href='#') GO HOME
+
