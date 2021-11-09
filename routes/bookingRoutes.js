@@ -1,14 +1,11 @@
 const express = require("express");
-
-const bookingController = require("./../controllers/bookingController.js");
-const authController = require("./../controllers/authController.js");
+const bookingController = require("./../controllers/bookingController");
+const authController = require("./../controllers/authController");
 
 const router = express.Router();
 
-router.get(
-  "/checkout-session",
-  authController.protect,
-  bookingController.getCheckoutSession
-);
+router.use(authController.protect);
+
+router.get("/checkout-session/:dishId", bookingController.getCheckoutSession);
 
 module.exports = router;

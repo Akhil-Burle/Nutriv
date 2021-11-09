@@ -19,8 +19,11 @@ head
     title=`Nutriv | ${dish.name}`
     script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
     script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js") 
+    script(src="https://js.stripe.com/v3/")
     script(src="/js/script.js" defer='') 
     script(src="/js/item.js" defer='') 
+    script(src="/js/stripe.js" defer='') 
     //- script(src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js')
     //- link(href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' )
 
@@ -73,9 +76,14 @@ include inc/_header
                     span.item-chef-name=`${dish.chefs[1].name.split(' ')[0]}`
                     ion-icon.item-verify(name='checkmark-circle')
             .item-buy-price
-                a.item-buy(href='#')
-                    i.fas.fa-shopping-cart
-                    | Order Now!
+                if user
+                    button.item-buy#book-dish(data-dish-id=`${dish.id}`)
+                        i.fas.fa-shopping-cart
+                        | Order Now!
+                else 
+                    a.item-buy(href='/login')
+                        i.fas.fa-shopping-cart
+                        | Login to book!
                 h1.item-price=`${dish.price}`
 
                 //- <div class="price">
