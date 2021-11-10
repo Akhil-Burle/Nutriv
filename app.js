@@ -24,7 +24,7 @@ app.set("views", path.join(__dirname, "./views"));
 // 1) GLOBAL MIDDLEWARES
 
 // Security HTTP headers
-// app.use(helmet());
+app.use(helmet());
 
 // Development loggin
 if (process.env.NODE_ENV === "development") {
@@ -48,7 +48,7 @@ app.use(cookieParser());
 app.use(mongoSanitize());
 
 // Data sanitization against XSS:
-// app.use(xss());
+app.use(xss());
 
 // Prevent parameter pollution:
 app.use(
