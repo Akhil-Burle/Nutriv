@@ -13,7 +13,7 @@ module.exports = class Email {
   }
 
   newTransport() {
-    if (process.env.NODE_ENV === "development") {
+    if (process.env.NODE_ENV === "production") {
       // Sendgrid
       return nodemailer.createTransport({
         service: "Yandex",
