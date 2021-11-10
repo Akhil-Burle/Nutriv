@@ -7,17 +7,19 @@ html
             // Important for responsive design!
             meta(name='viewport' content='width=device-width, initial-scale=1.0')
             meta(name='description' content="Nutriv is an AI-powered food subscription that will make you eat healthy again, 365 days per year. It's tailored to your personal taste and needs...")
+            //- meta(http-equiv='Content-Security-Policy' content="default-src 'self' *;")
+
             link(rel='apple-touch-icon' href='/img/apple.png')
             link(rel='icon' href='/img/favicon1.png')
             link(rel='manifest' href='manifest.webmanifest')
             link(rel='preconnect' href='https://fonts.googleapis.com')
             link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
             link(href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,700&display=swap' rel='stylesheet')
-            script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js')
-            script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js')
+            script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js' crossorigin="anonymous")
+            script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js' )
             script(defer='' src='https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js')
             script(defer='' src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js')
-            
+
             script(src='https://js.stripe.com/v3/')
             //- script(src='/js/mapbox.js' defer='')
 
