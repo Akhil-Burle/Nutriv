@@ -2,7 +2,7 @@ extends base
 
 block append head
     script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js") 
-    script(src='/js/signup.js' defer='')
+    //- script(src='/js/signup.js' defer='')
 
 
 block append header
@@ -18,7 +18,7 @@ block content
                         | Healthy, tasty and hassle-free meals are waiting for you. Start
                         | eating well today. You can cancel or pause anytime. And the
                         | first meal is on us!
-                    form.signup-form
+                    form.form--signup.signup-form
                         div
                             label(for='name') Full Name
                             input#name(type='text' placeholder='John Smith' required='')

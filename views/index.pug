@@ -2,6 +2,7 @@ extends base
 
 block append header 
     include inc/_header-main
+    //- script(src="/js/signup.js") 
 
 block content
     main
@@ -255,34 +256,3 @@ block content
                     img(src='img/gallery/gallery-11.jpg' alt='Photo of food')
                 figure.gallery-item
                     img(src='img/gallery/gallery-12.jpg' alt='Photo of food')
-
-        section#signup.section-signup
-            .container
-                .signup
-                    .signup-text-box
-                        h2.heading-secondary Get your first meal for free!
-                        p.signup-text
-                            | Healthy, tasty and hassle-free meals are waiting for you. Start
-                            | eating well today. You can cancel or pause anytime. And the
-                            | first meal is on us!
-                        form.signup-form(action='#' netlify='')
-                            div
-                                label(for='full-name') Full Name
-                                input#full-name(type='text' placeholder='John Smith' required='')
-                            div
-                                label(for='email') Email address
-                                input#email(type='email' placeholder='me@example.com' required='')
-                            div
-                                label(for='select-where') Where did you hear from us?
-                                select#select-where(required='')
-                                    option(value='') Please choose one option:
-                                    option(value='friends') Friends and family
-                                    option(value='youtube') YouTube video
-                                    option(value='podcast') Podcast
-                                    option(value='ad') Facebook ad
-                                    option(value='others') Others
-                            button.btn.btn--form Sign up now
-                            //
-                                <input type="checkbox" />
-                                <input type="number" />
-                    .signup-img-box(role='img' aria-label='Food')
