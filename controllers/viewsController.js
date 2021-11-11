@@ -1,5 +1,6 @@
 const Dish = require("../models/dishModel.js");
 const User = require("../models/userModel.js");
+const Booking = require("../models/bookingModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
 
@@ -50,6 +51,20 @@ exports.getSignupForm = (req, res) => {
 exports.getAccount = (req, res) => {
   res.status(200).render("account");
 };
+
+exports.getMyBookings = catchAsync(async (req, res, next) => {
+  // Find all bookings:
+  const bookings = await Booking.find({ user: req.user.id });
+
+  // Find dishes with the returned IDS:
+  const dishIDs = bookings.map((el) => el.dish);
+  const dishes = await Dish.find({ _id: { $in: dishIDs } });
+
+  res.status(200).render("menu", {
+    title: "My Bookings",
+    dishes,
+  });
+});
 
 exports.updateUserData = catchAsync(async (req, res, next) => {
   const updatedUser = await User.findByIdAndUpdate(

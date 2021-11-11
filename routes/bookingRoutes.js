@@ -8,4 +8,12 @@ router.use(authController.protect);
 
 router.get("/checkout-session/:dishId", bookingController.getCheckoutSession);
 
+router.use(authController.restrictTo("admin"));
+
+router.get("/getAllBookings", bookingController.getAllBookings);
+router.post("/addNewBooking", bookingController.addNewBooking);
+router.patch("/updateBooking/:id", bookingController.updateBooking);
+router.delete("/deleteBooking/:id", bookingController.deleteBooking);
+// router.get("/getUserBookings/:id", bookingController.getUserBookings);
+
 module.exports = router;

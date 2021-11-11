@@ -20,6 +20,7 @@ router.get("/signup", authController.isLoggedIn, viewsController.getSignupForm);
 router.get("/emailVerify", viewsController.getEmailVerifyPage);
 router.get("/logout", authController.isLoggedIn, authController.logout);
 router.get("/me", authController.protect, viewsController.getAccount);
+router.get("/my-orders", authController.protect, viewsController.getMyBookings);
 
 router.post(
   "/submit-user-data",

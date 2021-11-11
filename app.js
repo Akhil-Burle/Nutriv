@@ -7,6 +7,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
+const compression = require("compression");
 
 const appError = require("./utils/appError.js");
 const globalErrorHandler = require("./controllers/errorController.js");
@@ -16,7 +17,11 @@ const reviewRouter = require("./routes/reviewRoutes.js");
 const bookingRouter = require("./routes/bookingRoutes.js");
 const viewRouter = require("./routes/viewRoutes.js");
 
+// Start express:
+
 const app = express();
+
+app.enable("trust proxy");
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "./views"));
@@ -66,6 +71,7 @@ app.use(
     ],
   })
 );
+app.use(compression());
 
 // Serving static files
 // app.use(express.static(`${__dirname}/public`));
