@@ -15,6 +15,16 @@ html
             link(rel='preconnect' href='https://fonts.googleapis.com')
             link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
             link(href='https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,700&display=swap' rel='stylesheet')
+            script(src='https://cdn.onesignal.com/sdks/OneSignalSDK.js' async='')
+            script.
+                window.OneSignal = window.OneSignal || [];
+                OneSignal.push(function() {
+                OneSignal.init({
+                appId: "5d5aba9b-250b-4eb3-ba14-c2302afd6643",
+                });
+                });
+
+
             script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js' crossorigin="anonymous")
             script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js' )
             script(defer='' src='https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js')

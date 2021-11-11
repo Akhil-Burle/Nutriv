@@ -10,8 +10,8 @@
 }
 
 body {
-  /* background-color: #efefef; */
-  background-image: url("../img/map.png");
+  background-color: #efefef;
+  /* background-image: url("../img/map.png"); */
 }
 
 .item-container {
