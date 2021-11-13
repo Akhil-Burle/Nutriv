@@ -27,14 +27,11 @@ router
   .get(dishController.getHotelsWithin);
 
 router.route("/distances/:latlng/unit/:unit").get(dishController.getDistances);
-router
-  .route("/")
-  .get(dishController.getAllDishes)
-  .post(
-    authController.restrictTo("manager", "admin"),
-    authController.protect,
-    dishController.createDish
-  );
+router.route("/").get(dishController.getAllDishes).post(
+  // authController.restrictTo("manager", "admin"),
+  authController.protect,
+  dishController.createDish
+);
 
 router
   .route("/:id")

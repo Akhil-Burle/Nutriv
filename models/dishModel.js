@@ -67,9 +67,13 @@ const dishSchema = new mongoose.Schema(
     Rarity like Available or no.
     ----------------------------------------------------------------------------------------------------------
     */
-    rarity: {
+    availability: {
       type: String,
       required: [true, "A dish must have Availability.."],
+      enum: {
+        values: ["Not-Available", "Available"],
+        message: "Availability must be Available or Not-Available!",
+      },
     },
 
     /*

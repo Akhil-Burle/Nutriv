@@ -20,17 +20,17 @@ const createSendToken = (user, statusCode, req, res) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: req.secure || req.headers("x-forwarded-proto") === "https",
+    secure: req.secure || req.headers["x-forwarded-proto"] === "https",
   });
 
-  // Should remove the password from the output
+  // Remove password from output
   user.password = undefined;
 
   res.status(statusCode).json({
     status: "success",
     token,
     data: {
-      user: user,
+      user,
     },
   });
 };
@@ -249,7 +249,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
-    // roles is an array like ['admin','manager'], role is just 'user'
+    // roles ['admin', 'lead-guide']. role='user'
     if (!roles.includes(req.user.role)) {
       return next(
         new AppError("You do not have permission to perform this action", 403)

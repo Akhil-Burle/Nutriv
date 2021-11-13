@@ -1,0 +1,131 @@
+.section-form {
+  /* top / right / bottom / left */
+  /* padding: 9.6rem 0 12.8rem 0; */
+
+  /* top / horizontal / left */
+  padding: 5rem 0 13rem;
+}
+
+.form {
+  display: grid;
+  /* 2/3 = 66.6% + 1/3 = 33.3% */
+  grid-template-columns: 1fr;
+  /* background-color: #e67e22; */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+  border-radius: 11px;
+
+  background: linear-gradient(
+    90deg,
+    hsla(152, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  overflow: hidden;
+}
+
+.form-text-box {
+  padding: 4.8rem 7rem 7rem 7rem;
+  color: #09383e;
+}
+
+.form .heading-secondary {
+  /* color: #45260a; */
+  color: inherit;
+  margin-bottom: 3.2rem;
+}
+
+.form-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.form-img-box {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(73, 185, 200, 0.25),
+    rgba(31, 186, 207, 0.25)
+  );
+  /* url("../../img/eating.jpg"); */
+  /* background-size: cover; */
+  /* background-position: center; */
+}
+
+.form-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.form-form label {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.form-form input,
+.form-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: var(--color-primary-lighter);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-form input::placeholder {
+  color: #bbb;
+}
+
+.form-form button {
+  font-size: 2rem;
+  color: inherit;
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 1.2rem 1.2rem;
+  border-radius: 10px;
+
+  /* transition: all 0.5; */
+
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  background-color: #09383e;
+  color: var(--color-primary-lighter);
+
+  align-self: end;
+}
+
+.form *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgb(233, 248, 250, 0.5);
+}
+
+.label {
+  font-size: 3rem;
+  color: inherit;
+  text-decoration: none;
+
+  display: inline-block;
+  padding: 1.2rem;
+  border-radius: 10px;
+
+  /* transition: all 0.5; */
+
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  background-color: #09383e;
+  color: var(--color-primary-lighter);
+
+  align-self: end;
+  /* align-items: center; */
+  text-align: center;
+}

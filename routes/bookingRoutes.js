@@ -10,10 +10,15 @@ router.get("/checkout-session/:dishId", bookingController.getCheckoutSession);
 
 router.use(authController.restrictTo("admin"));
 
-router.get("/getAllBookings", bookingController.getAllBookings);
-router.post("/addNewBooking", bookingController.addNewBooking);
-router.patch("/updateBooking/:id", bookingController.updateBooking);
-router.delete("/deleteBooking/:id", bookingController.deleteBooking);
-router.get("/getBooking/:id", bookingController.getBooking);
+router
+  .route("/")
+  .get(bookingController.getAllBookings)
+  .post(bookingController.createBooking);
+
+router
+  .route("/:id")
+  .get(bookingController.getBooking)
+  .patch(bookingController.updateBooking)
+  .delete(bookingController.deleteBooking);
 
 module.exports = router;

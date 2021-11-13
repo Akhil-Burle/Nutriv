@@ -52,6 +52,10 @@ exports.getAccount = (req, res) => {
   res.status(200).render("account");
 };
 
+exports.getDocs = (req, res) => {
+  res.status(200).render("docs");
+};
+
 exports.getMyBookings = catchAsync(async (req, res, next) => {
   // Find all bookings:
   const bookings = await Booking.find({ user: req.user.id });
@@ -64,6 +68,18 @@ exports.getMyBookings = catchAsync(async (req, res, next) => {
     title: "My Bookings",
     dishes,
   });
+});
+
+exports.getNewDishForm = catchAsync(async (req, res) => {
+  const chefs = await User.find({ role: "chef" });
+  res.status(200).render("addNewDish", {
+    title: "Add new dish",
+    chefs,
+  });
+});
+
+exports.getDashboard = catchAsync(async (req, res) => {
+  res.status(200).render("dashboard", { title: "Management Dashboard" });
 });
 
 exports.updateUserData = catchAsync(async (req, res, next) => {

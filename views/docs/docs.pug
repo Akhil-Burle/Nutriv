@@ -1,0 +1,330 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title API - Documentation
+    meta(name='description' content='')
+    meta(http-equiv='cleartype' content='on')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='css/hightlightjs-dark.css')
+    link(rel='stylesheet' href='css/docs.css')
+    script.
+        hljs.initHighlightingOnLoad();
+.left-menu
+    .content-logo
+        .logo
+            img(alt='platform by Emily van den Heever from the Noun Project' title='platform by Emily van den Heever from the Noun Project' src='img/favicon.png' height='32')
+            span API Documentation
+        button#button-menu-mobile.burger-menu-icon
+            svg(width='34' height='34' viewbox='0 0 100 100')
+                path.line.line1(d='M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058')
+                path.line.line2(d='M 20,50 H 80')
+                path.line.line3(d='M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942')
+    .mobile-menu-closer
+    .content-menu
+        .content-infos
+            .info
+                b Version:
+                |  1.0.0
+            // <div class="info"><b>Last Updated:</b> 15th Sep, 2021</div>
+        ul
+            li.scroll-to-link.active(data-target='content-get-started')
+                a GET STARTED
+            li.scroll-to-link(data-target='content-get-characters')
+                a Dishes
+            li.scroll-to-link(data-target='content-errors')
+                a Errors
+.content-page
+    .content-code
+    .content
+        #content-get-started.overflow-hidden.content-section
+            h1 Get started
+            pre.
+                API Endpoint
+
+                https://nutriv.ml/api/v1
+
+            p
+                | The Nutriv API contains endpoints for Dishes, Users, and Reviews.
+        #content-get-characters.overflow-hidden.content-section
+            h2 Get dishes
+            <pre><code class="bash">curl --location -g --request GET 'nutriv.ml/api/v1/menu/</code></pre>
+
+            p
+                | To get characters you need to make a GET call to the following url
+                | :
+                br
+                code.higlighted.break-word nutriv.ml/api/v1/menu/
+            br
+            h4 QUERY PARAMETERS
+            table.central-overflow-x
+                thead
+                    tr
+                        th Field
+                        th Type
+                        th Description
+                tbody
+                    tr
+                        td name
+                        td String
+                        td (optional) Find the dishes by the name.
+                    tr
+                        td price
+                        td Number
+                        td (optional) Sort, Find the results by the price.
+                    tr
+                        td ratingsAverage
+                        td Number
+                        td
+                            | (optional) Sort, Find the dishes by the Ratings of each dish.
+                    tr
+                        td rarity
+                        td String
+                        td (optional) Find dishes by the rarity.
+                    tr
+                        td foodType
+                        td String
+                        td (optional) Find dishes by the type of the food.
+                    tr
+                        td priceDiscount
+                        td Number
+                        td
+                            | (optional) Find, Sort dishes on the basis of the discount
+                            | price.
+                    tr
+                        td deliveryTime
+                        td Number
+                        td
+                            | (optional) Find, Sort dishes on the basis of the delivery
+                            | time.
+                    tr
+                        td ratingsQuantity
+                        td Number
+                        td
+                            | (optional) Find, Sort dishes on the basis of the number of
+                            | people who rated a particular dish.
+        // Get particular dish
+        #content-get-characters.overflow-hidden.content-section
+            h2 Get Dish
+            <pre><code class="bash">curl --location -g --request GET 'nutriv.ml/api/v1/menu/id'</code></pre>
+
+            p
+                | To get a particular dish you need to make a GET call to the
+                | following url :
+                br
+                code.higlighted.break-word nutriv.ml/api/v1/menu/id
+            br
+            h4 QUERY PARAMETERS
+            table.central-overflow-x
+                thead
+                    tr
+                        th Field
+                        th Type
+                        th Description
+                tbody
+                    tr
+                        td id
+                        td Unique Identity
+                        td
+                            | ID of the particular dish. The result will be the dish which
+                            | has the ID passed in the URL.
+        // Add new dish
+        #content-get-characters.overflow-hidden.content-section
+            h2 Add new Dish
+            pre.
+                curl --location -g --request POST 'nutriv.ml/api/v1/menu' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                        "name": "Name",
+                        "price": `price`,
+                        "rarity": "Available / Not Available",
+                        "foodType": "Vegetarian / Non Vegetarian.",
+                        "summary": "Dish Summary.",
+                        "description": "Description of the dish.",
+                        "availableIn": [ locations ],
+                        "chefs": [chef id] 
+                    },'
+
+            p
+                | To get a particular dish you need to make a POST call to the
+                | following url :
+                br
+                code.higlighted.break-word nutriv.ml/api/v1/menu
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token
+                        td {{token}}
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+            h4 Body
+            p
+                | {
+                br
+                |             &quot;name&quot;: &quot;Name&quot;,
+                br
+                |             &quot;price&quot;: &grave;price&grave;,
+                br
+                |             &quot;rarity&quot;: &quot;Available / Not Available&quot;,
+                br
+                |             &quot;foodType&quot;: &quot;Vegetarian / Non Vegetarian.&quot;,
+                br
+                |             &quot;summary&quot;: &quot;Dish Summary.&quot;,
+                br
+                |             &quot;description&quot;: &quot;Description of the dish.&quot;,
+                br
+                |             &quot;availableIn&quot;: [ locations ],
+                br
+                |             &quot;chefs&quot;: [chef id] 
+                br
+                | },
+        // Update tour
+        #content-get-characters.overflow-hidden.content-section
+            h2 Update Dish
+            pre.
+                 curl --location -g --request PATCH 'nutriv.ml/api/v1/menu/id' \
+                --header 'Content-Type: application/json' \
+                --form 'imageCover=@"/path/to/file"' \
+                --form 'images=@"/path/to/file"' \
+                --form 'images=@"/path/to/file"' \
+                --form 'images=@"/path/to/file"' \
+                --form 'price="500"'
+
+            p
+                | To update a particular dish you need to make a PATCH call to the
+                | following url :
+                br
+                code.higlighted.break-word nutriv.ml/api/v1/menu/id
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token
+                        td {{token}}
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+            h4 Body
+            p
+                | The data which is to be updated like:
+                br
+                |             {
+                br
+                |             price:500
+                br
+                |             }
+        // Delete Dish
+        #content-get-characters.overflow-hidden.content-section
+            h2 Delete Dish
+            pre.
+                curl --location -g --request DELETE 'nutriv.ml/api/v1/menu/id'
+
+
+            p
+                | To get a particular dish you need to make a DELETE call to the
+                | following url :
+                br
+                code.higlighted.break-word nutriv.ml/api/v1/menu/id
+            br
+            h4 QUERY PARAMETERS
+            table.central-overflow-x
+                thead
+                    tr
+                        th Field
+                        th Type
+                        th Description
+                tbody
+                    tr
+                        td id
+                        td Unique Identity
+                        td
+                            | ID of the particular dish to be delete. The dish which
+                            | contains the ID specified will be deleted.
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token
+                        td {{token}}
+        // Get top 5 cheap dishes
+        #content-get-characters.overflow-hidden.content-section
+            h2 Get TOP 5 cheap dishes
+            pre.
+                curl --location -g --request GET 'nutriv.ml/api/v1/menu/top-5-cheap'
+
+            p
+                | To get a particular dish you need to make a DELETE call to the
+                | following url :
+                br
+                code.higlighted.break-word nutriv.ml/api/v1/menu/top-5-cheap
+            br
+        #content-errors.overflow-hidden.content-section
+            h2 Errors
+            p The Westeros API uses the following error codes:
+            table
+                thead
+                    tr
+                        th Error Code
+                        th Meaning
+                tbody
+                    tr
+                        td X000
+                        td
+                            | Some parameters are missing. This error appears when you don&apos;t
+                            | pass every mandatory parameters.
+                    tr
+                        td X001
+                        td
+                            | Unknown or unvalid 
+                            code.higlighted secret_key
+                            | .
+                            |                   This error appears if you use an unknow API key or if your API
+                            |                   key expired.
+                    tr
+                        td X002
+                        td
+                            | Unvalid 
+                            code.higlighted secret_key
+                            |  for this
+                            |                   domain. This error appears if you use an API key non specified
+                            |                   for your domain. Developper or Universal API keys doesn&apos;t have
+                            |                   domain checker.
+                    tr
+                        td X003
+                        td
+                            | Unknown or unvalid user 
+                            code.higlighted token
+                            | .
+                            |                   This error appears if you use an unknow user
+                            code.higlighted token
+                            |  or if the user
+                            code.higlighted token
+                            |  expired.
+    .content-code
+script(src='js/docs.js')

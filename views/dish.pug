@@ -52,9 +52,6 @@ block content
                         img.item-chef-img(src=`/img/users/${dish.chefs[0].photo}` alt=`Image of ${dish.chefs[0].name}`)
                         span.item-chef-name=`${dish.chefs[0].name.split(' ')[0]}`
                         ion-icon.item-verify(name='checkmark-circle')
-                        img.item-chef-img(src=`/img/users/${dish.chefs[1].photo}` alt=`Image of ${dish.chefs[1].name}`)
-                        span.item-chef-name=`${dish.chefs[1].name.split(' ')[0]}`
-                        ion-icon.item-verify(name='checkmark-circle')
                 .item-buy-price
                     if user
                         button.item-buy#book-dish(data-dish-id=`${dish.id}`)

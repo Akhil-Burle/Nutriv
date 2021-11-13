@@ -6,11 +6,13 @@ import { signup } from "./signup.js";
 import { updateSettings } from "./updateSettings.js";
 import { bookDish } from "./stripe.js";
 import { showAlert } from "./alerts.js";
+import { addNewDish } from "./dashboard.js";
 
 // DOM ELEMENTS
 // const mapBox = document.getElementById("map");
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
+const addNewDishForm = document.querySelector(".form--addNewDish");
 const logOutBtn = document.querySelector(".logout");
 const userDataForm = document.querySelector(".form-user-data");
 const userPasswordForm = document.querySelector(".form-user-password");
@@ -43,6 +45,32 @@ if (signupForm) {
     const photo = document.getElementById("photo").value;
     //   console.log(email, password, passwordConfirm, photo);
     signup(name, email, password, passwordConfirm, photo);
+  });
+}
+
+if (addNewDishForm) {
+  addNewDishForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const price = document.getElementById("price").value;
+    const deliveryTime = document.getElementById("deliveryTime").value;
+    const summary = document.getElementById("summary").value;
+    const availability = document.getElementById("availability").value;
+    const type = document.getElementById("type").value;
+    const foodType = document.getElementById("foodType").value;
+    const chefs = document.getElementById("chefs").value;
+    const imageCover = document.getElementById("imageCover").value;
+    addNewDish(
+      name,
+      price,
+      deliveryTime,
+      summary,
+      availability,
+      type,
+      foodType,
+      chefs,
+      imageCover
+    );
   });
 }
 

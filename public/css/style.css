@@ -9,6 +9,7 @@
 @import url(inc/_signup.css);
 @import url(inc/_footer.css);
 @import url(inc/_emailVerify.css);
+@import url(inc/_form.css);
 
 /* @import url(inc/_login-signup.css); */
 input[type="file"] {
