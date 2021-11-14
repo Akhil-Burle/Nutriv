@@ -78,6 +78,11 @@ exports.getNewDishForm = catchAsync(async (req, res) => {
   });
 });
 
+exports.getAllDishesTable = catchAsync(async (req, res) => {
+  const dishes = await Dish.find();
+  res.status(200).render("getAllDishes", { title: "All Dishes", dishes });
+});
+
 exports.getDashboard = catchAsync(async (req, res) => {
   res.status(200).render("dashboard", { title: "Management Dashboard" });
 });

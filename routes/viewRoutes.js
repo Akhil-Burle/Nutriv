@@ -24,8 +24,26 @@ router.post(
 );
 
 // Admin control routes:
+// router.use(authController.protect);
 // router.use(authController.restrictTo("admin"));
-router.get("/dashboard", viewsController.getDashboard);
-router.get("/dashboard/addNewDish", viewsController.getNewDishForm);
+
+router.get(
+  "/dashboard",
+  authController.protect,
+  authController.restrictTo("admin", "manager"),
+  viewsController.getDashboard
+);
+router.get(
+  "/dashboard/addNewDish",
+  authController.protect,
+  authController.restrictTo("admin", "manager"),
+  viewsController.getNewDishForm
+);
+router.get(
+  "/dashboard/getAllDishes",
+  authController.protect,
+  authController.restrictTo("admin", "manager"),
+  viewsController.getAllDishesTable
+);
 
 module.exports = router;

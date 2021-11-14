@@ -14,10 +14,29 @@
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   border-radius: 11px;
 
-  background: linear-gradient(
+  /*   background: linear-gradient(
     90deg,
     hsla(152, 100%, 50%, 1) 0%,
     hsla(186, 100%, 69%, 1) 100%
+  ); */
+
+  /*   background: linear-gradient(
+    90deg,
+    hsla(159, 82%, 55%, 1) 0%,
+    hsla(206, 98%, 48%, 1) 100%
+  ); */
+
+  /*   background: radial-gradient(
+    circle,
+    hsla(159, 82%, 55%, 1) 0%,
+    hsla(187, 74%, 47%, 1) 0%,
+    hsla(175, 72%, 47%, 1) 75%
+  ); */
+
+  background: linear-gradient(
+    90deg,
+    hsla(187, 74%, 47%, 0.5) 8%,
+    hsla(164, 97%, 53%, 0.5) 93%
   );
   overflow: hidden;
 }
