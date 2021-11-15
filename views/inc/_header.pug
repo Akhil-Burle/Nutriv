@@ -10,15 +10,19 @@ header.header
         nav.main-nav
             ul.main-nav-list
                 li
-                    a.main-nav-link.logout(href='/logout') Log Out
+                    a.main-nav-link.nav-cta(href='/menu') All Dishes
                 li
-                    a.main-nav-link(href='/me')= user.name.split(' ')[0]
+                    a.main-nav-link.nav-cta.logout(href='#') Log Out
+                li
+                    a.main-nav-link.nav-cta(href='#') Settings
         button.btn-mobile-nav
             ion-icon.icon-mobile-nav(name='menu-outline')
             ion-icon.icon-mobile-nav(name='close-outline')
     else
         nav.main-nav
             ul.main-nav-list
+                li
+                    a.main-nav-link.nav-cta(href='/menu') All Dishes
                 li
                     a.main-nav-link.nav-cta(href='/login') Login
                 li

@@ -18,20 +18,21 @@ input[type="file"] {
 }
 .alert {
   /* visibility: hidden; */
-  min-width: 250px;
-  margin-left: -125px;
+  min-width: 300px;
+  margin-left: -165px;
   background-color: #333;
   color: #fff;
   text-align: center;
   border-radius: 2px;
-  padding: 16px;
+  padding: 20px;
   position: fixed;
-  z-index: 1;
+  z-index: 99999999999999;
   left: 50%;
   bottom: 30px;
-  font-size: 17px;
+  font-size: 3rem;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  border-radius: 30px;
 }
 .alert--success {
   background-color: #20bf6b;

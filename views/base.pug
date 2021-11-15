@@ -7,8 +7,6 @@ html
             // Important for responsive design!
             meta(name='viewport' content='width=device-width, initial-scale=1.0')
             meta(name='description' content="Nutriv is an AI-powered food subscription that will make you eat healthy again, 365 days per year. It's tailored to your personal taste and needs...")
-            //- meta(http-equiv='Content-Security-Policy' content="default-src 'self' *;")
-            //- <img src="https://img.icons8.com/windows/32/000000/menu--v3.png"/>
             link(rel='apple-touch-icon' href='/img/apple.png')
             link(rel='icon' href='/img/favicon.png')
             link(rel='manifest' href='/manifest.webmanifest')
@@ -23,11 +21,11 @@ html
             //-     appId: "5d5aba9b-250b-4eb3-ba14-c2302afd6643",
             //-     });
             //-     });
-
             script(type='module' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js' crossorigin="anonymous")
             script(nomodule='' src='https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js' )
             script(defer='' src='https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js')
             script(defer='' src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js')
+
 
             script(src='https://js.stripe.com/v3/')
             //- script(src='/js/mapbox.js' defer='')
@@ -53,7 +51,6 @@ html
         // CONTENT
         block content
             h1 This is a placeholder heading
-            
 
         // FOOTER
         include inc/_footer
