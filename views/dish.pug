@@ -32,8 +32,8 @@ block content
                 .item-shoeName
                     div
                         h1.item-big=`${dish.name}`
-                        span.item-new=`${dish.ratingsAverage}(${dish.ratingsQuantity})`
-                    p.item-small=`${dish.foodType}`
+                        span.item-new=`${String(dish.ratingsAverage).slice(0,3)} / 5 (${dish.ratingsQuantity})`
+                    p.item-small=`${dish.foodType} | ${dish.type}`
                 .item-description
                     p.item-title About
                     p.item-text=`${dish.summary}`

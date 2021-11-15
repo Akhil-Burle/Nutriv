@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("./../models/userModel.js");
 const catchAsync = require("./../utils/catchAsync.js");
 const AppError = require("./../utils/appError.js");
-const Email = require("./../utils/email");
+const Email = require("./../utils/email.js");
 
 const signToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -50,14 +50,14 @@ exports.signup = catchAsync(async (req, res, next) => {
   const verifyToken = newUser.createEmailVerificationToken();
   await newUser.save({ validateBeforeSave: false });
 
-  const verifyURL = `${req.protocol}://${req.get(
+  const signUpEmailVerify = `${req.protocol}://${req.get(
     "host"
   )}/api/v1/users/verifyEmail/${verifyToken}`;
 
-  // const message = `Verify your email before getting started!  ${verifyURL}.`;
+  // const message = `Verify your email before getting started!  ${signUpEmailVerify}.`;
 
   try {
-    const url = verifyURL;
+    const url = signUpEmailVerify;
     await new Email(newUser, url).sendWelcome();
   } catch (err) {
     (newUser.emailVerifyToken = undefined),
@@ -78,8 +78,27 @@ exports.signup = catchAsync(async (req, res, next) => {
   });
 });
 
+/**
+ * Verify email entry and sending token to email
+ */
 exports.verify = catchAsync(async (req, res, next) => {
-  const user = await User.findOne({ email: req.body.email });
+  const email = req.body.email;
+  const password = req.body.password;
+
+  // 1: Check if email and password actually exists
+  if (!email || !password) {
+    return next(new AppError("Please provide email and password", 400));
+  }
+  const user = await User.findOne({ email }).select("+password");
+
+  if (!user || !(await user.correctDetails(password, user.password))) {
+    return next(new AppError("Incorrect email or password", 401));
+  }
+
+  if (user.isVerified === true) {
+    return next(new AppError("Your account is already verified", 400));
+  }
+
   const verifyToken = user.createEmailVerificationToken();
   await user.save({ validateBeforeSave: false });
 
@@ -101,7 +120,10 @@ exports.verify = catchAsync(async (req, res, next) => {
       )
     );
   }
-  createSendToken(user, 200, req, res);
+
+  res.status(200).json({
+    status: "success",
+  });
 });
 
 exports.verifyEmail = catchAsync(async (req, res, next) => {
@@ -122,6 +144,8 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
   user.emailVerifyExpires = undefined;
 
   await user.save({ validateBeforeSave: false });
+
+  res.redirect("/verifySuccessfull");
 
   createSendToken(user, 200, req, res);
 });

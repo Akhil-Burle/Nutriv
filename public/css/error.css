@@ -7,6 +7,7 @@
 body {
   font-family: montserrat, sans-serif;
   background-image: linear-gradient(to bottom right, #49b9c8, #1fbacf);
+  margin-top: 20rem;
 }
 
 .page-wrap {
@@ -19,6 +20,8 @@ body {
 
 .big-text {
   position: absolute;
+  /* margin-bottom: 10rem; */
+
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -45,6 +48,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 10rem;
 }
 
 h2 {

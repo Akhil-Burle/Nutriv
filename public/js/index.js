@@ -2,7 +2,7 @@
 // import "@babel/polyfill";
 // import { displayMap } from "./mapbox";
 import { login, logout } from "./login.js";
-import { signup } from "./signup.js";
+import { signup, verify } from "./signup.js";
 import { updateSettings } from "./updateSettings.js";
 import { bookDish } from "./stripe.js";
 import { showAlert } from "./alerts.js";
@@ -12,11 +12,13 @@ import { addNewDish } from "./dashboard.js";
 // const mapBox = document.getElementById("map");
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
+const verifyForm = document.querySelector(".form--verify");
 const addNewDishForm = document.querySelector(".form--addNewDish");
 const logOutBtn = document.querySelector(".logout");
 const userDataForm = document.querySelector(".form-user-data");
 const userPasswordForm = document.querySelector(".form-user-password");
 const bookBtn = document.getElementById("book-dish");
+// const menuBookBtn = document.querySelector(".book-now");
 
 // DELEGATION
 // if (mapBox) {
@@ -45,6 +47,15 @@ if (signupForm) {
     const photo = document.getElementById("photo").value;
     //   console.log(email, password, passwordConfirm, photo);
     signup(name, email, password, passwordConfirm, photo);
+  });
+}
+
+if (verifyForm) {
+  verifyForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    verify(email, password);
   });
 }
 
@@ -116,3 +127,15 @@ if (bookBtn) {
   const alertMessage = document.querySelector("body").dataset.alert;
   if (alertMessage) showAlert("success", alertMessage, 20);
 }
+
+/* if (menuBookBtn) {
+  menuBookBtn.addEventListener("click", (e) => {
+    e.target.textContent = "Processing...";
+    const { dishId } = e.target.dataset;
+    bookDish(dishId);
+  });
+
+  const alertMessage = document.querySelector("body").dataset.alert;
+  if (alertMessage) showAlert("success", alertMessage, 20);
+}
+ */

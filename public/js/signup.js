@@ -23,3 +23,23 @@ export const signup = async (name, email, password, passwordConfirm, photo) => {
     showAlert("error", err.response.data.message);
   }
 };
+
+export const verify = async (email, password) => {
+  try {
+    const res = await axios({
+      method: "POST",
+      url: "/api/v1/users/verify",
+      data: {
+        email: email,
+        password: password,
+      },
+    });
+
+    if (res.data.status === "success") {
+      showAlert("success", "Email sent successfully!");
+      location.assign("/emailVerify");
+    }
+  } catch (err) {
+    showAlert("error", err.response.data.message);
+  }
+};

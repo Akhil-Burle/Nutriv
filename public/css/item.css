@@ -21,6 +21,7 @@ body {
   align-items: center;
   padding: 40px;
   overflow: hidden;
+  margin-top: 20rem;
 }
 
 .item-card {
@@ -485,14 +486,14 @@ body {
 }
 
 .item-chef-img {
-  width: 13%;
+  width: 10%;
   border-radius: 50px;
   margin-right: 0.5rem;
 }
 
 .item-chef-name {
   margin-right: 0.2rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .item-verify {
   margin-right: 1rem;

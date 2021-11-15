@@ -80,6 +80,7 @@ html {
   /* font-size: 10px; */
   font-size: 62.5%;
   overflow-x: hidden;
+  zoom: 70%;
 
   /* doesn't work on safari and some more... */
   /* scroll-behavior: smooth; */

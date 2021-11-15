@@ -1,4 +1,4 @@
-.section-form {
+.section-form-admin {
   /* top / right / bottom / left */
   /* padding: 9.6rem 0 12.8rem 0; */
 
@@ -6,7 +6,7 @@
   padding: 5rem 0 13rem;
 }
 
-.form {
+.form-admin {
   display: grid;
   /* 2/3 = 66.6% + 1/3 = 33.3% */
   grid-template-columns: 1fr;
@@ -41,24 +41,24 @@
   overflow: hidden;
 }
 
-.form-text-box {
+.form-admin-text-box {
   padding: 4.8rem 7rem 7rem 7rem;
   color: #09383e;
 }
 
-.form .heading-secondary {
+.form-admin .heading-secondary {
   /* color: #45260a; */
   color: inherit;
   margin-bottom: 3.2rem;
 }
 
-.form-text {
+.form-admin-text {
   font-size: 1.8rem;
   line-height: 1.8;
   margin-bottom: 4.8rem;
 }
 
-.form-img-box {
+.form-admin-img-box {
   background-image: linear-gradient(
     to right bottom,
     rgba(73, 185, 200, 0.25),
@@ -69,22 +69,22 @@
   /* background-position: center; */
 }
 
-.form-form {
+.form-admin-form-admin {
   display: grid;
   grid-template-columns: 1fr;
   column-gap: 3.2rem;
   row-gap: 2.4rem;
 }
 
-.form-form label {
+.form-admin-form-admin label {
   display: block;
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 1.2rem;
 }
 
-.form-form input,
-.form-form select {
+.form-admin-form-admin input,
+.form-admin-form-admin select {
   width: 100%;
   padding: 1.2rem;
   font-size: 1.8rem;
@@ -96,11 +96,11 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.form-form input::placeholder {
+.form-admin-form-admin input::placeholder {
   color: #bbb;
 }
 
-.form-form button {
+.form-admin-form-admin button {
   font-size: 2rem;
   color: inherit;
   text-decoration: none;
@@ -121,7 +121,7 @@
   align-self: end;
 }
 
-.form *:focus {
+.form-admin *:focus {
   outline: none;
   box-shadow: 0 0 0 0.8rem rgb(233, 248, 250, 0.5);
 }

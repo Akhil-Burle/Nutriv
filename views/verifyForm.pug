@@ -1,23 +1,16 @@
 extends base
 
-block append head
-    //- script(src='/js/login.js' defer='')
-    
-block append header
+block append header 
     include inc/_header
 
 block content
-    //- <div class="alert alert--success">Successfull</div>
-    section#form.section-form
+     section#form.section-form
         .container
             .form
                 .form-text-box
-                    h2.heading-secondary Login to your account!
-                    p.form-text
-                        | Healthy, tasty and hassle-free meals are waiting for you. Start
-                        | eating well today. You can cancel or pause anytime. And the
-                        | first meal is on us!
-                    form.form--login.form-form
+                    h2.heading-secondary Verify your account.
+                    p.form-text Wern't able to verify your account before? No Problem! Verify it now! Enter your email address below.
+                    form.form--verify.form-form
                         div
                             label(for='email') Email address
                             input#email(type='email' placeholder='me@example.com' required='')
@@ -25,7 +18,7 @@ block content
                             label(for='password') Password
                             input#password(type='password' placeholder='••••••••' required='')
 
-                        button.btn.btn--form Login
+                        button.btn.btn--form Verify Account
                         //
                             <input type="checkbox" />
                             <input type="number" />

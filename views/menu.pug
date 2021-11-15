@@ -29,15 +29,18 @@ block content
 
               li.meal-attribute
                 ion-icon.meal-icon(name='restaurant-outline')
-                span
-                  | Available In &reg; 
-                  strong 74
+                span=`${dish.type}`
               li.meal-attribute
                 ion-icon.meal-icon(name='star-outline')
-                span=`${dish.ratingsAverage} / 5 (${dish.ratingsQuantity})`
+                span=`${String(dish.ratingsAverage).slice(0,3)} / 5 (${dish.ratingsQuantity})`
               li.meal-attribute
                 ion-icon.meal-icon(name='card')
                 span
                   | &#x20B9;
                   strong=`${dish.price}`
-            a.book-now(href=`menu/${dish.slug}`) Order now
+            div.buttons
+                a.book-now(href=`menu/${dish.slug}`) View details
+                if user
+                    a.book-now#book-dish(data-dish-id=`${dish.id}` href='#') Order Now!
+                else 
+                    a.book-now(href='/login') Login to book!

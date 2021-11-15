@@ -4,16 +4,16 @@ block header
     include ../inc/_header
 
 block content 
-    section#form.section-form
+    section#form-admin.section-form-admin
         .container
-            .form
-                .form-text-box
+            .form-admin
+                .form-admin-text-box
                     h2.heading-secondary Get your first meal for free!
-                    p.form-text
+                    p.form-admin-text
                         | Healthy, tasty and hassle-free meals are waiting for you. Start
                         | eating well today. You can cancel or pause anytime. And the
                         | first meal is on us!
-                    form.form--addNewDish.form-form
+                    form-admin.form-admin--addNewDish.form-admin-form-admin
                         div
                             label(for='name') Dish Name
                             input#name(type='text' placeholder='Pasta' required='')
@@ -63,8 +63,8 @@ block content
                             label(for="imageCover" class='label') Choose an image
                     
 
-                        button.btn-add-dish.btn.btn--form Add Dish
+                        button.btn-add-dish.btn.btn--form-admin Add Dish
                             //
                                 <input type="checkbox" />
                                 <input type="number" />
-                .form-img-box(role='img' aria-label='Food')
+                .form-admin-img-box(role='img' aria-label='Food')

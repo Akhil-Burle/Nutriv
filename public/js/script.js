@@ -81,7 +81,7 @@ allLinks.forEach(function (link) {
 ///////////////////////////////////////////////////////////
 // Sticky navigation
 
-const sectionHeroEl = document.querySelector(".section-hero");
+/* const sectionHeroEl = document.querySelector(".section-hero");
 
 const obs = new IntersectionObserver(
   function (entries) {
@@ -102,14 +102,7 @@ const obs = new IntersectionObserver(
     rootMargin: "-80px",
   }
 );
-obs.observe(sectionHeroEl);
-
-var tooltipTriggerList = [].slice.call(
-  document.querySelectorAll('[data-bs-toggle="tooltip"]')
-);
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl);
-});
+obs.observe(sectionHeroEl); */
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
