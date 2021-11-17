@@ -13,7 +13,7 @@ import { addNewDish } from "./dashboard.js";
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
 const verifyForm = document.querySelector(".form--verify");
-const addNewDishForm = document.querySelector(".form--addNewDish");
+const addNewDishForm = document.querySelector(".form-admin--addNewDish");
 const logOutBtn = document.querySelector(".logout");
 const userDataForm = document.querySelector(".form-user-data");
 const userPasswordForm = document.querySelector(".form-user-password");

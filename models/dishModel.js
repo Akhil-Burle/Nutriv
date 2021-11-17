@@ -146,7 +146,6 @@ const dishSchema = new mongoose.Schema(
     */
     imageCover: {
       type: String,
-      required: [true, "A dish must have a image..."],
     },
 
     /*
