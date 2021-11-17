@@ -1,9 +1,9 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const Dish = require("../models/tourModel");
-const User = require("../models/userModel");
-const Booking = require("../models/bookingModel");
-const catchAsync = require("../utils/catchAsync");
-const factory = require("./handlerFactory");
+const Dish = require("../models/dishModel.js");
+const User = require("../models/userModel.js");
+const Booking = require("../models/bookingModel.js");
+const catchAsync = require("../utils/catchAsync.js");
+const factory = require("./handlerFactory.js");
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // 1) Get the currently booked dish
@@ -13,19 +13,19 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // 2) Create checkout session
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
-    // success_url: `${req.protocol}://${req.get('host')}/my-tours/?dish=${
+    // success_url: `${req.protocol}://${req.get('host')}/my-dishes/?dish=${
     //   req.params.dishId
     // }&user=${req.user.id}&price=${dish.price}`,
-    success_url: `${req.protocol}://${req.get("host")}/my-tours?alert=booking`,
+    success_url: `${req.protocol}://${req.get("host")}/my-orders?alert=booking`,
     cancel_url: `${req.protocol}://${req.get("host")}/dish/${dish.slug}`,
     customer_email: req.user.email,
     client_reference_id: req.params.dishId,
     line_items: [
       {
-        name: `${dish.name} Dish`,
+        name: `${dish.name}`,
         description: dish.summary,
         images: [
-          `${req.protocol}://${req.get("host")}/img/tours/${dish.imageCover}`,
+          `${req.protocol}://${req.get("host")}/img/dishes/${dish.imageCover}`,
         ],
         amount: dish.price * 100,
         currency: "inr",
