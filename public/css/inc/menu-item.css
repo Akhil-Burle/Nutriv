@@ -289,6 +289,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1.6rem;
+  margin-top: 3rem;
 }
 
 .list-icon {
@@ -305,6 +306,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  /* margin-top: 3rem; */
 }
 
 .link:link,
@@ -337,12 +339,12 @@ body {
   background-color: var(--color-primary);
   /* margin: 1rem; */
   display: inline-block;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   margin-top: 1rem;
   text-decoration: none;
   color: #fff;
   border-radius: 14px;
-  font-weight: 600;
+  /* font-weight: 600; */
   /* margin-right: 10rem; */
   cursor: pointer;
 }
@@ -352,6 +354,45 @@ body {
   justify-content: space-between;
   /* margin-right: 2222rem; */
   /* direction: unset; */
+}
+
+.accordion-header,
+.accordion-button,
+.accordion-body {
+  text-align: center;
+  font-size: 3rem;
+  align-content: center;
+  /* padding-left: 50%; */
+}
+
+.search-bar {
+  width: 80%;
+  padding: 2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: var(--color-primary-lighter);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+  margin-right: 2rem;
+  /*   position: fixed;
+  top: 10rem;
+  right: 50px;
+  left: 50px;
+  z-index: 999999; */
+}
+
+.btn--search {
+  background-color: var(--color-primary);
+  padding: 1.7rem;
+  border-radius: 12px;
+  font-size: 3rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* ---------------------------------------------------------------------------------------------*/

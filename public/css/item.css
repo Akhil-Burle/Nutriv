@@ -163,6 +163,7 @@ body {
   border-radius: 5px;
   transition: 0.5s;
   font-size: 1.8rem;
+  padding: 1rem;
 }
 
 .item-shoeName .item-small {
@@ -170,7 +171,7 @@ body {
   color: #444;
   margin-top: 1rem;
   text-transform: capitalize;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .item-shoeName,

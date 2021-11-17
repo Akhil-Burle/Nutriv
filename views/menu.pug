@@ -12,6 +12,9 @@ block content
       span.subheading Dishes
       h2.heading-secondary
         | Nutriv AI chooses from 1,000,000+ recipes
+      form
+        input#search(type="text" class='search-bar' placeholder='Enter dish name')
+        button.btn--search Search
     .container.grid.grid--3-cols.margin-bottom-medium
       each dish in dishes
         .meal
@@ -39,8 +42,8 @@ block content
                   | &#x20B9;
                   strong=`${dish.price}`
             div.buttons
-                a.book-now(href=`menu/${dish.slug}`) View details
-                if user
-                    a.book-now#book-dish(data-dish-id=`${dish.id}` href='#') Order Now!
-                else 
-                    a.book-now(href='/login') Login to book!
+              a.book-now(href=`menu/${dish.slug}`) View details
+              if user
+                a.book-now#book-dish(data-dish-id=`${dish.id}` href='#') Order Now!
+              else 
+                a.book-now(href='/login') Login to book!

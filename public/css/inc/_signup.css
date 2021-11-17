@@ -19,7 +19,11 @@
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   border-radius: 11px;
 
-  background-image: linear-gradient(to right bottom, #49b9c8, #1fbacf);
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(43, 211, 233, 0.604),
+    rgba(69, 221, 241, 0.837)
+  );
   overflow: hidden;
 }
 

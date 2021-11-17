@@ -46,6 +46,15 @@ block content
                         span.item-size 4
                         span.item-size 5
                         span.item-size 6
+                .item-size-container
+                    p.item-title quantity
+                    .item-sizes
+                        span.item-size.item-active 1
+                        span.item-size 2
+                        span.item-size 3
+                        span.item-size 4
+                        span.item-size 5
+                        span.item-size 6
                 .size-container
                     p.item-title=`who made ${dish.name}?`
                     .item-chef-details
@@ -67,5 +76,6 @@ block content
                     //-     <i class="fas fa-dollar-sign"></i>
                     //-     <h1>189.99</h1>
                     //-     </div>
+
     section.section-map
         #map(data-availableIn=`${JSON.stringify(dish.availableIn)}`)

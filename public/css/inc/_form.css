@@ -4,6 +4,7 @@
 
   /* top / horizontal / left */
   padding: 5rem 0 13rem;
+  margin-top: 10rem;
 }
 
 .form-admin {
@@ -33,12 +34,39 @@
     hsla(175, 72%, 47%, 1) 75%
   ); */
 
-  background: linear-gradient(
+  /*   background: linear-gradient(
     90deg,
     hsla(187, 74%, 47%, 0.5) 8%,
     hsla(164, 97%, 53%, 0.5) 93%
+  ); */
+
+  background: linear-gradient(
+    90deg,
+    rgba(121, 182, 255, 0.809) 0%,
+    rgb(115, 196, 247) 50%,
+    rgb(245, 245, 245) 120%
   );
-  overflow: hidden;
+
+  /*   background-image: linear-gradient(
+    90deg,
+    rgba(242, 132, 105, 0.652) 0%,
+    rgba(250, 45, 45, 0.892) 50%,
+    rgb(245, 245, 245) 100%
+  ); */
+
+  animation: bg-animation 25s infinite;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
 }
 
 .form-admin-text-box {

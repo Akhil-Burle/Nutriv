@@ -3,6 +3,7 @@ const User = require("../models/userModel.js");
 const Booking = require("../models/bookingModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
+const APIFeatures = require("../utils/apiFeatures");
 
 exports.alerts = (req, res, next) => {
   const { alert } = req.query;
@@ -18,9 +19,16 @@ exports.index = (req, res, next) => {
 
 exports.getOverview = catchAsync(async (req, res, next) => {
   // Get all dishes from collection:
-  const dishes = await Dish.find();
-
+  let filter = {};
+  if (req.params.dishId) filter = { dish: req.params.dishId };
+  // const dishes = await Dish.find();
+  const features = new APIFeatures(Dish.find(filter), req.query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
   // Build the template for the overview:
+  const dishes = await features.query;
 
   // Render template:
   res.status(200).render("menu", {

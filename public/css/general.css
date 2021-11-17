@@ -118,6 +118,8 @@ body {
   font-weight: 400;
   /* color: var(--color-grey); */
   font-family: "Lato", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  /* font-family: "Dancing Script", cursive; */
 
   /* Only works when the parent of the over flowing element is relatively positioned if the element is absolutely positioned */
   overflow-x: hidden;

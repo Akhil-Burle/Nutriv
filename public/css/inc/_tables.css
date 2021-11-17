@@ -8,13 +8,15 @@
 }
 
 .container {
-  max-width: 2024px;
-  margin: auto;
+  max-width: 2048px;
+  margin: 15rem auto 5rem auto;
+  padding: 0 3.2rem;
 }
 
 .nav-brand {
   font-size: 3rem;
   font-weight: bold;
+  margin-top: 10rem;
 }
 
 .d-flex {
