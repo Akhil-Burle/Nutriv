@@ -13,10 +13,16 @@ header.header
             // <li><a href="#pricing" class="main-nav-link">Pricing</a></li>
             li
                 a.main-nav-link.nav-cta(href='/menu') All Dishes
-            li
-                a.main-nav-link.nav-cta(href='/login') Login
-            li
-                a.main-nav-link.nav-cta(href='/signup') Signup
+            if user
+                li
+                    a.main-nav-link.nav-cta.logout(href='#') Log Out
+                li
+                    a.main-nav-link.nav-cta(href='#') Settings
+            else 
+                li
+                    a.main-nav-link.nav-cta(href='/login') Login
+                li
+                    a.main-nav-link.nav-cta(href='/signup') Signup
     button.btn-mobile-nav
         ion-icon.icon-mobile-nav(name='menu-outline')
         ion-icon.icon-mobile-nav(name='close-outline')

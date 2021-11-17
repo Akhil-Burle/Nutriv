@@ -56,6 +56,9 @@
   .hero-img {
     width: 60%;
   }
+  .section-hero {
+    margin-top: 10rem;
+  }
 
   .delivered-meals {
     justify-content: center;

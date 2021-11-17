@@ -1,0 +1,70 @@
+extends ../base
+
+block header 
+    include ../inc/_header
+
+block content 
+    section#form-admin.section-form-admin
+        .container
+            .form-admin
+                .form-admin-text-box
+                    h2.heading-secondary Get your first meal for free!
+                    p.form-admin-text
+                        | Healthy, tasty and hassle-free meals are waiting for you. Start
+                        | eating well today. You can cancel or pause anytime. And the
+                        | first meal is on us!
+                    form-admin.form-admin--addNewDish.form-admin-form-admin
+                        div
+                            label(for='name') Dish Name
+                            input#name(type='text' placeholder='Pasta' required='')
+                        div
+                            label(for='price') Price
+                            input#price(type='number' placeholder='120' min=0 max=10000 required='')
+                        div
+                            label(for='deliveryTime') Delivery time
+                            input#deliveryTime(type='number' placeholder='30' required='' min=0 max=120)
+                        div
+                            label(for='summary') Small Summary
+                            input#summary(type='text' placeholder='Very tasty dish!' required='' )
+                        div
+                            label(for='availability') Is this dish Available?
+                            select#availability(required='')
+                                option(value='') Please choose one option:
+                                option(value='Available') Available
+                                option(value='Not-Available') Not Available
+                        div
+                            label(for='type') What is the type of this dish?
+                            select#type(required='')
+                                option(value='') Please choose one option:
+                                option(value='Starter') Starter
+                                option(value='Salad') Salad
+                                option(value='Burger & Sandwich') Burger & Sandwich
+                                option(value='Soup') Soup
+                                option(value='Main Dish') Main Dish
+                                option(value='Dessert') Dessert
+                                option(value='Sides') Sides
+                        div
+                            label(for='foodType') What is the cuisine of this dish?
+                            select#foodType(required='')
+                                option(value='') Please choose one option:
+                                option(value='Vegetarian') Vegetarian
+                                option(value='NON-Vegetarian') NON-Vegetarian
+                                option(value='Vegan') Vegan
+                                option(value='Paleo') Paleo
+                        div
+                            label(for='chefs') Who made this dish?
+                            select#chefs(required='')
+                                option(value='') Please choose one option:
+                                each chef in chefs
+                                    option(value=`${chef.id}`)=`${chef.name}`
+                        div
+                            label Dish Image
+                            input#imageCover(type='file' accept='image/*')
+                            label(for="imageCover" class='label') Choose an image
+                    
+
+                        button.btn-add-dish.btn.btn--form-admin Add Dish
+                            //
+                                <input type="checkbox" />
+                                <input type="number" />
+                .form-admin-img-box(role='img' aria-label='Food')

@@ -333,16 +333,25 @@ body {
 }
 
 .book-now {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: var(--color-primary);
   /* margin: 1rem; */
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.7rem;
   margin-top: 1rem;
   text-decoration: none;
   color: #fff;
-  border-radius: 13px;
+  border-radius: 14px;
   font-weight: 600;
+  /* margin-right: 10rem; */
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 2222rem; */
+  /* direction: unset; */
 }
 
 /* ---------------------------------------------------------------------------------------------*/

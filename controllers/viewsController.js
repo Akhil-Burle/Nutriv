@@ -4,6 +4,14 @@ const Booking = require("../models/bookingModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
 
+exports.alerts = (req, res, next) => {
+  const { alert } = req.query;
+  if (alert === "booking")
+    res.locals.alert =
+      "Your booking was successful! Please check your email for a confirmation. If your booking doesn't show up here immediatly, please come back later.";
+  next();
+};
+
 exports.index = (req, res, next) => {
   res.status(200).render("index", { title: "Never Cook Again!" });
 };
@@ -16,7 +24,7 @@ exports.getOverview = catchAsync(async (req, res, next) => {
 
   // Render template:
   res.status(200).render("menu", {
-    title: "All Dishes",
+    title: "Our Menu",
     dishes,
   });
 });
@@ -37,7 +45,17 @@ exports.getDish = catchAsync(async (req, res, next) => {
 });
 
 exports.getEmailVerifyPage = (req, res) => {
-  res.status(200).render("emailVerify", { title: "Verify your email" });
+  res.status(200).render("message", {
+    title: "Verify your email",
+    text: "Please verify your email address by clicking on the link sent to the email address provided. Please check your spam folder if you can't find it in your inbox.",
+  });
+};
+
+exports.getVerifySuccessfull = (req, res) => {
+  res.status(200).render("message", {
+    title: "Verification Successfull",
+    text: "Your account was successfully verifed! Place your first order for free!!",
+  });
 };
 
 exports.getLoginForm = (req, res) => {
@@ -52,6 +70,14 @@ exports.getAccount = (req, res) => {
   res.status(200).render("account");
 };
 
+exports.getDocs = (req, res) => {
+  res.status(200).render("docs");
+};
+
+exports.getVerifyPage = (req, res) => {
+  res.status(200).render("verifyForm", { title: "Verify email" });
+};
+
 exports.getMyBookings = catchAsync(async (req, res, next) => {
   // Find all bookings:
   const bookings = await Booking.find({ user: req.user.id });
@@ -64,6 +90,23 @@ exports.getMyBookings = catchAsync(async (req, res, next) => {
     title: "My Bookings",
     dishes,
   });
+});
+
+exports.getNewDishForm = catchAsync(async (req, res) => {
+  const chefs = await User.find({ role: "chef" });
+  res.status(200).render("addNewDish", {
+    title: "Add new dish",
+    chefs,
+  });
+});
+
+exports.getAllDishesTable = catchAsync(async (req, res) => {
+  const dishes = await Dish.find();
+  res.status(200).render("getAllDishes", { title: "All Dishes", dishes });
+});
+
+exports.getDashboard = catchAsync(async (req, res) => {
+  res.status(200).render("dashboard", { title: "Management Dashboard" });
 });
 
 exports.updateUserData = catchAsync(async (req, res, next) => {

@@ -2,19 +2,23 @@
 // import "@babel/polyfill";
 // import { displayMap } from "./mapbox";
 import { login, logout } from "./login.js";
-import { signup } from "./signup.js";
+import { signup, verify } from "./signup.js";
 import { updateSettings } from "./updateSettings.js";
 import { bookDish } from "./stripe.js";
 import { showAlert } from "./alerts.js";
+import { addNewDish } from "./dashboard.js";
 
 // DOM ELEMENTS
 // const mapBox = document.getElementById("map");
 const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
+const verifyForm = document.querySelector(".form--verify");
+const addNewDishForm = document.querySelector(".form--addNewDish");
 const logOutBtn = document.querySelector(".logout");
 const userDataForm = document.querySelector(".form-user-data");
 const userPasswordForm = document.querySelector(".form-user-password");
 const bookBtn = document.getElementById("book-dish");
+// const menuBookBtn = document.querySelector(".book-now");
 
 // DELEGATION
 // if (mapBox) {
@@ -43,6 +47,41 @@ if (signupForm) {
     const photo = document.getElementById("photo").value;
     //   console.log(email, password, passwordConfirm, photo);
     signup(name, email, password, passwordConfirm, photo);
+  });
+}
+
+if (verifyForm) {
+  verifyForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    verify(email, password);
+  });
+}
+
+if (addNewDishForm) {
+  addNewDishForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const price = document.getElementById("price").value;
+    const deliveryTime = document.getElementById("deliveryTime").value;
+    const summary = document.getElementById("summary").value;
+    const availability = document.getElementById("availability").value;
+    const type = document.getElementById("type").value;
+    const foodType = document.getElementById("foodType").value;
+    const chefs = document.getElementById("chefs").value;
+    const imageCover = document.getElementById("imageCover").value;
+    addNewDish(
+      name,
+      price,
+      deliveryTime,
+      summary,
+      availability,
+      type,
+      foodType,
+      chefs,
+      imageCover
+    );
   });
 }
 
@@ -88,3 +127,15 @@ if (bookBtn) {
   const alertMessage = document.querySelector("body").dataset.alert;
   if (alertMessage) showAlert("success", alertMessage, 20);
 }
+
+/* if (menuBookBtn) {
+  menuBookBtn.addEventListener("click", (e) => {
+    e.target.textContent = "Processing...";
+    const { dishId } = e.target.dataset;
+    bookDish(dishId);
+  });
+
+  const alertMessage = document.querySelector("body").dataset.alert;
+  if (alertMessage) showAlert("success", alertMessage, 20);
+}
+ */

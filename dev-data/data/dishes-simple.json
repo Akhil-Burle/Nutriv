@@ -4,7 +4,7 @@
     "name": "Avocado Tempura",
     "deliveryTime": 35,
     "price": 397,
-    "rarity": "Available",
+    "availability": "Available",
     "priceDiscount": 20,
     "foodType": "Vegetarian",
     "type": "Tapas",
@@ -40,14 +40,14 @@
         "day": 5
       }
     ],
-    "chefs": ["5c8a1f292f8fb814b56fa184", "5c8a1f4e2f8fb814b56fa185"]
+    "chefs": "5c8a1f292f8fb814b56fa184"
   },
   {
     "_id": "61779c1a68982cb5b3e59738",
     "name": "Potato Wedges",
     "deliveryTime": 40,
     "price": 330,
-    "rarity": "Available",
+    "availability": "Available",
     "priceDiscount": 20,
     "foodType": "Vegetarian",
     "type": "Sides",
@@ -76,14 +76,14 @@
         "day": 5
       }
     ],
-    "chefs": ["5c8a201e2f8fb814b56fa186", "5c8a1f292f8fb814b56fa184"]
+    "chefs": "5c8a1f292f8fb814b56fa184"
   },
   {
     "_id": "61779c1a68982cb5b3e59734",
     "name": "Mashed Potato",
     "deliveryTime": 30,
     "price": 330,
-    "rarity": "Available",
+    "availability": "Available",
     "foodType": "Vegetarian",
     "type": "Sides",
     "summary": "Very tasty Mashed Potato",
@@ -104,14 +104,14 @@
         "day": 2
       }
     ],
-    "chefs": ["5c8a22c62f8fb814b56fa18b", "5c8a201e2f8fb814b56fa186"]
+    "chefs": "5c8a22c62f8fb814b56fa18b"
   },
   {
     "_id": "61779c1a68982cb5b3e5973b",
     "name": "Assam Laksa",
     "deliveryTime": 60,
     "price": 480,
-    "rarity": "Available",
+    "availability": "Available",
     "priceDiscount": 50,
     "foodType": "Vegan",
     "type": "Main Dish",
@@ -147,14 +147,14 @@
         "day": 9
       }
     ],
-    "chefs": ["5c8a22c62f8fb814b56fa18b", "5c8a201e2f8fb814b56fa186"]
+    "chefs": "5c8a22c62f8fb814b56fa18b"
   },
   {
     "_id": "61779c1a68982cb5b3e59744",
     "name": "Double Decker Burger",
     "deliveryTime": 30,
     "price": 250,
-    "rarity": "Available",
+    "availability": "Available",
     "type": "Main Dish",
     "priceDiscount": 20,
     "foodType": "Vegetarian",
@@ -183,14 +183,14 @@
         "day": 5
       }
     ],
-    "chefs": ["5c8a23412f8fb814b56fa18c", "5c8a22c62f8fb814b56fa18b"]
+    "chefs": "5c8a22c62f8fb814b56fa18b"
   },
   {
     "_id": "61779c1a68982cb5b3e59740",
     "name": "Pasta",
     "deliveryTime": 40,
     "price": 260,
-    "rarity": "Available",
+    "availability": "Available",
     "priceDiscount": 20,
     "foodType": "Vegetarian",
     "type": "Sides",
@@ -233,14 +233,14 @@
         "day": 10
       }
     ],
-    "chefs": ["5c8a22c62f8fb814b56fa18b", "5c8a201e2f8fb814b56fa186"]
+    "chefs": "5c8a22c62f8fb814b56fa18b"
   },
   {
     "_id": "61779c1a68982cb5b3e5974a",
     "name": "Cheese Pizza (Large)",
     "deliveryTime": 40,
     "price": 250,
-    "rarity": "Available",
+    "availability": "Available",
     "priceDiscount": 20,
     "foodType": "Vegetarian",
     "type": "Main Dish",
@@ -269,14 +269,14 @@
         "day": 6
       }
     ],
-    "chefs": ["5c8a1f292f8fb814b56fa184", "5c8a23412f8fb814b56fa18c"]
+    "chefs": "5c8a1f292f8fb814b56fa184"
   },
   {
     "_id": "61779c1a68982cb5b3e59750",
     "name": "Masala Dosa",
     "deliveryTime": 30,
     "price": 90,
-    "rarity": "Available",
+    "availability": "Available",
     "priceDiscount": 20,
     "foodType": "Vegetarian",
     "type": "Main Dish",
@@ -305,14 +305,14 @@
         "day": 5
       }
     ],
-    "chefs": ["5c8a201e2f8fb814b56fa186", "5c8a1f292f8fb814b56fa184"]
+    "chefs": "5c8a1f292f8fb814b56fa184"
   },
   {
     "_id": "61779c1a68982cb5b3e59766",
     "name": "Fried Rice",
     "deliveryTime": 30,
     "price": 130,
-    "rarity": "Available",
+    "availability": "Available",
     "priceDiscount": 20,
     "foodType": "Vegetarian",
     "type": "Main Dish",
@@ -341,6 +341,6 @@
         "day": 5
       }
     ],
-    "chefs": ["5c8a201e2f8fb814b56fa186", "5c8a1f292f8fb814b56fa184"]
+    "chefs": "5c8a201e2f8fb814b56fa186"
   }
 ]

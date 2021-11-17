@@ -7,6 +7,7 @@ const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 const compression = require("compression");
 // const cors = require("cors");
 
@@ -26,7 +27,11 @@ const app = express();
 app.enable("trust proxy");
 
 app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "./views"));
+app.set("views", [
+  path.join(__dirname, "./views"),
+  path.join(__dirname, "./views/docs/"),
+  path.join(__dirname, "./views/admin/"),
+]);
 
 // 1) GLOBAL MIDDLEWARES
 
@@ -55,7 +60,7 @@ app.use("/api", limiter);
 
 app.post(
   "/webhook-checkout",
-  express.raw({ type: "application/json" }),
+  bodyParser.raw({ type: "application/json" }),
   bookingController.webhookCheckout
 );
 

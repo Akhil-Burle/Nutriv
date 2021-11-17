@@ -10,9 +10,15 @@
 
   height: 10rem;
   padding: 0 4.8rem;
+
   /* width: 100vw; */
-  position: relative;
+  position: fixed;
   /* height: 100vw; */
+  top: 0;
+  right: 0;
+  left: 0;
+
+  z-index: 999999999999999999;
 }
 
 .logo {
@@ -132,7 +138,7 @@
 .section-hero {
   background-color: #d2f1f5;
 
-  padding: 4.8rem 0 9.6rem 0;
+  padding: 18rem 0 9.6rem 0;
 }
 
 .hero {

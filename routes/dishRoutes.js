@@ -18,7 +18,7 @@ router
   .route("/monthly-plan/:year")
   .get(
     authController.protect,
-    authController.restrictTo("admin", "manager", "chef"),
+    authController.restrictTo("admin", "chef"),
     dishController.getMonthlyPlan
   );
 
@@ -27,12 +27,13 @@ router
   .get(dishController.getHotelsWithin);
 
 router.route("/distances/:latlng/unit/:unit").get(dishController.getDistances);
+
 router
   .route("/")
   .get(dishController.getAllDishes)
   .post(
-    authController.restrictTo("manager", "admin"),
     authController.protect,
+    authController.restrictTo("admin"),
     dishController.createDish
   );
 
@@ -41,12 +42,12 @@ router
   .get(dishController.getDish)
   .patch(
     authController.protect,
-    authController.restrictTo("admin", "manager"),
+    authController.restrictTo("admin"),
     dishController.updateDish
   )
   .delete(
     authController.protect,
-    authController.restrictTo("admin", "manager"),
+    authController.restrictTo("admin"),
     dishController.deleteDish
   );
 
