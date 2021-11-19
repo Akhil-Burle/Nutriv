@@ -37,7 +37,14 @@ exports.updateOne = (Model) =>
 
 exports.createOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    const doc = await Model.create(req.body);
+    console.log(req.body);
+    console.log(req.file);
+
+    const doc = req.body;
+    if (req.file) doc.imageCover = req.file.filename;
+    // const doc = await Model.create(req.body);
+
+    await Model.create(doc);
 
     res.status(201).json({
       status: "success",

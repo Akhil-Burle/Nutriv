@@ -43,3 +43,22 @@ export const verify = async (email, password) => {
     showAlert("error", err.response.data.message);
   }
 };
+
+export const addNewReview = async (review, rating) => {
+  try {
+    const res = await axios({
+      method: "POST",
+      url: `/api/v1/menu/${req.dish._id}/reviews`,
+      data: {
+        review,
+        rating,
+      },
+    });
+    if (res.data.status === "success") {
+      showAlert("success", "Review Added successfully!");
+      location.reload();
+    }
+  } catch (err) {
+    showAlert("error", err.response.data.message);
+  }
+};

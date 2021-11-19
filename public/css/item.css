@@ -530,3 +530,12 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
 }
  */
+
+.review-form {
+  max-width: 100px;
+  margin-left: 50%;
+}
+.reviewText {
+  margin-left: 50%;
+  font-size: 4rem;
+}

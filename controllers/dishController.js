@@ -1,7 +1,42 @@
 const Dish = require("../models/dishModel");
+const multer = require("multer");
+const sharp = require("sharp");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError");
 const factory = require("./handlerFactory.js");
+
+// const multerStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "public/img/dishes");
+//   },
+// });
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith("image")) {
+    cb(null, true);
+  } else {
+    cb(new AppError("Not an image! Please upload only images.", 400), false);
+  }
+};
+
+const upload = multer({ storage: multerStorage, fileFilter: multerFilter });
+
+exports.uploadDishPhoto = upload.single("imageCover");
+
+exports.resizeDishPhoto = catchAsync(async (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.filename = `dish-${Date.now()}.png`;
+
+  await sharp(req.file.buffer)
+    .resize(360, 240)
+    .toFormat("png")
+    .png({ quality: 90 })
+    .toFile(`public/img/dishes/${req.file.filename}`);
+
+  next();
+});
 
 exports.aliasTopDishes = (req, res, next) => {
   req.query.limit = "5";

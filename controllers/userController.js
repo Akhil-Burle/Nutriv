@@ -5,7 +5,7 @@ const catchAsync = require("./../utils/catchAsync");
 const AppError = require("./../utils/appError");
 const factory = require("./handlerFactory");
 
-// const multerStorage = multer.diskStorage({
+/* // const multerStorage = multer.diskStorage({
 //   destination: (req, file, cb) => {
 //     cb(null, 'public/img/users');
 //   },
@@ -43,7 +43,7 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
     .toFile(`public/img/users/${req.file.filename}`);
 
   next();
-});
+}); */
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};

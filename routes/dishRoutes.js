@@ -34,6 +34,8 @@ router
   .post(
     authController.protect,
     authController.restrictTo("admin"),
+    dishController.uploadDishPhoto,
+    dishController.resizeDishPhoto,
     dishController.createDish
   );
 

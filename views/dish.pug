@@ -79,3 +79,20 @@ block content
 
     section.section-map
         #map(data-availableIn=`${JSON.stringify(dish.availableIn)}`)
+    .container
+            .form-admin
+                .form-admin-text-box
+                    h2.heading-secondary=`Review ${dish.name}`
+                    p.form-admin-text Add a new dish to the menu. Please fill all the details properly, before submitting the form ensure everything is correct.
+                    form.form-admin--addNewReview.form-admin-form-admin
+                        div
+                            label(for='review') Review
+                            input#review(type='text' placeholder='Enter Review' required='')
+                        div
+                            label(for='rating') Rating
+                            input#rating(type='number' placeholder='120' min=0 max=5 required='')
+                        button.btn-add-dish.btn.btn--form-admin Add Review
+                            //
+                                <input type="checkbox" />
+                                <input type="number" />
+                .form-admin-img-box(role='img' aria-label='Food')

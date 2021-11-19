@@ -2,7 +2,7 @@
 // import "@babel/polyfill";
 // import { displayMap } from "./mapbox";
 import { login, logout } from "./login.js";
-import { signup, verify } from "./signup.js";
+import { signup, verify, addNewReview } from "./signup.js";
 import { updateSettings } from "./updateSettings.js";
 import { bookDish } from "./stripe.js";
 import { showAlert } from "./alerts.js";
@@ -14,6 +14,7 @@ const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
 const verifyForm = document.querySelector(".form--verify");
 const addNewDishForm = document.querySelector(".form-admin--addNewDish");
+const addNewReviewForm = document.querySelector(".form-admin--addNewReview");
 const logOutBtn = document.querySelector(".logout");
 const userDataForm = document.querySelector(".form-user-data");
 const userPasswordForm = document.querySelector(".form-user-password");
@@ -47,6 +48,17 @@ if (signupForm) {
     const photo = document.getElementById("photo").value;
     //   console.log(email, password, passwordConfirm, photo);
     signup(name, email, password, passwordConfirm, photo);
+  });
+}
+
+if (addNewReviewForm) {
+  addNewReviewForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const review = document.getElementById("review").value;
+    const rating = document.getElementById("rating").value;
+
+    //   console.log(rating, password, passwordConfirm, photo);
+    addNewReview(review, rating);
   });
 }
 
