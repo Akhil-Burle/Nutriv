@@ -1,31 +1,11 @@
 import { showAlert } from "./alerts.js";
 
-export const addNewDish = async (
-  name,
-  price,
-  deliveryTime,
-  summary,
-  availability,
-  type,
-  foodType,
-  chefs,
-  imageCover
-) => {
+export const addNewDish = async (data) => {
   try {
     const res = await axios({
       method: "POST",
       url: "/api/v1/menu",
-      data: {
-        name,
-        price,
-        deliveryTime,
-        summary,
-        availability,
-        type,
-        foodType,
-        chefs,
-        imageCover,
-      },
+      data,
     });
     if (res.data.status === "success") {
       showAlert("success", "Dish created Successfully!");

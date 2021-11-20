@@ -2,6 +2,12 @@ const catchAsync = require("./../utils/catchAsync.js");
 const AppError = require("./../utils/appError.js");
 const APIFeatures = require("../utils/apiFeatures");
 
+/**
+ *
+ * @param {*} Model
+ * @returns Errors
+ * @description Delete One document in different places.
+ */
 exports.deleteOne = (Model) =>
   catchAsync(async (req, res, next) => {
     const doc = await Model.findByIdAndDelete(req.params.id);
@@ -16,6 +22,12 @@ exports.deleteOne = (Model) =>
     });
   });
 
+/**
+ *
+ * @param {*} Model
+ * @returns Errors
+ * @description Update one document used in controllers.
+ */
 exports.updateOne = (Model) =>
   catchAsync(async (req, res, next) => {
     const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
@@ -35,6 +47,13 @@ exports.updateOne = (Model) =>
     });
   });
 
+/**
+ *
+ * @param {*} Model
+ * @returns Errors
+ * @description Create a new document used in controllers.
+ */
+
 exports.createOne = (Model) =>
   catchAsync(async (req, res, next) => {
     console.log(req.body);
@@ -53,6 +72,14 @@ exports.createOne = (Model) =>
       },
     });
   });
+
+/**
+ *
+ * @param {*} Model
+ * @param {Object} popOptions
+ * @returns Errors
+ * @description Get a single document on the basis of the Model.
+ */
 exports.getOne = (Model, popOptions) =>
   catchAsync(async (req, res, next) => {
     let query = Model.findById(req.params.id);
@@ -70,6 +97,13 @@ exports.getOne = (Model, popOptions) =>
       },
     });
   });
+
+/**
+ *
+ * @param {*} Model
+ * @returns Errors
+ * @description Get all the documents in a particular collection.
+ */
 
 exports.getAll = (Model) =>
   catchAsync(async (req, res, next) => {

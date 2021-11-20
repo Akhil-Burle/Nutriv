@@ -53,6 +53,7 @@ Ways of Writing root file:
   --color-grey-darker: #333;
   --para-font-size: 1.8rem;
   --para-line-height: 1.8;
+  --section-rotate: 6vw;
 }
 
 * {

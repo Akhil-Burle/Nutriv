@@ -12,6 +12,15 @@ const signToken = (id) => {
   });
 };
 
+/**
+ *
+ * @param {Object} user
+ * @param {Number} statusCode
+ * @param {Object} req
+ * @param {Object} res
+ * @description Creates a token and saves it.
+ */
+
 const createSendToken = (user, statusCode, req, res) => {
   const token = signToken(user._id);
 
@@ -35,6 +44,13 @@ const createSendToken = (user, statusCode, req, res) => {
   });
 };
 
+/**
+ *
+ * @params {Object} req
+ * @parmas {Object} res
+ * @parmas {method} next
+ * @description Creates a new user and passes all the arguments passed in the body.
+ */
 exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await User.create({
     name: req.body.name,
@@ -46,7 +62,9 @@ exports.signup = catchAsync(async (req, res, next) => {
   });
 
   // const newUser = await User.create(req.body);
-
+  /**
+   * @description Veirfy Token and send email to user for verifiication.
+   */
   const verifyToken = newUser.createEmailVerificationToken();
   await newUser.save({ validateBeforeSave: false });
 
@@ -126,6 +144,12 @@ exports.verify = catchAsync(async (req, res, next) => {
   });
 });
 
+/**
+ * @params {Object} req
+ * @parmas {Object} res
+ * @parmas {method} next
+ * @description Verify email if wasn't successfull during signup.
+ */
 exports.verifyEmail = catchAsync(async (req, res, next) => {
   const hashedEmailToken = crypto
     .createHash("sha256")
@@ -149,6 +173,13 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
 
   createSendToken(user, 200, req, res);
 });
+
+/**
+ * @params {Object} req
+ * @parmas {Object} res
+ * @parmas {method} next
+ * @description Login validated users.
+ */
 
 exports.login = catchAsync(async (req, res, next) => {
   const email = req.body.email;
@@ -232,6 +263,13 @@ exports.protect = catchAsync(async (req, res, next) => {
   next();
 });
 
+/**
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @description Logout logged in user.
+ */
+
 exports.logout = (req, res) => {
   res.cookie("jwt", "loggedout", {
     expires: new Date(Date.now() * 10 + 1000),
@@ -271,6 +309,13 @@ exports.isLoggedIn = async (req, res, next) => {
   }
 };
 
+/**
+ *
+ * @param  {...any} roles
+ * @returns All Errors \ true \ false
+ * @description Restrict routes to specific users.
+ */
+
 exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     // roles ['admin', 'lead-guide']. role='user'
@@ -283,6 +328,14 @@ exports.restrictTo = (...roles) => {
     next();
   };
 };
+
+/**
+ * @params {Object} req
+ * @parmas {Object} res
+ * @parmas {method} next
+ * @description Forgot password form and sending email to verified user.
+ * @returns All Errors.
+ */
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
   // Get user based on posted email:
@@ -328,6 +381,14 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     );
   }
 });
+
+/**
+ * @params {Object} req
+ * @parmas {Object} res
+ * @parmas {method} next
+ * @description Reset Password if token sent is correct.
+ * @returns All Errors.
+ */
 
 exports.resetPassword = catchAsync(async (req, res, next) => {
   // 1: Get user based on the token:

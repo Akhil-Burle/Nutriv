@@ -30,13 +30,13 @@ document.onkeydown = function (e) {
   }
 }; */
 
-var loader = document.querySelector(".loader");
+// var loader = document.querySelector(".loader");
 
-window.addEventListener("load", vanish);
+// window.addEventListener("load", vanish);
 
-function vanish() {
-  loader.classList.add("disppear");
-}
+// function vanish() {
+//   loader.classList.add("disppear");
+// }
 
 ///////////////////////////////////////////////////////////
 // Make mobile navigation work

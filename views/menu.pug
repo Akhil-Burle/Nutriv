@@ -2,6 +2,7 @@ extends base
 
 block append head
   link(rel="stylesheet", href="/css/menu.css")
+  script(src="/js/menu.js" defer='') 
 
 block append header
   include inc/_header
@@ -12,7 +13,7 @@ block content
       span.subheading Dishes
       h2.heading-secondary
         | Nutriv AI chooses from 1,000,000+ recipes
-      form
+      form.search-form
         input#search(type="text" class='search-bar' placeholder='Enter dish name')
         button.btn--search Search
     .container.grid.grid--3-cols.margin-bottom-medium

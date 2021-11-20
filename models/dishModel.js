@@ -115,6 +115,7 @@ const dishSchema = new mongoose.Schema(
       required: [true, "A dish must have a type"],
       enum: {
         values: [
+          "Starter",
           "Tapas",
           "Salad",
           "Soup",

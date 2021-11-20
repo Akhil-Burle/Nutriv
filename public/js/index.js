@@ -74,26 +74,20 @@ if (verifyForm) {
 if (addNewDishForm) {
   addNewDishForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const name = document.getElementById("name").value;
-    const price = document.getElementById("price").value;
-    const deliveryTime = document.getElementById("deliveryTime").value;
-    const summary = document.getElementById("summary").value;
-    const availability = document.getElementById("availability").value;
-    const type = document.getElementById("type").value;
-    const foodType = document.getElementById("foodType").value;
-    const chefs = document.getElementById("chefs").value;
-    const imageCover = document.getElementById("imageCover").value;
-    addNewDish(
-      name,
-      price,
-      deliveryTime,
-      summary,
-      availability,
-      type,
-      foodType,
-      chefs,
-      imageCover
-    );
+
+    const form = new FormData();
+    form.append("name", document.getElementById("name").value);
+    form.append("price", document.getElementById("price").value);
+    form.append("deliveryTime", document.getElementById("deliveryTime").value);
+    form.append("summary", document.getElementById("summary").value);
+    form.append("availability", document.getElementById("availability").value);
+    form.append("type", document.getElementById("type").value);
+    form.append("foodType", document.getElementById("foodType").value);
+    form.append("chefs", document.getElementById("chefs").value);
+    form.append("imageCover", document.getElementById("imageCover").files[0]);
+    console.log(form);
+
+    addNewDish(form);
   });
 }
 
