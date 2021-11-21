@@ -44,11 +44,11 @@ export const verify = async (email, password) => {
   }
 };
 
-export const addNewReview = async (review, rating) => {
+export const addNewReview = async (dishId, review, rating) => {
   try {
     const res = await axios({
       method: "POST",
-      url: `/api/v1/menu/${req.dish._id}/reviews`,
+      url: `/api/v1/menu/${dishId}/reviews`,
       data: {
         review,
         rating,

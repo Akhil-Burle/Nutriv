@@ -56,9 +56,6 @@ exports.updateOne = (Model) =>
 
 exports.createOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    console.log(req.body);
-    console.log(req.file);
-
     const doc = req.body;
     if (req.file) doc.imageCover = req.file.filename;
     // const doc = await Model.create(req.body);

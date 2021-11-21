@@ -77,8 +77,6 @@
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
-    "electron": "^16.0.0",
-    "electron-builder": "^22.13.1",
     "eslint": "^8.0.1",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",

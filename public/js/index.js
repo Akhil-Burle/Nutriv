@@ -56,9 +56,10 @@ if (addNewReviewForm) {
     event.preventDefault();
     const review = document.getElementById("review").value;
     const rating = document.getElementById("rating").value;
+    const { dishId } = event.target.dataset;
 
     //   console.log(rating, password, passwordConfirm, photo);
-    addNewReview(review, rating);
+    addNewReview(review, rating, dishId);
   });
 }
 

@@ -91,7 +91,7 @@ block content
                         div
                             label(for='rating') Rating
                             input#rating(type='number' placeholder='120' min=0 max=5 required='')
-                        button.btn-add-dish.btn.btn--form-admin Add Review
+                        button.btn-add-dish.btn.btn--form-admin(data-dish-id=`${dish.id}`) Add Review
                             //
                                 <input type="checkbox" />
                                 <input type="number" />
