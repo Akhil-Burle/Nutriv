@@ -5,6 +5,8 @@ include inc/_reviewCard
 block append head
     link(rel='stylesheet' href='/css/item.css')
     script(src="/js/item.js" defer='') 
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+
     //- script(src="/js/stripe.js" defer='') 
 
 block append header
@@ -21,7 +23,7 @@ block content
                     .item-gradient(color='orange')
                     .item-gradient(color='black')
                 img.item-logo(src='/img/favicon.png' alt='')
-                a.item-share(href='#')
+                a.share(href='#')
                     i.fas.fa-share-alt
                 img.item-shoe.item-show(src=`/img/dishes/${dish.imageCover}` alt='' color='blue')
                 p.item-rating

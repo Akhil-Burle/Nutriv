@@ -83,7 +83,7 @@ body {
   top: -15px;
 }
 
-.item-share {
+.share {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -98,12 +98,13 @@ body {
   transition: 0.5s;
 }
 
-.item-share:hover {
+.share:hover {
   transform: scale(1.1);
 }
 
-.item-share i {
+.share i {
   line-height: 50px;
+  font-size: 2rem;
 }
 
 .item-nike {
