@@ -22,6 +22,14 @@ module.exports = class Email {
           pass: process.env.YANDEX_PASSWORD,
         },
       });
+
+      // return nodemailer.createTransport({
+      //   service: "gmail",
+      //   auth: {
+      //     user: "burleakhil@gmail.com",
+      //     pass: "Akhil@2008",
+      //   },
+      // });
     }
 
     return nodemailer.createTransport({

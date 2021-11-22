@@ -99,11 +99,11 @@
     margin-left: 50%;
   } */
 
-  .signup {
+  .form {
     grid-template-columns: 3fr 2fr;
   }
 
-  .signup-form {
+  .form-form {
     grid-template-columns: 1fr;
   }
 
@@ -254,15 +254,15 @@
     grid: 1px;
   }
 
-  .signup {
+  .form {
     grid-template-columns: 1fr;
   }
 
-  .signup-text-box {
+  .form-text-box {
     padding: 4.2rem;
   }
 
-  .signup-img-box {
+  .form-img-box {
     height: 32rem;
     grid-row: 1;
   }
