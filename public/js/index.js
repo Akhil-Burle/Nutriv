@@ -1,6 +1,6 @@
 /* eslint-disable */
 // import "@babel/polyfill";
-// import { displayMap } from "./mapbox";
+// import { displayMap } from "./mapbox.js";
 import { login, logout } from "./login.js";
 import { signup, verify, addNewReview } from "./signup.js";
 import { updateSettings } from "./updateSettings.js";
@@ -23,8 +23,8 @@ const bookBtn = document.getElementById("book-dish");
 
 // DELEGATION
 // if (mapBox) {
-//   const locations = JSON.parse(mapBox.dataset.locations);
-//   displayMap(locations);
+//   const availableIn = JSON.parse(mapBox.dataset.availableIn);
+//   displayMap(availableIn);
 // }
 
 if (loginForm) {

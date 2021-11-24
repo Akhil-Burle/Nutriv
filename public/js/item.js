@@ -4,7 +4,12 @@ const shoes = document.querySelectorAll(".item-shoe");
 const gradients = document.querySelectorAll(".item-gradient");
 const shoeBg = document.querySelector(".item-shoeBackground");
 const price = document.querySelector(".item-price");
-const currentprice = price.textContent;
+const currentprice = price.textContent.split("₹")[1];
+
+// var map = L.map("map", {
+//   center: [51.505, -0.09],
+//   zoom: 13,
+// });
 
 let prevColor = "blue";
 let animationEnd = true;
@@ -20,7 +25,7 @@ function changeSize() {
 
   const active = document.querySelector(".item-active");
 
-  price.textContent = currentprice * active.textContent;
+  price.textContent = `₹${currentprice * active.textContent}`;
 }
 
 function changeColor() {

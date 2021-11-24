@@ -19,6 +19,7 @@ router.get("/verify", viewsController.getVerifyPage);
 router.get("/verifySuccessfull", viewsController.getVerifySuccessfull);
 
 router.get("/docs", viewsController.getDocs);
+router.get("/terms", viewsController.getTerms);
 
 router.post(
   "/submit-user-data",

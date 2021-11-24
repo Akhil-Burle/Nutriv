@@ -81,6 +81,9 @@ exports.getAccount = (req, res) => {
 exports.getDocs = (req, res) => {
   res.status(200).render("docs");
 };
+exports.getTerms = (req, res) => {
+  res.status(200).render("terms", { title: "Privacy & Terms" });
+};
 
 exports.getVerifyPage = (req, res) => {
   res.status(200).render("verifyForm", { title: "Verify email" });

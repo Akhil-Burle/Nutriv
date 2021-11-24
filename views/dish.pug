@@ -6,8 +6,8 @@ block append head
     link(rel='stylesheet' href='/css/item.css')
     script(src="/js/item.js" defer='') 
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-
-    //- script(src="/js/stripe.js" defer='') 
+    //- script(src='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js')
+    //- link(href='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet')
 
 block append header
     include inc/_header
@@ -27,11 +27,8 @@ block content
                     i.fas.fa-share-alt
                 img.item-shoe.item-show(src=`/img/dishes/${dish.imageCover}` alt='' color='blue')
                 p.item-rating
-                    ion-icon.item-star(name='star')
-                    ion-icon.item-star(name='star')
-                    ion-icon.item-star(name='star')
-                    ion-icon.item-star(name='star')
-                    ion-icon.item-star(name='star-half')
+                    each star in [1, 2, 3, 4, 5]
+                        ion-icon.item-star(name=`star`)
             .item-info
                 .item-shoeName
                     div
@@ -67,20 +64,22 @@ block content
                         a.item-buy(href='/login')
                             i.fas.fa-shopping-cart
                             | Login to book!
-                    h1.item-price=`${dish.price}`
+                    h1.item-price=`₹${dish.price}`
 
                     //- <div class="price">
                     //-     <i class="fas fa-dollar-sign"></i>
                     //-     <h1>189.99</h1>
                     //-     </div>
 
-    section.section-map
-        #map(data-availableIn=`${JSON.stringify(dish.availableIn)}`)
     section.section-reviews
         p.title Reviews
             .reviews
                 each review in dish.reviews
                     +reviewCard(review)
+    //- section.section-map
+    //-     #map
+
+
     //- .container
     //-         .form-admin
     //-             .form-admin-text-box

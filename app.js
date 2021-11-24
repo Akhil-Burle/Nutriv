@@ -29,7 +29,7 @@ app.enable("trust proxy");
 app.set("view engine", "pug");
 app.set("views", [
   path.join(__dirname, "./views"),
-  path.join(__dirname, "./views/docs/"),
+  path.join(__dirname, "./views/additional templates/"),
   path.join(__dirname, "./views/admin/"),
 ]);
 

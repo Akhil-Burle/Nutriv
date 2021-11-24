@@ -1,19 +1,6 @@
-/* const availableIn = JSON.parse(
-  document.getElementById("map").dataset.availablein
-);
-
-console.log(availableIn);
-
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiYWtoaWwtYiIsImEiOiJja3ZrajNzYzc4eDN2Mm9zNzU1Mml4ZTN4In0.n3L75FvFC4xSM3FJQ0QGXg";
-var map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/mapbox/streets-v11",
-}); */
-
-export const displayMap = (locations) => {
+export const displayMap = (availableIn) => {
   mapboxgl.accessToken =
-    "pk.eyJ1IjoiYWtoaWwtYiIsImEiOiJja3ZrajNzYzc4eDN2Mm9zNzU1Mml4ZTN4In0.n3L75FvFC4xSM3FJQ0QGXg";
+    "pk.eyJ1IjoiYWtoaWwtYiIsImEiOiJja3ZramQ1M3Q0cWhwMnFvazk2MXB6ZzJnIn0.rv_zio43VAsUEIx9sKphGQ";
 
   var map = new mapboxgl.Map({
     container: "map",
@@ -26,7 +13,7 @@ export const displayMap = (locations) => {
 
   const bounds = new mapboxgl.LngLatBounds();
 
-  locations.forEach((loc) => {
+  availableIn.forEach((loc) => {
     // Create marker
     const el = document.createElement("div");
     el.className = "marker";
