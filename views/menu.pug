@@ -41,7 +41,7 @@ block content
                 ion-icon.meal-icon(name='card')
                 span
                   | &#x20B9;
-                  strong=`${dish.price}`
+                  strong=`${dish.price} ${dish.price - dish.priceDiscount}`
             div.buttons
               a.book-now(href=`menu/${dish.slug}`) View details
               if user
