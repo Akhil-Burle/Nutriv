@@ -398,6 +398,20 @@ body {
 /* .price {
   text-decoration: line-through;
 } */
+/* 
+.card-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sale-text {
+  align-self: center;
+  margin-right: 2.5rem;
+  font-size: 2rem;
+  padding: 1.5rem;
+  background-color: var(--color-primary);
+  border-radius: 12px;
+} */
 
 /* ---------------------------------------------------------------------------------------------*/
 /*  MEALS SECTION END*/

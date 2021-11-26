@@ -124,16 +124,15 @@ if (userPasswordForm) {
   });
 }
 
-if (bookBtn) {
+if (bookBtn)
   bookBtn.addEventListener("click", (e) => {
     e.target.textContent = "Processing...";
     const { dishId } = e.target.dataset;
     bookDish(dishId);
   });
 
-  const alertMessage = document.querySelector("body").dataset.alert;
-  if (alertMessage) showAlert("success", alertMessage, 20);
-}
+const alertMessage = document.querySelector("body").dataset.alert;
+if (alertMessage) showAlert("success", alertMessage, 20);
 
 /* if (menuBookBtn) {
   menuBookBtn.addEventListener("click", (e) => {
