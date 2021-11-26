@@ -8,12 +8,15 @@ head
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='css/hightlightjs-dark.css')
     link(rel='stylesheet' href='css/docs.css')
+    link(rel='apple-touch-icon' href='/img/apple.png')
+    link(rel='icon' href='/img/favicon.png')
+    link(rel='manifest' href='/manifest.webmanifest')
     script.
         hljs.initHighlightingOnLoad();
 .left-menu
     .content-logo
         .logo
-            img(alt='platform by Emily van den Heever from the Noun Project' title='platform by Emily van den Heever from the Noun Project' src='img/favicon.png' height='32')
+            img(alt='platform by Emily van den Heever from the Noun Project' title='platform by Emily van den Heever from the Noun Project' src='/img/favicon.png' height='32')
             span API Documentation
         button#button-menu-mobile.burger-menu-icon
             svg(width='34' height='34' viewbox='0 0 100 100')
@@ -32,6 +35,10 @@ head
                 a GET STARTED
             li.scroll-to-link(data-target='content-get-characters')
                 a Dishes
+            li.scroll-to-link(data-target='content-get-users')
+                a Users
+            li.scroll-to-link(data-target='content-get-auth')
+                a Authentication
             li.scroll-to-link(data-target='content-errors')
                 a Errors
 .content-page
@@ -42,19 +49,19 @@ head
             pre.
                 API Endpoint
 
-                https://nutriv.ml/api/v1
+                https://{host}/api/v1
 
             p
                 | The Nutriv API contains endpoints for Dishes, Users, and Reviews.
         #content-get-characters.overflow-hidden.content-section
             h2 Get dishes
-            <pre><code class="bash">curl --location -g --request GET 'nutriv.ml/api/v1/menu/</code></pre>
+            <pre><code class="bash">curl --location -g --request GET '{host}/api/v1/menu/</code></pre>
 
             p
                 | To get characters you need to make a GET call to the following url
                 | :
                 br
-                code.higlighted.break-word nutriv.ml/api/v1/menu/
+                code.higlighted.break-word {host}/api/v1/menu/
             br
             h4 QUERY PARAMETERS
             table.central-overflow-x
@@ -106,13 +113,13 @@ head
         // Get particular dish
         #content-get-characters.overflow-hidden.content-section
             h2 Get Dish
-            <pre><code class="bash">curl --location -g --request GET 'nutriv.ml/api/v1/menu/id'</code></pre>
+            <pre><code class="bash">curl --location -g --request GET '{host}/api/v1/menu/id'</code></pre>
 
             p
                 | To get a particular dish you need to make a GET call to the
                 | following url :
                 br
-                code.higlighted.break-word nutriv.ml/api/v1/menu/id
+                code.higlighted.break-word {host}/api/v1/menu/id
             br
             h4 QUERY PARAMETERS
             table.central-overflow-x
@@ -132,24 +139,24 @@ head
         #content-get-characters.overflow-hidden.content-section
             h2 Add new Dish
             pre.
-                curl --location -g --request POST 'nutriv.ml/api/v1/menu' \
+                curl --location -g --request POST '{host}/api/v1/menu' \
                 --header 'Content-Type: application/json' \
                 --data-raw '{
-                        "name": "Name",
-                        "price": `price`,
-                        "rarity": "Available / Not Available",
-                        "foodType": "Vegetarian / Non Vegetarian.",
-                        "summary": "Dish Summary.",
-                        "description": "Description of the dish.",
-                        "availableIn": [ locations ],
-                        "chefs": [chef id] 
+                    "name": "Name",
+                    "price": `price`,
+                    "rarity": "Available / Not Available",
+                    "foodType": "Vegetarian / Non Vegetarian.",
+                    "summary": "Dish Summary.",
+                    "description": "Description of the dish.",
+                    "availableIn": [ locations ],
+                    "chefs": [chef id] 
                     },'
 
             p
                 | To get a particular dish you need to make a POST call to the
                 | following url :
                 br
-                code.higlighted.break-word nutriv.ml/api/v1/menu
+                code.higlighted.break-word {host}/api/v1/menu
             br
             h4 Authentication
             table.central-overflow-x
@@ -159,7 +166,7 @@ head
                         th Token
                 tbody
                     tr
-                        td Bearer Token
+                        td Bearer Token / Cookie
                         td {{token}}
             h4 Headers
             table.central-overflow-x
@@ -194,7 +201,7 @@ head
         #content-get-characters.overflow-hidden.content-section
             h2 Update Dish
             pre.
-                 curl --location -g --request PATCH 'nutriv.ml/api/v1/menu/id' \
+                curl --location -g --request PATCH '{host}/api/v1/menu/id' \
                 --header 'Content-Type: application/json' \
                 --form 'imageCover=@"/path/to/file"' \
                 --form 'images=@"/path/to/file"' \
@@ -206,7 +213,7 @@ head
                 | To update a particular dish you need to make a PATCH call to the
                 | following url :
                 br
-                code.higlighted.break-word nutriv.ml/api/v1/menu/id
+                code.higlighted.break-word {host}/api/v1/menu/id
             br
             h4 Authentication
             table.central-overflow-x
@@ -216,7 +223,7 @@ head
                         th Token
                 tbody
                     tr
-                        td Bearer Token
+                        td Bearer Token / Cookie
                         td {{token}}
             h4 Headers
             table.central-overflow-x
@@ -239,14 +246,14 @@ head
         #content-get-characters.overflow-hidden.content-section
             h2 Delete Dish
             pre.
-                curl --location -g --request DELETE 'nutriv.ml/api/v1/menu/id'
+                curl --location -g --request DELETE '{host}/api/v1/menu/id'
 
 
             p
                 | To get a particular dish you need to make a DELETE call to the
                 | following url :
                 br
-                code.higlighted.break-word nutriv.ml/api/v1/menu/id
+                code.higlighted.break-word {host}/api/v1/menu/id
             br
             h4 QUERY PARAMETERS
             table.central-overflow-x
@@ -270,20 +277,390 @@ head
                         th Token
                 tbody
                     tr
-                        td Bearer Token
+                        td Bearer Token / Cookie
                         td {{token}}
         // Get top 5 cheap dishes
         #content-get-characters.overflow-hidden.content-section
             h2 Get TOP 5 cheap dishes
             pre.
-                curl --location -g --request GET 'nutriv.ml/api/v1/menu/top-5-cheap'
+                curl --location -g --request GET '{host}/api/v1/menu/top-5-cheap'
 
             p
                 | To get a particular dish you need to make a DELETE call to the
                 | following url :
                 br
-                code.higlighted.break-word nutriv.ml/api/v1/menu/top-5-cheap
+                code.higlighted.break-word {host}/api/v1/menu/top-5-cheap
             br
+        #content-get-characters.overflow-hidden.content-section
+            h2 Get Distances to Hotels From Point
+            pre.
+                curl --location -g --request GET '{{host}}api/v1/menu/distances/34.111745,-118.113491/unit/km'
+
+            p
+                | To get hotels near you, make a GET call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/tours/distances/34.111745,-118.113491/unit/km
+            br
+        //- Users!!!!!!--------------------------------------------
+        #content-get-users.overflow-hidden.content-section
+            h2 Get All Users
+            <pre><code class="bash">curl --location -g --request GET '{host}api/v1/users?role=user'/code></pre>
+
+            p
+                | To get users you need to make a GET call to the following url
+                | :
+                br
+                code.higlighted.break-word {host}api/v1/users?role=user
+            br
+            h4 QUERY PARAMETERS
+            table.central-overflow-x
+                thead
+                    tr
+                        th Field
+                        th Type
+                        th Description
+                tbody
+                    tr
+                        td role
+                        td String
+                        td (optional) Find the dishes by role (user, chef, admin).
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+        // Get particular dish
+        #content-get-users.overflow-hidden.content-section
+            h2 Get User
+            <pre><code class="bash">curl --location -g --request GET '{host}/api/v1/users/userId'</code></pre>
+
+            p
+                | To get a particular user you need to make a GET call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/users/userId
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+        // Add new dish
+        #content-get-users.overflow-hidden.content-section
+            h2 Update User
+            pre.
+                curl --location -g --request PATCH '{{URL}}api/v1/users/5c8a23c82f8fb814b56fa18d' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "role": "user"
+                }'
+
+            p
+                | To update a particular user you need to make a PATCH call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/users/userId
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td {{token}}
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+                        h4 Body
+            p
+                | The data which is to be updated like:
+                br
+                |             {
+                br
+                |             role:chef
+                br
+                |             }
+
+        // Get current user
+        #content-get-users.overflow-hidden.content-section
+            h2 Get current User
+            pre curl --location -g --request GET '{host}api/v1/me'
+
+            p
+                | To get the current logged in user you need to make a GET call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/me
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td {{token}}
+        // Update Current User
+        #content-get-users.overflow-hidden.content-section
+            h2 Update Current User
+            pre.
+                curl --location -g --request PATCH '{host}/api/v1/updateMe'
+            p
+                | To update the currently logged in user you need to make a PATCH call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/updateMe
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td {{token}}
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+            h4 Body
+            p.
+                {
+                    "name": "Example",
+                    "role": "chef"
+                }
+
+        // Delete current user
+        #content-get-users.overflow-hidden.content-section
+            h2 Delete current user
+            pre.
+                curl --location -g --request GET '{host}/api/v1/deleteMe'
+
+            p
+                | To delete the currently logged in user you need to make a DELETE call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/deleteMe
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+            br
+        //- Auth!!!!!!--------------------------------------------
+        #content-get-auth.overflow-hidden.content-section
+            h2 Sign Up
+            pre.
+                curl --location -g --request POST '{host}/api/v1/users/signup' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "name": "NEW HACKER",
+                    "email": "newhacker@hacker.com",
+                    "password": "pass1234",
+                    "passwordConfirm": "pass1234",
+                    "role": "admin"
+                }'
+
+            p
+                | To signup you need to make a POST call to the following url
+                | :
+                br
+                code.higlighted.break-word {host}api/v1/users/signup
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+            h4 Body
+            p.
+                {
+                    "name": "NEW HACKER",
+                    "email": "newhacker@hacker.com",
+                    "password": "pass1234",
+                    "passwordConfirm": "pass1234",
+                    "role": "admin"
+                }
+
+        // Login
+        #content-get-auth.overflow-hidden.content-section
+            h2 Login
+            pre.
+                curl --location -g --request POST '{host}api/v1/users/login' \
+                --header 'Content-Type: application/x-www-form-urlencoded' \
+                --data-urlencode 'email=admin@natours.io' \
+                --data-urlencode 'password=ksQu6wV8-69ebDy.pwH'
+
+            p
+                | To login you need to make a POST call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/users/login
+            br
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/x-www-form-urlencoded
+                        h4 Body
+        // Forgot Password
+        #content-get-auth.overflow-hidden.content-section
+            h2 Forgot Password
+            pre.
+                curl --location -g --request POST '{host}api/v1/users/forgotPassword' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "email": "test3@example.com"
+                }'
+
+            p
+                | To get email token for password you need to make a POST call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/users/forgotPassword
+            br
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+            h4 Body
+            p
+                | The data which is to be updated like:
+                br
+                |             {
+                br
+                |             "email":"test@example.com"
+                br
+                |             }
+
+        // Reset Password
+        #content-get-auth.overflow-hidden.content-section
+            h2 Reset Password
+            pre.
+                    curl --location -g --request PATCH '{{URL}}api/v1/users/resetPassword/1652bfc347b939d3d19cea352d231d6dbe6dfef0884e68e6c61629019c44b9ca' \
+                    --header 'Content-Type: application/json' \
+                    --data-raw '{
+                        "password": "newpassword",
+                        "passwordConfirm": "newpassword"
+                    }'
+
+            p
+                | To get the current logged in user you need to make a GET call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/users/resetPassword/token
+            br
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+            h4 Body
+            p
+                | The data which is to be updated like:
+                br
+                |             {
+                br
+                |             "password":"newPass"
+                |             "passwordConfirm":"passwordConfirm"
+                br
+                |             }
+
+        // Update current user password
+        #content-get-auth.overflow-hidden.content-section
+            h2 Update current user password
+            pre.
+                curl --location -g --request PATCH '{{URL}}api/v1/users/updateMyPassword' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "passwordCurrent": "pass1234",
+                    "password": "newpassword",
+                    "passwordConfirm": "newpassword"
+                }'
+            p
+                | To update the currently logged in user password you need to make a POST call to the
+                | following url :
+                br
+                code.higlighted.break-word {host}/api/v1/users/updateMyPassword
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td {{token}}
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+            h4 Body
+            p.
+            p
+                | The data which is to be updated like:
+                br
+                |             {
+                br
+                |             "passwordCurrent":"currentPassword"
+                |             "password":"newPass"
+                |             "passwordConfirm":"newPass"
+                br
+                |             }
+
         #content-errors.overflow-hidden.content-section
             h2 Errors
             p The Westeros API uses the following error codes:
