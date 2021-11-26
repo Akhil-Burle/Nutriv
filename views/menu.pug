@@ -20,6 +20,7 @@ block content
       each dish in dishes
         .meal
           img.menu-logo(src="img/favicon.png", alt="logo")
+            //- p.sale-text SALE
           img.meal-img(src=`img/dishes/${dish.imageCover}` alt=`${dish.name}`)
           .meal-content
             .meal-tags
@@ -41,7 +42,7 @@ block content
                 ion-icon.meal-icon(name='card')
                 span
                   | &#x20B9;
-                  strong=`${dish.price} ${dish.price - dish.priceDiscount}`
+                  strong=`${dish.price - 20 / 100 * dish.price}`
             div.buttons
               a.book-now(href=`menu/${dish.slug}`) View details
               if user
