@@ -16,8 +16,8 @@ const verifyForm = document.querySelector(".form--verify");
 const addNewDishForm = document.querySelector(".form-admin--addNewDish");
 const addNewReviewForm = document.querySelector(".form-admin--addNewReview");
 const logOutBtn = document.querySelector(".logout");
-const userDataForm = document.querySelector(".form-user-data");
-const userPasswordForm = document.querySelector(".form-user-password");
+const userDataForm = document.querySelector(".form-account-user-data");
+const userPasswordForm = document.querySelector(".form-account-user-password");
 const bookBtn = document.getElementById("book-dish");
 // const menuBookBtn = document.querySelector(".book-now");
 
@@ -45,9 +45,9 @@ if (signupForm) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const passwordConfirm = document.getElementById("confirm-password").value;
-    const photo = document.getElementById("photo").value;
+    // const photo = document.getElementById("photo").value;
     //   console.log(email, password, passwordConfirm, photo);
-    signup(name, email, password, passwordConfirm, photo);
+    signup(name, email, password, passwordConfirm);
   });
 }
 
@@ -92,22 +92,42 @@ if (addNewDishForm) {
   });
 }
 
-if (userDataForm) {
+if (loginForm)
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    login(email, password);
+  });
+
+if (logOutBtn) logOutBtn.addEventListener("click", logout);
+
+if (loginForm)
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    login(email, password);
+  });
+
+if (logOutBtn) logOutBtn.addEventListener("click", logout);
+
+if (userDataForm)
   userDataForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const form = new FormData();
     form.append("name", document.getElementById("name").value);
-    form.append("email", document.getElementById("email").value);
+    // form.append("email", document.getElementById("email").value);
     form.append("photo", document.getElementById("photo").files[0]);
 
     updateSettings(form, "data");
   });
-}
 
-if (userPasswordForm) {
+if (userPasswordForm)
   userPasswordForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    document.querySelector(".btn--save-password").textContent = "Updating...";
+    document.querySelector(".btn-account--save-password").textContent =
+      "Updating...";
 
     const passwordCurrent = document.getElementById("password-current").value;
     const password = document.getElementById("password").value;
@@ -117,12 +137,12 @@ if (userPasswordForm) {
       "password"
     );
 
-    document.querySelector(".btn--save-password").textContent = "Save password";
+    document.querySelector(".btn-account--save-password").textContent =
+      "Save password";
     document.getElementById("password-current").value = "";
     document.getElementById("password").value = "";
     document.getElementById("password-confirm").value = "";
   });
-}
 
 if (bookBtn)
   bookBtn.addEventListener("click", (e) => {

@@ -62,10 +62,10 @@ Ways of Writing root file:
   box-sizing: 0;
 }
 
-*:focus {
+/* *:focus {
   outline: none;
   box-shadow: 0 0 0 0.8rem rgba(31, 187, 207, 0.596);
-}
+} */
 
 ::-moz-selection {
   background-color: var(--color-primary);

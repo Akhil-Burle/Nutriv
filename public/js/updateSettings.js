@@ -1,9 +1,5 @@
 /* eslint-disable */
-// import axios from "axios";
-// import { showAlert } from "./alerts";
-
-const userDataForm = document.querySelector(".form-user-data");
-const userPasswordForm = document.querySelector(".form-user-password");
+import { showAlert } from "./alerts.js";
 
 // type is either 'password' or 'data'
 export const updateSettings = async (data, type) => {
@@ -21,6 +17,7 @@ export const updateSettings = async (data, type) => {
 
     if (res.data.status === "success") {
       showAlert("success", `${type.toUpperCase()} updated successfully!`);
+      location.reload();
     }
   } catch (err) {
     showAlert("error", err.response.data.message);

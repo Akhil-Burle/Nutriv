@@ -34,7 +34,7 @@ block content
                     div
                         h1.item-big=`${dish.name}`
                         span.item-new=`${String(dish.ratingsAverage).slice(0,3)} / 5 (${dish.ratingsQuantity})`
-                        
+
                     p.item-small=`${dish.foodType} | ${dish.type}`
                     p.item-small=`Delivered In: ${dish.deliveryTime} Minutes`
                 .item-description
@@ -64,7 +64,7 @@ block content
                         a.item-buy(href='/login')
                             i.fas.fa-shopping-cart
                             | Login to book!
-                    h1.item-price=`₹${dish.price}`
+                    h1.item-price=`₹${user.isFirstOrder === true ? '0':dish.price}`
 
                     //- <div class="price">
                     //-     <i class="fas fa-dollar-sign"></i>

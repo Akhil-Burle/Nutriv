@@ -1,7 +1,7 @@
 // import axios from "axios";
 import { showAlert } from "./alerts.js";
 
-export const signup = async (name, email, password, passwordConfirm, photo) => {
+export const signup = async (name, email, password, passwordConfirm) => {
   try {
     const res = await axios({
       method: "POST",
@@ -11,7 +11,6 @@ export const signup = async (name, email, password, passwordConfirm, photo) => {
         email: email,
         password: password,
         passwordConfirm: passwordConfirm,
-        photo: photo,
       },
     });
 

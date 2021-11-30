@@ -75,7 +75,7 @@ exports.getSignupForm = (req, res) => {
 };
 
 exports.getAccount = (req, res) => {
-  res.status(200).render("account");
+  res.status(200).render("account", { title: "Your Account" });
 };
 
 exports.getDocs = (req, res) => {

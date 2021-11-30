@@ -181,6 +181,9 @@ const dishSchema = new mongoose.Schema(
       },
     ],
     chefs: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
+    currentprice: {
+      type: String,
+    },
   },
   {
     toJSON: { virtuals: true },

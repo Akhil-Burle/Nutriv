@@ -59,6 +59,7 @@ exports.createOne = (Model) =>
     const doc = req.body;
     if (req.file) doc.imageCover = req.file.filename;
     // const doc = await Model.create(req.body);
+    req.user.isFirstOrder = false;
 
     await Model.create(doc);
 

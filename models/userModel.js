@@ -33,6 +33,7 @@ Photo
 */
   photo: {
     type: String,
+    default: "default.jpg",
   },
 
   /*
@@ -89,6 +90,11 @@ Delete user or active
     type: Boolean,
     default: true,
     select: false,
+  },
+
+  isFirstOrder: {
+    type: Boolean,
+    default: true,
   },
 
   /*

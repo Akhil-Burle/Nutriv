@@ -5,7 +5,12 @@ const authController = require("./../controllers/authController.js");
 
 const router = express.Router();
 
-router.post("/signup", authController.signup);
+router.post(
+  "/signup",
+  userController.uploadUserPhoto,
+  userController.resizeUserPhoto,
+  authController.signup
+);
 router.post("/verify", authController.verify);
 router.get("/verifyEmail/:token", authController.verifyEmail);
 router.post("/login", authController.login);
@@ -23,8 +28,8 @@ router.get("/me", userController.getMe, userController.getUser);
 
 router.patch(
   "/updateMe",
-  // userController.uploadUserPhoto,
-  // userController.resizeUserPhoto,
+  userController.uploadUserPhoto,
+  userController.resizeUserPhoto,
   userController.updateMe
 );
 router.delete("/deleteMe", userController.deleteMe);
