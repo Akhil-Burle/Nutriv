@@ -89,6 +89,13 @@ exports.getVerifyPage = (req, res) => {
   res.status(200).render("verifyForm", { title: "Verify email" });
 };
 
+exports.getForgotPasswordForm = (req, res) => {
+  res.status(200).render("forgotPassword", { title: "Forgot Password" });
+};
+exports.getResetPasswordForm = (req, res) => {
+  res.status(200).render("resetPassword", { title: "Reset Your Password" });
+};
+
 exports.getMyBookings = catchAsync(async (req, res, next) => {
   // Find all bookings:
   const bookings = await Booking.find({ user: req.user.id });

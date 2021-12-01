@@ -235,6 +235,7 @@ body {
   color: var(--color-grey-darker);
   font-weight: 600;
   margin-bottom: 3.2rem;
+  text-transform: capitalize;
 }
 
 .meal-attributes {

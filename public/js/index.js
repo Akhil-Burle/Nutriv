@@ -7,6 +7,7 @@ import { updateSettings } from "./updateSettings.js";
 import { bookDish } from "./stripe.js";
 import { showAlert } from "./alerts.js";
 import { addNewDish } from "./dashboard.js";
+import { forgotPassword, resetPassword } from "./password.js";
 
 // DOM ELEMENTS
 // const mapBox = document.getElementById("map");
@@ -14,6 +15,10 @@ const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
 const verifyForm = document.querySelector(".form--verify");
 const addNewDishForm = document.querySelector(".form-admin--addNewDish");
+const forgotPasswordForm = document.querySelector(
+  ".form-admin--forgotPassword"
+);
+const resetPasswordForm = document.querySelector(".form-admin--resetPassword");
 const addNewReviewForm = document.querySelector(".form-admin--addNewReview");
 const logOutBtn = document.querySelector(".logout");
 const userDataForm = document.querySelector(".form-account-user-data");
@@ -89,6 +94,23 @@ if (addNewDishForm) {
     console.log(form);
 
     addNewDish(form);
+  });
+}
+
+if (forgotPasswordForm) {
+  forgotPasswordForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("forgotPasswordEmail").value;
+    forgotPassword(email);
+  });
+}
+if (resetPasswordForm) {
+  resetPasswordForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const newPassword = document.getElementById("newPassword").value;
+    const confirmNewPassword =
+      document.getElementById("confirmNewPassword").value;
+    resetPassword(newPassword, confirmNewPassword);
   });
 }
 
