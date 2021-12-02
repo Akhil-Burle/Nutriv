@@ -18,7 +18,8 @@ router.get("/my-orders", authController.protect, viewsController.getMyBookings);
 router.get("/verify", viewsController.getVerifyPage);
 router.get("/verifySuccessfull", viewsController.getVerifySuccessfull);
 router.get("/forgotPassword", viewsController.getForgotPasswordForm);
-router.get("/resetPassword", viewsController.getResetPasswordForm);
+router.get("/forgotPasswordMessage", viewsController.getForgotPasswordMessage);
+router.get("/resetPassword/:token", viewsController.getResetPasswordForm);
 
 router.get("/docs", viewsController.getDocs);
 router.get("/terms", viewsController.getTerms);

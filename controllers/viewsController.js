@@ -65,6 +65,12 @@ exports.getVerifySuccessfull = (req, res) => {
     text: "Your account was successfully verifed! Place your first order for free!!",
   });
 };
+exports.getForgotPasswordMessage = (req, res) => {
+  res.status(200).render("message", {
+    title: "Verification Successfull",
+    text: "Email successfully please click on the link sent. Please check your spam folder if you can't find it in your inbox.",
+  });
+};
 
 exports.getLoginForm = (req, res) => {
   res.status(200).render("login", { title: "Login" });

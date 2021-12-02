@@ -12,7 +12,7 @@ export const forgotPassword = async (email) => {
 
     if (res.data.status === "success") {
       showAlert("success", "Email sent successfully");
-      //   location.assign("/emailVerify");
+      location.assign("/forgotPasswordMessage");
     }
   } catch (err) {
     showAlert("error", err.response.data.message);
@@ -23,7 +23,7 @@ export const resetPassword = async (newPassword, confirmNewPassword) => {
   try {
     const res = await axios({
       method: "PATCH",
-      url: "/api/v1/users/resetPassword",
+      url: `/api/v1/users/resetPassword/${window.location.href.split("/")[4]}`,
       data: {
         password: newPassword,
         passwordConfirm: confirmNewPassword,
@@ -32,7 +32,7 @@ export const resetPassword = async (newPassword, confirmNewPassword) => {
 
     if (res.data.status === "success") {
       showAlert("success", "Password Changed successfully!");
-      //   location.assign("/emailVerify");
+      location.assign("/me");
     }
   } catch (err) {
     showAlert("error", err.response.data.message);

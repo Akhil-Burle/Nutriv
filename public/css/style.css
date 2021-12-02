@@ -58,8 +58,8 @@ input[type="file"] {
   left: 50%;
   bottom: 30px;
   font-size: 3rem;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  -webkit-animation: fadein 0.5s, fadeout 5s 5s;
+  animation: fadein 0.5s, fadeout 5s 5s;
   border-radius: 30px;
 }
 .alert--success {
