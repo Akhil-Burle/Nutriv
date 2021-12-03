@@ -1,4 +1,4 @@
-import { showAlert } from "./alerts.js";
+import { showAlert } from "../alerts.js";
 
 export const forgotPassword = async (email) => {
   try {

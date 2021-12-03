@@ -1,13 +1,14 @@
 /* eslint-disable */
 // import "@babel/polyfill";
 // import { displayMap } from "./mapbox.js";
-import { login, logout } from "./login.js";
-import { signup, verify, addNewReview } from "./signup.js";
-import { updateSettings } from "./updateSettings.js";
-import { bookDish } from "./stripe.js";
+import { login, logout } from "./functions/login.js";
+import { signup, verify } from "./functions/signup.js";
+import { updateSettings } from "./functions/updateSettings.js";
+import { bookDish } from "./functions/stripe.js";
+import { addNewReview } from "./functions/reviews.js";
 import { showAlert } from "./alerts.js";
-import { addNewDish } from "./dashboard.js";
-import { forgotPassword, resetPassword } from "./password.js";
+import { addNewDish } from "./functions/dashboard.js";
+import { forgotPassword, resetPassword } from "./functions/password.js";
 
 // DOM ELEMENTS
 // const mapBox = document.getElementById("map");
@@ -15,11 +16,11 @@ const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
 const verifyForm = document.querySelector(".form--verify");
 const addNewDishForm = document.querySelector(".form-admin--addNewDish");
+const addNewReviewButton = document.getElementById("addNewReviewButton");
 const forgotPasswordForm = document.querySelector(
   ".form-admin--forgotPassword"
 );
 const resetPasswordForm = document.querySelector(".form-admin--resetPassword");
-const addNewReviewForm = document.querySelector(".form-admin--addNewReview");
 const logOutBtn = document.querySelector(".logout");
 const userDataForm = document.querySelector(".form-account-user-data");
 const userPasswordForm = document.querySelector(".form-account-user-password");
@@ -55,15 +56,12 @@ if (signupForm) {
     signup(name, email, password, passwordConfirm);
   });
 }
-
-if (addNewReviewForm) {
-  addNewReviewForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+if (addNewReviewButton) {
+  addNewReviewButton.addEventListener("click", (event) => {
     const review = document.getElementById("review").value;
     const rating = document.getElementById("rating").value;
+    event.preventDefault();
     const { dishId } = event.target.dataset;
-
-    //   console.log(rating, password, passwordConfirm, photo);
     addNewReview(review, rating, dishId);
   });
 }

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { showAlert } from "./alerts.js";
+import { showAlert } from "../alerts.js";
 
 // type is either 'password' or 'data'
 export const updateSettings = async (data, type) => {

@@ -5,7 +5,32 @@ const gradients = document.querySelectorAll(".item-gradient");
 const shoeBg = document.querySelector(".item-shoeBackground");
 const price = document.querySelector(".item-price");
 const currentprice = price.textContent.split("₹")[1];
+/* const addNewReviewButton = document.querySelector(".addNewReview");
 
+addNewReviewButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  const markup = `
+      .container
+                .form-admin
+                    .form-admin-text-box
+                        h2.heading-secondary= Review 
+                        p.form-admin-text Add a new dish to the menu. Please fill all the details properly, before submitting the form ensure everything is correct.
+                        form.form-admin--addNewReview.form-admin-form-admin
+                            div
+                                label(for='review') Review
+                                input#review(type='text' placeholder='Enter Review' required='')
+                            div
+                                label(for='rating') Rating
+                                input#rating(type='number' placeholder='120' min=0 max=5 required='')
+                            button.btn-add-dish.btn.btn--form-admin(data-dish-id=) Add Review
+                                //
+                                    <input type="checkbox" />
+                                    <input type="number" />
+                    .form-admin-img-box(role='img' aria-label='Food')
+  `;
+  document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
+});
+ */
 // var map = L.map("map", {
 //   center: [51.505, -0.09],
 //   zoom: 13,

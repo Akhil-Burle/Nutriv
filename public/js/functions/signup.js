@@ -1,5 +1,5 @@
 // import axios from "axios";
-import { showAlert } from "./alerts.js";
+import { showAlert } from "../alerts.js";
 
 export const signup = async (name, email, password, passwordConfirm) => {
   try {
@@ -43,21 +43,21 @@ export const verify = async (email, password) => {
   }
 };
 
-export const addNewReview = async (dishId, review, rating) => {
-  try {
-    const res = await axios({
-      method: "POST",
-      url: `/api/v1/menu/${dishId}/reviews`,
-      data: {
-        review,
-        rating,
-      },
-    });
-    if (res.data.status === "success") {
-      showAlert("success", "Review Added successfully!");
-      location.reload();
-    }
-  } catch (err) {
-    showAlert("error", err.response.data.message);
-  }
-};
+// export const addNewReview = async (dishId, review, rating) => {
+//   try {
+//     const res = await axios({
+//       method: "POST",
+//       url: `/api/v1/menu/${dishId}/reviews`,
+//       data: {
+//         review,
+//         rating,
+//       },
+//     });
+//     if (res.data.status === "success") {
+//       showAlert("success", "Review Added successfully!");
+//       location.reload();
+//     }
+//   } catch (err) {
+//     showAlert("error", err.response.data.message);
+//   }
+// };
