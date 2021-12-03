@@ -1,8 +1,9 @@
 extends base
 
 block append head
-    //- script(src='/js/login.js' defer='')
-    
+    <meta name="google-signin-client_id" content="221397963735-c4qba4369nj23skoert7aqk1nhhfueat.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 block append header
     include inc/_header
 
@@ -27,6 +28,7 @@ block content
 
                         button.btn.btn--form Login
                         a.link(href="/forgotPassword") Forgot Password?
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div> 
                         //
                             <input type="checkbox" />
                             <input type="number" />

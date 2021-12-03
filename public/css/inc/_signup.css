@@ -136,7 +136,7 @@
 }
 
 .link {
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   text-align: center;
   /* margin-left: 50rem; */
   /* align-items: center; */
@@ -150,6 +150,14 @@
   font-size: 3rem;
   color: #000 !important;
   margin-bottom: 1.5rem;
+}
+
+.g-signin2 {
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  /* column-span: 1; */
+  flex-grow: 1;
 }
 
 /* ---------------------------------------------------------------------------------------------*/
