@@ -7,43 +7,10 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
-    "debug": "ndb server.js",
-    "electron-start": "electron main.js",
-    "electron-package": "electron-forge package",
-    "electron-make": "electron-forge make",
-    "electron-publish": "electron-forge publish",
-    "electron-lint": "echo \"No linting configured\"",
-    "electron-build-installer": "electron-builder"
-  },
-  "build": {
-    "appId": "nutriv",
-    "win": {
-      "target": [
-        "nsis"
-      ],
-      "icon": "public/img/favicon.ico"
-    },
-    "nsis": {
-      "installerIcon": "public/img/favicon.ico",
-      "uninstallerIcon": "public/img/favicon.ico",
-      "uninstallDisplayName": "Nutriv",
-      "license": "license.txt",
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true
-    }
+    "debug": "ndb server.js"
   },
   "author": "Nutriv Corporation",
   "license": "ISC",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "Akhil"
-        }
-      ]
-    }
-  },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "axios": "^0.24.0",
