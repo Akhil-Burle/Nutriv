@@ -38,14 +38,18 @@ exports.getOverview = catchAsync(async (req, res, next) => {
 });
 
 exports.getDish = catchAsync(async (req, res, next) => {
+  // 1) Get the data, for the requested dish (including reviews and guides)
   const dish = await Dish.findOne({ slug: req.params.slug }).populate({
     path: "reviews",
     fields: "review rating user",
   });
 
   if (!dish) {
-    return next(new AppError("There is no dish with that name!", 404));
+    return next(new AppError("There is no dish with that name.", 404));
   }
+
+  // 2) Build template
+  // 3) Render template using data from 1)
   res.status(200).render("dish", {
     title: `${dish.name}`,
     dish,

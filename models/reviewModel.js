@@ -1,5 +1,6 @@
+// review / rating / createdAt / ref to dish / ref to user
 const mongoose = require("mongoose");
-const Dish = require("./dishModel.js");
+const Dish = require("./dishModel");
 
 const reviewSchema = new mongoose.Schema(
   {
@@ -14,17 +15,17 @@ const reviewSchema = new mongoose.Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now(),
+      default: Date.now,
     },
     dish: {
       type: mongoose.Schema.ObjectId,
       ref: "Dish",
-      required: [true, "Review must belong to a dish!"],
+      required: [true, "Review must belong to a dish."],
     },
     user: {
       type: mongoose.Schema.ObjectId,
       ref: "User",
-      required: [true, "Review must have a user!"],
+      required: [true, "Review must belong to a user"],
     },
   },
   {
@@ -36,15 +37,13 @@ const reviewSchema = new mongoose.Schema(
 reviewSchema.index({ dish: 1, user: 1 }, { unique: true });
 
 reviewSchema.pre(/^find/, function (next) {
-  /*  this.populate({
-    path: "dish",
-    select: "name",
-  }).populate({
-    path: "user",
-    select: "name photo",
-  }); */
-
-  //   To not populate the dishes but only just show the id of the dish and show the user data ..
+  // this.populate({
+  //   path: 'dish',
+  //   select: 'name'
+  // }).populate({
+  //   path: 'user',
+  //   select: 'name photo'
+  // });
 
   this.populate({
     path: "user",
@@ -102,7 +101,3 @@ reviewSchema.post(/^findOneAnd/, async function () {
 const Review = mongoose.model("Review", reviewSchema);
 
 module.exports = Review;
-
-// POST /dish/food/reviews
-// GET /dish/food/reviews
-// GET /dish/food/reviews

@@ -61,7 +61,7 @@ app.use("/api", limiter);
 
 app.post(
   "/webhook-checkout",
-  express.raw({ type: "application/json" }),
+  bodyParser.raw({ type: "application/json" }),
   bookingController.webhookCheckout
 );
 
