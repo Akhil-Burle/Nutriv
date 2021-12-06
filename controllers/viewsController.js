@@ -1,6 +1,7 @@
 const Dish = require("../models/dishModel.js");
 const User = require("../models/userModel.js");
 const Booking = require("../models/bookingModel.js");
+const Discount = require("../models/discountModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
 const APIFeatures = require("../utils/apiFeatures");
@@ -29,11 +30,12 @@ exports.getOverview = catchAsync(async (req, res, next) => {
     .paginate();
   // Build the template for the overview:
   const dishes = await features.query;
-
+  const discounts = await Discount.find({ isValid: true });
   // Render template:
   res.status(200).render("menu", {
     title: "Our Menu",
     dishes,
+    discounts,
   });
 });
 
@@ -43,6 +45,7 @@ exports.getDish = catchAsync(async (req, res, next) => {
     path: "reviews",
     fields: "review rating user",
   });
+  const discounts = await Discount.find({ isValid: true });
 
   if (!dish) {
     return next(new AppError("There is no dish with that name.", 404));
@@ -53,6 +56,7 @@ exports.getDish = catchAsync(async (req, res, next) => {
   res.status(200).render("dish", {
     title: `${dish.name}`,
     dish,
+    discounts,
   });
 });
 

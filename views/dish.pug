@@ -64,7 +64,7 @@ block content
                         a.item-buy(href='/login')
                             i.fas.fa-shopping-cart
                             | Login to book!
-                    h1.item-price=`₹${dish.price}`
+                    h1.item-price=`₹${Math.floor(dish.price - ((discounts[0].percentDiscount * dish.price) / 100))}`
 
                     //- <div class="price">
                     //-     <i class="fas fa-dollar-sign"></i>
