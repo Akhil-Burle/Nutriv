@@ -29,11 +29,6 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
         quantity: 1,
       },
     ],
-    discounts: [
-      {
-        coupon: "{{COUPON_ID}}",
-      },
-    ],
   });
 
   // 3) Create session as response

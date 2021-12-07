@@ -164,6 +164,7 @@ if (userPasswordForm)
     document.getElementById("password").value = "";
     document.getElementById("password-confirm").value = "";
   });
+
 if (deleteAccountBtn) {
   deleteAccountBtn.addEventListener("click", function (event) {
     event.preventDefault();
@@ -180,6 +181,7 @@ if (deleteAccountBtn) {
     // deleteAccount();
   });
 }
+
 if (bookBtn)
   bookBtn.addEventListener("click", (e) => {
     e.target.textContent = "Processing...";
