@@ -3,7 +3,7 @@
 // import { displayMap } from "./mapbox.js";
 import { login, logout } from "./functions/login.js";
 import { signup, verify } from "./functions/signup.js";
-import { updateSettings } from "./functions/updateSettings.js";
+import { updateSettings, deleteAccount } from "./functions/updateSettings.js";
 import { bookDish } from "./functions/stripe.js";
 import { addNewReview } from "./functions/reviews.js";
 import { showAlert } from "./alerts.js";
@@ -24,6 +24,7 @@ const resetPasswordForm = document.querySelector(".form-admin--resetPassword");
 const logOutBtn = document.querySelector(".logout");
 const userDataForm = document.querySelector(".form-account-user-data");
 const userPasswordForm = document.querySelector(".form-account-user-password");
+const deleteAccountBtn = document.querySelector(".btn-account--delete-account");
 const bookBtn = document.getElementById("book-dish");
 // const menuBookBtn = document.querySelector(".book-now");
 
@@ -163,7 +164,22 @@ if (userPasswordForm)
     document.getElementById("password").value = "";
     document.getElementById("password-confirm").value = "";
   });
+if (deleteAccountBtn) {
+  deleteAccountBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    const text = prompt(
+      "Are you sure you want to delete your account? Please type 'DELETE ACCOUNT' to delete your account.."
+    );
 
+    if (text === "DELETE ACCOUNT") {
+      deleteAccount();
+    } else {
+      alert("Failed to delete your account try again later!");
+    }
+    // console.log("hello");
+    // deleteAccount();
+  });
+}
 if (bookBtn)
   bookBtn.addEventListener("click", (e) => {
     e.target.textContent = "Processing...";

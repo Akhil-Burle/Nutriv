@@ -299,3 +299,8 @@
   outline: 3px solid var(--color-primary);
   outline-offset: 3px;
 }
+
+.btn-account--delete-account {
+  margin-top: 2rem;
+  background-color: red;
+}

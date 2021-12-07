@@ -23,3 +23,19 @@ export const updateSettings = async (data, type) => {
     showAlert("error", err.response.data.message);
   }
 };
+
+export const deleteAccount = async () => {
+  try {
+    const res = await axios({
+      method: "DELETE",
+      url: "/api/v1/users/deleteMe",
+    });
+
+    if (res.status === 204) {
+      showAlert("success", "Account deleted successfully..");
+      location.assign("/");
+    }
+  } catch (err) {
+    showAlert("error", err.response.data.message);
+  }
+};
