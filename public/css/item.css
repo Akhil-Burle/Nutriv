@@ -650,7 +650,8 @@ body {
 }
 
 #map {
-  height: 180px;
+  height: 60rem;
+  margin-bottom: 10rem;
 }
 
 .marker {

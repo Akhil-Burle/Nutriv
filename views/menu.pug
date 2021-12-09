@@ -42,7 +42,7 @@ block content
                 ion-icon.meal-icon(name='card')
                 span
                   | &#x20B9;
-                  strong=`${Math.floor(dish.price - ((discounts[0].percentDiscount * dish.price) / 100))}`
+                  strong=`${dish.price}`
             div.buttons
               a.book-now(href=`menu/${dish.slug}`) View details
               if user

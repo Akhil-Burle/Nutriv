@@ -18,6 +18,7 @@ const userRouter = require("./routes/userRoutes");
 const reviewRouter = require("./routes/reviewRoutes.js");
 const bookingRouter = require("./routes/bookingRoutes.js");
 const discountRouter = require("./routes/discountRoutes.js");
+const locationRouter = require("./routes/locationRoutes.js");
 const bookingController = require("./controllers/bookingController.js");
 const viewRouter = require("./routes/viewRoutes.js");
 
@@ -109,6 +110,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/reviews", reviewRouter);
 app.use("/api/v1/bookings", bookingRouter);
 app.use("/api/v1/discounts", discountRouter);
+app.use("/api/v1/locations", locationRouter);
 
 app.all("*", (req, res, next) => {
   /*  res.status(404).json({

@@ -167,19 +167,7 @@ const dishSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
-    availableIn: [
-      {
-        // GeoJson
-        type: {
-          type: String,
-          default: "Point",
-          enum: ["Point"],
-        },
-        coordinates: [Number],
-        address: String,
-        description: String,
-      },
-    ],
+    availableIn: [{ type: mongoose.Schema.ObjectId, ref: "Locations" }],
     chefs: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
     currentprice: {
       type: String,
@@ -249,6 +237,13 @@ dishSchema.pre(/^find/, function (next) {
   this.populate({
     path: "chefs",
     select: "-__v -passwordChangedAt",
+  });
+  next();
+});
+
+dishSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: "availableIn",
   });
   next();
 });
