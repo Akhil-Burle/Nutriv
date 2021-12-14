@@ -89,8 +89,8 @@ if (addNewDishForm) {
     form.append("type", document.getElementById("type").value);
     form.append("foodType", document.getElementById("foodType").value);
     form.append("chefs", document.getElementById("chefs").value);
+    form.append("availableIn", document.getElementById("locations").value);
     form.append("imageCover", document.getElementById("imageCover").files[0]);
-    console.log(form);
 
     addNewDish(form);
   });

@@ -55,6 +55,12 @@ block content
                                 each chef in chefs
                                     option(value=`${chef.id}`)=`${chef.name}`
                         div
+                            label(for='locations') Where is this dish available?
+                            select#locations(required='' multiple)
+                                option(value='') Please choose one option:
+                                each location in locations
+                                    option(value=`${location.id}`)=`${location.description}`
+                        div
                             label Dish Image
                             input#imageCover(type='file' accept='image/*')
                             label(for="imageCover" class='label') Choose an image

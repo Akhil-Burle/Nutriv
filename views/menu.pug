@@ -44,8 +44,9 @@ block content
                   | &#x20B9;
                   strong=`${dish.price}`
             div.buttons
-              a.book-now(href=`menu/${dish.slug}`) View details
+              a.menu-button(href=`menu/${dish.slug}`) View details
               if user
-                a.book-now#book-dish(data-dish-id=`${dish.id}` href='#') Order Now!
+                a.menu-button#book-dish(data-dish-id=`${dish.id}` href='#') Order Now!
               else 
-                a.book-now(href='/login') Login to book!
+                a.menu-button(href='/login') Login to book!
+            a.menu-button.addToCart(href='#' data-dish=`${dish}`) Add to cart

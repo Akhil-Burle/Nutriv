@@ -40,11 +40,27 @@
     hsla(164, 97%, 53%, 0.5) 93%
   ); */
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     rgba(121, 182, 255, 0.809) 0%,
     rgb(115, 196, 247) 50%,
     rgb(245, 245, 245) 120%
+  ); */
+
+  /* background-image: linear-gradient(
+    to right bottom,
+    rgba(43, 211, 233, 0.604),
+    rgba(69, 221, 241, 0.837)
+  ); */
+  /* background: linear-gradient(
+    90deg,
+    hsla(175, 79%, 63%, 1) 0%,
+    hsla(82, 96%, 57%, 1) 100%
+  ); */
+  background: linear-gradient(
+    90deg,
+    rgb(161, 202, 243) 0%,
+    rgb(53, 147, 255) 100%
   );
 
   /*   background-image: linear-gradient(

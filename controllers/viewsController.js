@@ -1,6 +1,7 @@
 const Dish = require("../models/dishModel.js");
 const User = require("../models/userModel.js");
 const Booking = require("../models/bookingModel.js");
+const Location = require("../models/locationModel.js");
 const Discount = require("../models/discountModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
@@ -126,9 +127,11 @@ exports.getMyBookings = catchAsync(async (req, res, next) => {
 
 exports.getNewDishForm = catchAsync(async (req, res) => {
   const chefs = await User.find({ role: "chef" });
+  const locations = await Location.find();
   res.status(200).render("addNewDish", {
     title: "Add new dish",
     chefs,
+    locations,
   });
 });
 
