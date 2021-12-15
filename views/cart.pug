@@ -1,0 +1,30 @@
+extends base 
+
+block append head 
+    link(rel="stylesheet", href="./css/cart.css")
+
+block header 
+    include inc/_header
+
+block content 
+    p.heading Your Cart
+    section.section-cart
+        <table>
+            <thead>
+                <tr>
+                <th>Chair</th>
+                <th>The laid back</th>
+                <th>The worker bee</th>
+                <th>the chair 4/2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th>weight</th>
+                <td>16 kg</td>
+                <td>22 kg</td>
+                <td>80kg</td>
+                <td><a class='cart-button'>Book Now</a></td>
+                <td><a class='cart-button delete'>Delete</a></td>
+                </tr>
+            </tbody>
+        </table>

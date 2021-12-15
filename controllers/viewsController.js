@@ -103,6 +103,9 @@ exports.getTerms = (req, res) => {
 exports.getVerifyPage = (req, res) => {
   res.status(200).render("verifyForm", { title: "Verify email" });
 };
+exports.getCart = (req, res) => {
+  res.status(200).render("cart", { title: "Cart" });
+};
 
 exports.getForgotPasswordForm = (req, res) => {
   res.status(200).render("forgotPassword", { title: "Forgot Password" });
@@ -138,6 +141,10 @@ exports.getNewDishForm = catchAsync(async (req, res) => {
 exports.getAllDishesTable = catchAsync(async (req, res) => {
   const dishes = await Dish.find();
   res.status(200).render("getAllDishes", { title: "All Dishes", dishes });
+});
+exports.getUpdateDishForm = catchAsync(async (req, res) => {
+  const dish = await Dish.findById(req.params.id);
+  res.status(200).render("updateDish", { title: "Update", dish });
 });
 
 exports.getDashboard = catchAsync(async (req, res) => {

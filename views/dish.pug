@@ -58,12 +58,9 @@ block content
                         ion-icon.item-verify(name='checkmark-circle')
                 .item-buy-price
                     if user
-                        button.item-buy#book-dish(data-dish-id=`${dish.id}`)
-                            i.fas.fa-shopping-cart
-                            | Order Now!
+                        button.item-buy#book-dish(data-dish-id=`${dish.id}`) Order Now!
                     else 
                         a.item-buy(href='/login')
-                            i.fas.fa-shopping-cart
                             | Login to book!
                     h1.item-price=`₹${dish.price}`
                     //- h1.item-price=`₹${Math.floor(dish.price - ((discounts[0].percentDiscount * dish.price) / 100))}`
@@ -72,6 +69,7 @@ block content
                     //-     <i class="fas fa-dollar-sign"></i>
                     //-     <h1>189.99</h1>
                     //-     </div>
+                button.item-buy.addToCart(data-dish=`${dish.id}`)  Add to cart
 
     section.section-reviews
         p.title Reviews

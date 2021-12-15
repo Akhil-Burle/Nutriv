@@ -17,3 +17,29 @@ export const addNewDish = async (data) => {
     showAlert("error", err.response.data.message);
   }
 };
+
+export const updateDish = async (name) => {
+  try {
+    const res = await axios({
+      method: "PATCH",
+      url: `/api/v1/menu/${window.location.href.split("/")[5]}`,
+      data: {
+        name,
+        price,
+        deliveryTime,
+        summary,
+        availability,
+        type,
+        foodType,
+      },
+    });
+    if (res.data.status === "success") {
+      showAlert("success", "Dish updated Successfully!");
+      window.setTimeout(() => {
+        location.assign("/dashboard/getAllDishes");
+      }, 1500);
+    }
+  } catch (err) {
+    showAlert("error", err.response.data.message);
+  }
+};

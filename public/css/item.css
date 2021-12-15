@@ -318,6 +318,7 @@ body {
   font-size: 1.8rem;
   transition: 0.5s;
   padding: 1.3rem;
+  border-radius: 12px;
 }
 
 .item-buy:hover {
@@ -677,4 +678,11 @@ body {
 
 .container {
   margin-bottom: 10rem;
+}
+
+.addToCart {
+  margin-top: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
 }

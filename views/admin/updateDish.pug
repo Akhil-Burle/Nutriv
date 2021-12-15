@@ -1,0 +1,55 @@
+extends ../base
+
+block header 
+    include ../inc/_header
+
+block content 
+    section#form-admin.section-form-admin
+        .container
+            .form-admin
+                .form-admin-text-box
+                    h2.heading-secondary= `Update ${dish.name}`
+                    p.form-admin-text Add a new dish to the menu. Please fill all the details properly, before submitting the form ensure everything is correct.
+                    form.form-admin--updateDish.form-admin-form-admin
+                        div
+                            label(for='update-name') Dish Name
+                            input#update-name(type='text' placeholder='Pasta' )
+                        div
+                            label(for='price') Price
+                            input#update-price(type='number' placeholder='120' min=0 max=10000 )
+                        div
+                            label(for='deliveryTime') Delivery time
+                            input#update-deliveryTime(type='number' placeholder='30'  min=0 max=120)
+                        div
+                            label(for='summary') Small Summary
+                            input#update-summary(type='text' placeholder='Very tasty dish!'  )
+                        div
+                            label(for='availability') Is this dish Available?
+                            select#update-availability()
+                                option(value='') Please choose one option:
+                                option(value='Available') Available
+                                option(value='Not-Available') Not Available
+                        div
+                            label(for='type') What is the type of this dish?
+                            select#update-type()
+                                option(value='') Please choose one option:
+                                option(value='Starter') Starter
+                                option(value='Salad') Salad
+                                option(value='Burger & Sandwich') Burger & Sandwich
+                                option(value='Soup') Soup
+                                option(value='Main Dish') Main Dish
+                                option(value='Dessert') Dessert
+                                option(value='Sides') Sides
+                        div
+                            label(for='foodType') What is the cuisine of this dish?
+                            select#update-foodType()
+                                option(value='') Please choose one option:
+                                option(value='Vegetarian') Vegetarian
+                                option(value='NON-Vegetarian') NON-Vegetarian
+                                option(value='Vegan') Vegan
+                                option(value='Paleo') Paleo
+                        button.btn-update-dish.btn.btn--form-admin Add Dish
+                            //
+                                <input type="checkbox" />
+                                <input type="number" />
+                .form-admin-img-box(role='img' aria-label='Food')
