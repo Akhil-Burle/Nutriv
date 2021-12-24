@@ -13,7 +13,7 @@
 }
 
 table {
-  width: 1000px;
+  width: 1200px;
   margin-top: 100px;
   /* background-color: red; */
   /* border: 1px solid #343a40;*/
@@ -46,7 +46,7 @@ tbody tr:nth-child(even) {
   background-color: var(--color-primary);
   /* margin: 1rem; */
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   /* margin-top: 1rem; */
   text-decoration: none;
   color: #fff;
