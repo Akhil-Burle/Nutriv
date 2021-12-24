@@ -1,0 +1,70 @@
+.section-cart {
+  /* padding-top: 20rem; */
+  padding: 20rem 10rem;
+  display: flex;
+  justify-content: center;
+}
+
+.heading {
+  font-size: 5rem;
+  text-align: center;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+table {
+  width: 1200px;
+  margin-top: 100px;
+  /* background-color: red; */
+  /* border: 1px solid #343a40;*/
+  border-collapse: collapse;
+}
+
+th,
+td {
+  /* border: 1px solid #343a40; */
+  text-align: center;
+  padding: 16px 24px;
+  font-size: 2rem;
+}
+
+thead th {
+  background-color: var(--color-primary);
+  color: #fff;
+  width: 25%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+tbody tr:nth-child(even) {
+  background-color: #e9ecef;
+}
+
+.cart-button {
+  padding: 1.5rem;
+  background-color: var(--color-primary);
+  /* margin: 1rem; */
+  display: inline-block;
+  font-size: 1.8rem;
+  /* margin-top: 1rem; */
+  text-decoration: none;
+  color: #fff;
+  border-radius: 14px;
+  /* font-weight: 600; */
+  /* margin-right: 10rem; */
+  cursor: pointer;
+  margin-right: 1rem;
+  margin-left: 0 !important;
+}
+
+.delete {
+  background-color: red;
+}
+
+.checkout {
+  font-size: 5rem;
+  background-color: #55c57a;
+  /* text-align: center; */
+  margin-top: 5rem;
+}

@@ -1,0 +1,51 @@
+extends base 
+
+block append head 
+    link(rel="stylesheet", href="./css/cart.css")
+
+block header 
+    include inc/_header
+
+block content 
+    p.heading Your Cart
+    section.section-cart
+        <table>
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Delivery Time</th>
+                <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th>Name</th>
+                <td>₹250</td>
+                <td>20 minutes</td>
+                <td>4.7</td>
+                <td><a class='cart-button'>Order</a></td>
+                <td><a class='cart-button delete'>Delete</a></td>
+                </tr>
+                 <th>Name</th>
+                <td>₹250</td>
+                <td>20 minutes</td>
+                <td>4.7</td>
+                <td><a class='cart-button'>Order</a></td>
+                <td><a class='cart-button delete'>Delete</a></td>
+                </tr>
+                 <th>Name</th>
+                <td>₹250</td>
+                <td>20 minutes</td>
+                <td>4.7</td>
+                <td><a class='cart-button'>Order</a></td>
+                <td><a class='cart-button delete'>Delete</a></td>
+                </tr>
+                 <th>Name</th>
+                <td>₹250</td>
+                <td>20 minutes</td>
+                <td>4.7</td>
+                <td><a class='cart-button'>Order</a></td>
+                <td><a class='cart-button delete'>Delete</a></td>
+                </tr>
+            </tbody>
+        </table>

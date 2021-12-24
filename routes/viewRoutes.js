@@ -16,6 +16,7 @@ router.get("/emailVerify", viewsController.getEmailVerifyPage);
 router.get("/me", authController.protect, viewsController.getAccount);
 router.get("/my-orders", authController.protect, viewsController.getMyBookings);
 router.get("/verify", viewsController.getVerifyPage);
+router.get("/cart", viewsController.getCart);
 router.get("/verifySuccessfull", viewsController.getVerifySuccessfull);
 router.get("/forgotPassword", viewsController.getForgotPasswordForm);
 router.get("/forgotPasswordMessage", viewsController.getForgotPasswordMessage);
@@ -51,6 +52,12 @@ router.get(
   authController.protect,
   authController.restrictTo("admin", "manager"),
   viewsController.getAllDishesTable
+);
+router.get(
+  "/dashboard/updateDish/:id",
+  authController.protect,
+  authController.restrictTo("admin", "manager"),
+  viewsController.getUpdateDishForm
 );
 
 module.exports = router;

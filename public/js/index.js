@@ -7,7 +7,7 @@ import { updateSettings, deleteAccount } from "./functions/updateSettings.js";
 import { bookDish } from "./functions/stripe.js";
 import { addNewReview } from "./functions/reviews.js";
 import { showAlert } from "./alerts.js";
-import { addNewDish } from "./functions/dashboard.js";
+import { addNewDish, updateDish } from "./functions/dashboard.js";
 import { forgotPassword, resetPassword } from "./functions/password.js";
 
 // DOM ELEMENTS
@@ -16,6 +16,7 @@ const loginForm = document.querySelector(".form--login");
 const signupForm = document.querySelector(".form--signup");
 const verifyForm = document.querySelector(".form--verify");
 const addNewDishForm = document.querySelector(".form-admin--addNewDish");
+const updateDishForm = document.querySelector(".form-admin--updateDish");
 const addNewReviewButton = document.getElementById("addNewReviewButton");
 const forgotPasswordForm = document.querySelector(
   ".form-admin--forgotPassword"
@@ -93,6 +94,34 @@ if (addNewDishForm) {
     form.append("imageCover", document.getElementById("imageCover").files[0]);
 
     addNewDish(form);
+  });
+}
+if (updateDishForm) {
+  updateDishForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // const form = new FormData();
+    const name = document.getElementById("update-name").value;
+    const price = document.getElementById("update-price").value;
+
+    const deliveryTime = document.getElementById("update-deliveryTime").value;
+
+    const summary = document.getElementById("update-summary").value;
+
+    const availability = document.getElementById("update-availability").value;
+
+    const type = document.getElementById("update-type").value;
+    const foodType = document.getElementById("update-foodType").value;
+
+    updateDish(
+      name,
+      price,
+      deliveryTime,
+      summary,
+      availability,
+      type,
+      foodType
+    );
   });
 }
 

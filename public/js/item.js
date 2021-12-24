@@ -6,6 +6,15 @@ const shoeBg = document.querySelector(".item-shoeBackground");
 const price = document.querySelector(".item-price");
 const currentprice = price.textContent.split("₹")[1];
 
+const cartButton = document.querySelector(".addToCart");
+cartButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  const cartDishes = [];
+  cartDishes.push(event.target.dataset.dish);
+  localStorage.setItem("dish", cartDishes);
+  console.log(localStorage.getItem("dish"));
+});
+
 const locations = JSON.parse(document.getElementById("map").dataset.locations);
 
 const map = L.map("map").setView(
