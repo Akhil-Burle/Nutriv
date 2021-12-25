@@ -1,6 +1,6 @@
 .section-cart {
   /* padding-top: 20rem; */
-  padding: 20rem 10rem;
+  /* padding: 20rem 10rem; */
   display: flex;
   justify-content: center;
 }
@@ -8,16 +8,16 @@
 .heading {
   font-size: 5rem;
   text-align: center;
-  /* justify-content: center;
-  align-items: center; */
+  margin-top: 20rem;
 }
 
 table {
   width: 1200px;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   /* background-color: red; */
   /* border: 1px solid #343a40;*/
   border-collapse: collapse;
+  margin-bottom: 10rem;
 }
 
 th,

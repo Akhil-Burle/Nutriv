@@ -4,6 +4,31 @@ const User = require("../models/userModel.js");
 const Booking = require("../models/bookingModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const factory = require("./handlerFactory.js");
+/*         "GB",
+        "BE",
+        "CL",
+        "CO",
+        "CU",
+        "CD",
+        "GL",
+        "IR",
+        "IT",
+        "MX",
+        "NZ",
+        "PK",
+        "PT",
+        "QA",
+        "RU",
+        "SA",
+        "SG",
+        "KR",
+        "LK",
+        "CH",
+        "TW",
+        "TH",
+        "AE",
+        "TR",
+ */
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   // 1) Get the currently booked dish
@@ -14,7 +39,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     customer_email: req.user.email,
     client_reference_id: req.params.dishId,
     shipping_address_collection: {
-      allowed_countries: ["US", "CA", "IN"],
+      allowed_countries: ["US", "CA", "IN", "AU", "GB"],
     },
     allow_promotion_codes: true,
     shipping_options: [
@@ -76,8 +101,10 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 });
 
 const createBookingCheckout = async (session) => {
-  const dish = session.client_reference_id;
-  const user = (await User.findOne({ email: session.customer_email })).id;
+  const dish = session.data.object.client_reference_id;
+  const user = (
+    await User.findOne({ email: session.data.object.customer_details.email })
+  ).id;
   const price = session.data.object.amount_total / 100;
   await Booking.create({ dish, user, price });
 };
