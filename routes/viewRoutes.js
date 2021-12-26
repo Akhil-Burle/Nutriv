@@ -16,7 +16,7 @@ router.get("/emailVerify", viewsController.getEmailVerifyPage);
 router.get("/me", authController.protect, viewsController.getAccount);
 router.get("/my-orders", authController.protect, viewsController.getMyBookings);
 router.get("/verify", viewsController.getVerifyPage);
-router.get("/cart", viewsController.getCart);
+router.get("/cart", authController.protect, viewsController.getCart);
 router.get("/verifySuccessfull", viewsController.getVerifySuccessfull);
 router.get("/forgotPassword", viewsController.getForgotPasswordForm);
 router.get("/forgotPasswordMessage", viewsController.getForgotPasswordMessage);

@@ -19,31 +19,11 @@ block content
                 </tr>
             </thead>
             <tbody>
-                <th>Name</th>
-                <td>₹250</td>
-                <td>20 minutes</td>
-                <td>4.7</td>
-                <td><a class='cart-button'>Order</a></td>
-                <td><a class='cart-button delete'>Delete</a></td>
-                </tr>
-                 <th>Name</th>
-                <td>₹250</td>
-                <td>20 minutes</td>
-                <td>4.7</td>
-                <td><a class='cart-button'>Order</a></td>
-                <td><a class='cart-button delete'>Delete</a></td>
-                </tr>
-                 <th>Name</th>
-                <td>₹250</td>
-                <td>20 minutes</td>
-                <td>4.7</td>
-                <td><a class='cart-button'>Order</a></td>
-                <td><a class='cart-button delete'>Delete</a></td>
-                </tr>
-                 <th>Name</th>
-                <td>₹250</td>
-                <td>20 minutes</td>
-                <td>4.7</td>
+            each item in cartItems
+                th=`${item.dish.name}`
+                td=`₹${item.dish.price}`
+                td=`${item.dish.deliveryTime} minutes`
+                td=`${item.dish.ratingsAverage}`
                 <td><a class='cart-button'>Order</a></td>
                 <td><a class='cart-button delete'>Delete</a></td>
                 </tr>

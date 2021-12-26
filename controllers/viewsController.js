@@ -3,6 +3,7 @@ const User = require("../models/userModel.js");
 const Booking = require("../models/bookingModel.js");
 const Location = require("../models/locationModel.js");
 const Discount = require("../models/discountModel.js");
+const Cart = require("../models/cartModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
 const APIFeatures = require("../utils/apiFeatures");
@@ -103,9 +104,6 @@ exports.getTerms = (req, res) => {
 exports.getVerifyPage = (req, res) => {
   res.status(200).render("verifyForm", { title: "Verify email" });
 };
-exports.getCart = (req, res) => {
-  res.status(200).render("cart", { title: "Cart" });
-};
 
 exports.getForgotPasswordForm = (req, res) => {
   res.status(200).render("forgotPassword", { title: "Forgot Password" });
@@ -117,7 +115,6 @@ exports.getResetPasswordForm = (req, res) => {
 exports.getMyBookings = catchAsync(async (req, res, next) => {
   // Find all bookings:
   const bookings = await Booking.find({ user: req.user.id });
-
   // Find dishes with the returned IDS:
   const dishIDs = bookings.map((el) => el.dish);
   const dishes = await Dish.find({ _id: { $in: dishIDs } });
@@ -126,6 +123,12 @@ exports.getMyBookings = catchAsync(async (req, res, next) => {
     title: "My Bookings",
     dishes,
   });
+});
+
+exports.getCart = catchAsync(async (req, res, next) => {
+  const cartItems = await Cart.find({ user: req.user.id });
+  console.log(cartItems);
+  res.status(200).render("cart", { title: "Cart", cartItems });
 });
 
 exports.getNewDishForm = catchAsync(async (req, res) => {
