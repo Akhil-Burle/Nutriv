@@ -9,6 +9,7 @@ import { addNewReview } from "./functions/reviews.js";
 import { showAlert } from "./alerts.js";
 import { addNewDish, updateDish } from "./functions/dashboard.js";
 import { forgotPassword, resetPassword } from "./functions/password.js";
+import { addNewCartItem, deleteCartItem } from "./functions/cart.js";
 
 // DOM ELEMENTS
 // const mapBox = document.getElementById("map");
@@ -28,6 +29,8 @@ const userPasswordForm = document.querySelector(".form-account-user-password");
 const deleteAccountBtn = document.querySelector(".btn-account--delete-account");
 const bookBtn = document.getElementById("book-dish");
 // const menuBookBtn = document.querySelector(".book-now");
+const addNewCartItemBtn = document.querySelector(".addToCart");
+const deleteCartItemBtn = document.querySelector(".delete");
 
 // DELEGATION
 // if (mapBox) {
@@ -220,6 +223,24 @@ if (bookBtn)
 
 const alertMessage = document.querySelector("body").dataset.alert;
 if (alertMessage) showAlert("success", alertMessage, 20);
+
+if (addNewCartItemBtn) {
+  addNewCartItemBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    const dish = event.target.dataset.dish;
+    const user = event.target.dataset.user;
+    addNewCartItem(dish, user);
+  });
+}
+
+if (deleteCartItemBtn) {
+  deleteCartItemBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    const cartItemId = event.target.dataset.cartitemid;
+    // console.log(event.target.dataset.cartitemid);
+    deleteCartItem(cartItemId);
+  });
+}
 
 /* if (menuBookBtn) {
   menuBookBtn.addEventListener("click", (e) => {

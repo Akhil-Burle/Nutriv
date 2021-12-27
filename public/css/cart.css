@@ -60,6 +60,7 @@ tbody tr:nth-child(even) {
 
 .delete {
   background-color: red;
+  margin-top: 1.5rem;
 }
 
 .checkout {

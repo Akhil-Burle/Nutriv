@@ -23,9 +23,9 @@ block content
                 th=`${item.dish.name}`
                 td=`₹${item.dish.price}`
                 td=`${item.dish.deliveryTime} minutes`
-                td=`${item.dish.ratingsAverage}`
+                td=`${String(item.dish.ratingsAverage).slice(0,3)}`
                 <td><a class='cart-button'>Order</a></td>
-                <td><a class='cart-button delete'>Delete</a></td>
+                td.a.cart-button.delete(data-cartItemId=`${item.id}` href='#')  Delete
                 </tr>
             </tbody>
         </table>
