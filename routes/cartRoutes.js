@@ -6,12 +6,12 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(cartController.getAllCartItems)
-  .post(cartController.addNewCartItem);
+  .get(authController.protect, cartController.getAllCartItems)
+  .post(authController.protect, cartController.addNewCartItem);
 
 router
   .route("/:id")
-  .get(cartController.getCartItem)
+  .get(authController.protect, cartController.getCartItem)
   .patch(authController.protect, cartController.updateCartItem)
   .delete(authController.protect, cartController.deleteCartItem);
 
