@@ -47,8 +47,8 @@
 .form-img-box {
   background-image: linear-gradient(
       to right bottom,
-      rgba(73, 185, 200, 0.25),
-      rgba(31, 186, 207, 0.25)
+      rgba(0, 225, 255, 0.25),
+      rgba(1, 225, 255, 0.25)
     ),
     url("../../img/eating.jpg");
   background-size: cover;

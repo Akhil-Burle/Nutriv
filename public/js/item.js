@@ -6,8 +6,6 @@ const shoeBg = document.querySelector(".item-shoeBackground");
 const price = document.querySelector(".item-price");
 const currentprice = price.textContent.split("₹")[1];
 
-
-
 const locations = JSON.parse(document.getElementById("map").dataset.locations);
 
 const map = L.map("map").setView(

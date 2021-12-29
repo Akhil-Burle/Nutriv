@@ -329,149 +329,6 @@ body {
   margin-right: 2px;
 }
 
-@media (max-width: 1070px) {
-  .item-shoe {
-    width: 135%;
-  }
-}
-
-@media (max-width: 1000px) {
-  .item-card {
-    flex-direction: column;
-    width: 100%;
-    box-shadow: 0 0 35px 1px rgba(0, 0, 0, 0.2);
-  }
-
-  .item-card > div {
-    width: 100%;
-    box-shadow: none;
-  }
-
-  .item-shoe {
-    width: 100%;
-    /* transform: rotate(-5deg) translateY(-50%); */
-    top: 55%;
-    right: 2%;
-  }
-
-  .item-nike {
-    top: 20%;
-    left: 5%;
-  }
-}
-
-@media (max-width: 600px) {
-  .item-share {
-    width: 40px;
-    height: 40px;
-  }
-
-  .item-share i {
-    font-size: 1rem;
-    line-height: 40px;
-  }
-
-  .item-logo {
-    width: 70px;
-  }
-}
-
-@media (max-width: 490px) {
-  .item-nike {
-    font-size: 7rem;
-  }
-
-  .item-shoeName div .item-big {
-    font-size: 1.3rem;
-  }
-
-  .item-small {
-    font-size: 1rem;
-  }
-
-  .item-new {
-    padding: 2px 6px;
-    font-size: 0.9rem;
-  }
-
-  .item-title {
-    font-size: 0.9rem;
-  }
-
-  .item-text {
-    font-size: 0.8rem;
-  }
-
-  .item-buy {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.8rem;
-  }
-
-  .item-price h1 {
-    font-size: 1.5rem;
-  }
-
-  .item-price i {
-    font-size: 0.9rem;
-  }
-
-  .item-size {
-    width: 30px;
-    height: 30px;
-    margin: 0 8px;
-    font-size: 0.9rem;
-    line-height: 30px;
-  }
-
-  .item-color {
-    margin: 0 6px;
-    width: 0 20px;
-    width: 20px;
-    height: 20px;
-    border-width: 4px;
-  }
-
-  .item-share {
-    width: 35px;
-    height: 35px;
-    top: 10px;
-    right: 10px;
-  }
-
-  .item-share i {
-    font-size: 0.8rem;
-    line-height: 35px;
-  }
-
-  .item-logo {
-    width: 50px;
-    top: 10px;
-    left: 10px;
-  }
-
-  .item-info {
-    padding: 20px;
-  }
-
-  .item-shoe {
-    width: 70%;
-    margin-top: 2rem;
-    margin-left: 3.5rem;
-    border-radius: 11px;
-  }
-}
-
-@media (max-width: 400px) {
-  .item-buy i {
-    display: none;
-  }
-
-  .item-container {
-    padding: 20px;
-    z-index: 1;
-  }
-}
-
 .item-rating {
   text-align: center;
 }
@@ -697,4 +554,139 @@ body {
   font-size: 2.5rem;
   border-radius: 11px;
   /* margin-top: 10rem !important; */
+}
+
+@media (max-width: 1070px) {
+  .item-shoe {
+    width: 135%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .item-card {
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0 0 35px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .item-card > div {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .item-shoe {
+    width: 80%;
+    /* transform: rotate(-5deg) translateY(-50%); */
+    top: 55%;
+    right: 2%;
+  }
+
+  .item-nike {
+    top: 20%;
+    left: 5%;
+  }
+}
+
+@media (max-width: 600px) {
+  .item-share {
+    width: 40px;
+    height: 40px;
+  }
+
+  .item-share i {
+    font-size: 1rem;
+    line-height: 40px;
+  }
+
+  .item-logo {
+    width: 70px;
+  }
+}
+
+@media (max-width: 490px) {
+  .item-nike {
+    font-size: 7rem;
+  }
+
+  .item-shoeName div .item-big {
+    font-size: 1.3rem;
+  }
+
+  .item-small {
+    font-size: 1rem;
+  }
+
+  .item-new {
+    padding: 2px 6px;
+    font-size: 0.9rem;
+  }
+
+  .item-title {
+    font-size: 0.9rem;
+  }
+
+  .item-text {
+    font-size: 0.8rem;
+  }
+
+  .item-buy {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .item-price h1 {
+    font-size: 1.5rem;
+  }
+
+  .item-price i {
+    font-size: 0.9rem;
+  }
+
+  .item-size {
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
+    font-size: 0.9rem;
+    line-height: 30px;
+  }
+
+  .item-color {
+    margin: 0 6px;
+    width: 0 20px;
+    width: 20px;
+    height: 20px;
+    border-width: 4px;
+  }
+
+  .item-share {
+    width: 35px;
+    height: 35px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .item-share i {
+    font-size: 0.8rem;
+    line-height: 35px;
+  }
+
+  .item-logo {
+    width: 60px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .item-info {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .item-buy i {
+    display: none;
+  }
+
+  .item-container {
+    padding: 20px;
+  }
 }

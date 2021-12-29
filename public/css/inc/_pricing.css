@@ -3,7 +3,7 @@
 /* ---------------------------------------------------------------------------------------------*/
 
 .grid--pricing {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .section-pricing {
@@ -16,7 +16,6 @@
   /* width: 50%; */
   /* align-items: center; */
   /* justify-content: center; */
-  
 }
 
 .pricing-plan--starter {
@@ -98,8 +97,6 @@
   text-align: center;
   margin-top: 5rem;
 }
-
-
 
 /* ---------------------------------------------------------------------------------------------*/
 /*  PRICING SECTION END */
