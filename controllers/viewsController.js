@@ -127,7 +127,6 @@ exports.getMyBookings = catchAsync(async (req, res, next) => {
 
 exports.getCart = catchAsync(async (req, res, next) => {
   const cartItems = await Cart.find({ user: req.user.id });
-  console.log(cartItems);
   res.status(200).render("cart", { title: "Cart", cartItems });
 });
 
