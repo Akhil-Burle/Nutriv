@@ -9,23 +9,45 @@ block header
 block content 
     p.heading Your Cart
     section.section-cart
-        <table>
-            <thead>
-                <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Delivery Time</th>
-                <th>Rating</th>
-                </tr>
-            </thead>
-            <tbody>
+        .Cart-Container
+            .Header
+                h3.Heading Shopping Cart
+                h5.Action Remove all
             each item in cartItems
-                th=`${item.dish.name}`
-                td=`₹${item.dish.price}`
-                td=`${item.dish.deliveryTime} minutes`
-                td=`${String(item.dish.ratingsAverage).slice(0,3)}`
-                <td><a class='cart-button'>Order</a></td>
-                td.a.cart-button.delete(data-cartItemId=`${item.id}` href='#')  Delete
-                </tr>
-            </tbody>
-        </table>
+                .Cart-Items
+                    .image-box
+                        img(src=`img/dishes/${item.dish.imageCover}` class='imageboxdesign')
+                    .about
+                        h1.title=`${item.dish.name}`
+                        h3.subtitle=`Delivered In: ${item.dish.deliveryTime} minutes`
+                    .counter
+                        .btn +
+                        .count 2
+                        .btn -
+                    .prices
+                        .amount ₹100
+                        .save
+                            u Save for later
+                        .remove
+                            u Remove
+
+        //- <table>
+        //-     <thead>
+        //-         <tr>
+        //-         <th>Name</th>
+        //-         <th>Price</th>
+        //-         <th>Delivery Time</th>
+        //-         <th>Rating</th>
+        //-         </tr>
+        //-     </thead>
+        //-     <tbody>
+        //-     each item in cartItems
+        //-         th=`${item.dish.name}`
+        //-         td=`₹${item.dish.price}`
+        //-         td=`${item.dish.deliveryTime} minutes`
+        //-         td=`${String(item.dish.ratingsAverage).slice(0,3)}`
+        //-         <td><a class='cart-button'>Order</a></td>
+        //-         td.a.cart-button.delete(data-cartItemId=`${item.id}` href='#')  Delete
+        //-         </tr>
+        //-     </tbody>
+        //- </table>
