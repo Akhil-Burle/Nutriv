@@ -9,27 +9,26 @@ block header
 block content 
     p.heading Your Cart
     section.section-cart
-        .Cart-Container
-            .Header
-                h3.Heading Shopping Cart
-                h5.Action Remove all
-            each item in cartItems
-                .Cart-Items
-                    .image-box
-                        img(src=`img/dishes/${item.dish.imageCover}` class='imageboxdesign')
-                    .about
-                        h1.title=`${item.dish.name}`
-                        h3.subtitle=`Delivered In: ${item.dish.deliveryTime} minutes`
-                    .counter
-                        .btn +
-                        .count 2
-                        .btn -
-                    .prices
-                        .amount ₹100
-                        .save
-                            u Save for later
-                        .remove
-                            u Remove
+    .shopping-cart
+        // Title
+        .title Shopping Cart
+        each item in cartItems
+            .item
+                .buttons
+                    span.delete-btn
+                    span.like-btn
+                .image
+                    img(src=`img/dishes/${item.dish.imageCover}` alt='' class='fullimage')
+                .description
+                    span=`${item.dish.name}`
+                    span=`${item.dish.deliveryTime} Minutes`
+                .quantity
+                    button.plus-btn(type='button' name='button')
+                        img(src='/img/plus.svg' alt='')
+                    input(type='text' name='name' value='1')
+                    button.minus-btn(type='button' name='button')
+                        img(src='/img/minus.svg' alt='')
+                .total-price=`₹${item.dish.price}`
 
         //- <table>
         //-     <thead>
