@@ -30,7 +30,7 @@ const deleteAccountBtn = document.querySelector(".btn-account--delete-account");
 const bookBtn = document.getElementById("book-dish");
 // const menuBookBtn = document.querySelector(".book-now");
 const addNewCartItemBtn = document.querySelector(".addToCart");
-const deleteCartItemBtn = document.querySelector(".delete");
+const deleteCartItemBtn = document.querySelector(".delete-btn");
 
 // DELEGATION
 // if (mapBox) {

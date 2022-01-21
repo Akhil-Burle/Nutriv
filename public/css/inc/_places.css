@@ -29,7 +29,7 @@
   text-align: center;
   padding-top: 30rem;
   font-size: 3.2rem;
-  font-weight: 400;
+  font-weight: var(--general-font-weight);
 }
 
 /* .places-img {

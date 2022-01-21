@@ -54,6 +54,9 @@ Ways of Writing root file:
   --para-font-size: 1.8rem;
   --para-line-height: 1.8;
   --section-rotate: 6vw;
+  --general-font-weight: 500;
+  --general-font-size: 2rem;
+  --medium-font-size: 3rem;
 }
 
 * {
@@ -116,12 +119,14 @@ body::-webkit-scrollbar-button {
 body {
   font-family: 1;
   line-height: 1;
-  font-weight: 400;
+  font-weight: var(--general-font-weight);
   /* color: var(--color-grey); */
-  font-family: "Lato", sans-serif;
-  /* font-family: "Roboto", sans-serif; */
-  /* font-family: "Dancing Script", cursive; */
+  /* font-family: "Lato", sans-serif; */
 
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Dancing Script", cursive;
+  /* font-family: "Quicksand", sans-serif; */
+  /* font-family: "Josefin Sans", sans-serif; */
   /* Only works when the parent of the over flowing element is relatively positioned if the element is absolutely positioned */
   overflow-x: hidden;
 
@@ -180,7 +185,7 @@ body {
 .heading-tertiary {
   letter-spacing: -0.5px;
   color: var(--color-grey-darker);
-  font-weight: 400;
+  font-weight: var(--general-font-weight);
   letter-spacing: -0.5px;
 }
 
@@ -204,8 +209,8 @@ body {
 
 .subheading {
   display: block;
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: var(--general-font-size);
+  font-weight: var(--general-font-weight);
   color: var(--color-primary);
   text-transform: uppercase;
   margin-bottom: 1.6rem;
@@ -213,7 +218,7 @@ body {
 
 .btn:link,
 .btn:visited {
-  font-size: 2rem;
+  font-size: var(--general-font-size);
   color: #fff;
   text-decoration: none;
 
@@ -269,7 +274,7 @@ body {
 }
 
 strong {
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
 }
 
 .list {

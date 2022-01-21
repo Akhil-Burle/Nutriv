@@ -162,7 +162,7 @@
 
   .main-nav-link:link,
   .main-nav-link:visited {
-    font-size: 3rem;
+    font-size: var(--medium-font-size);
   }
 }
 

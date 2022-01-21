@@ -61,22 +61,22 @@
 
 .plan-name {
   color: var(--color-primary);
-  font-weight: 600;
-  font-size: 2rem;
+  font-weight: var(--general-font-weight);
+  font-size: var(--general-font-size);
   text-transform: uppercase;
   letter-spacing: 0.75;
   margin-bottom: 3.2rem;
 }
 .plan-price {
   font-size: 6.2rem;
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   color: var(--color-grey-darker);
   margin-bottom: 1.6rem;
 }
 
 .plan-price span {
   font-size: 5rem;
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   margin-right: 0.8rem;
   color: var(--color-primary);
 }

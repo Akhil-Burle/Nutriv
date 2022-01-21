@@ -9,13 +9,13 @@
 
 .step-number {
   font-size: 9.8rem;
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   color: #bbb;
   margin-bottom: 1.2rem;
 }
 
 .step-description {
-  font-size: 2rem;
+  font-size: var(--general-font-size);
   line-height: 1.8;
 }
 

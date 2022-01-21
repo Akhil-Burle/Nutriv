@@ -134,7 +134,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 strong {
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
 }
 i {
   font-style: italic;
@@ -211,7 +211,7 @@ pre {
   color: #777a7a;
 }
 .left-menu .info b {
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   color: #034c8f;
 }
 .content-logo {

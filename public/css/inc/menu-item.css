@@ -65,14 +65,14 @@ body {
 }
 .product-card .dish-details .dish_name {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   color: #161616;
 
 }
 
 .product-card .dish-details p {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: var(--general-font-weight);
   color: #333;
 
   margin-bottom: 1rem;
@@ -93,7 +93,7 @@ body {
 }
 .color-price .color-option .color {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   color: #333;
   margin-right: 8px;
 }
@@ -132,12 +132,12 @@ body {
 }
 .color-price .price .price_num {
   font-size: 25px;
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   color: #707070;
 }
 .color-price .price .price_letter {
   font-size: 10px;
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   margin-top: -4px;
   color: #707070;
 }
@@ -168,7 +168,7 @@ body {
   outline: none;
   border: none;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   letter-spacing: 1px;
   color: #fff;
 }
@@ -231,9 +231,9 @@ body {
 }
 
 .meal-title {
-  font-size: 2rem;
+  font-size: var(--general-font-size);
   color: var(--color-grey-darker);
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   margin-bottom: 3.2rem;
   text-transform: capitalize;
 }
@@ -247,7 +247,7 @@ body {
 
 .meal-attribute {
   font-size: 1.8rem;
-  /* font-weight: 500; */
+  /* font-weight: var(--general-font-weight); */
   display: flex;
   align-items: center;
   gap: 1.6rem;
@@ -274,7 +274,7 @@ body {
   font-size: 2.8rem;
   line-height: 1.2;
   margin-bottom: 3.2rem;
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
 }
 
 .list {
@@ -345,7 +345,7 @@ body {
   text-decoration: none;
   color: #fff;
   border-radius: 14px;
-  /* font-weight: 600; */
+  /* font-weight: var(--general-font-weight); */
   /* margin-right: 10rem; */
   cursor: pointer;
 }
@@ -361,7 +361,7 @@ body {
 .accordion-button,
 .accordion-body {
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--medium-font-size);
   align-content: center;
   /* padding-left: 50%; */
 }
@@ -389,7 +389,7 @@ body {
   background-color: var(--color-primary);
   padding: 1.7rem;
   border-radius: 12px;
-  font-size: 3rem;
+  font-size: var(--medium-font-size);
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -408,7 +408,7 @@ body {
 .sale-text {
   align-self: center;
   margin-right: 2.5rem;
-  font-size: 2rem;
+  font-size: var(--general-font-size);
   padding: 1.5rem;
   background-color: var(--color-primary);
   border-radius: 12px;

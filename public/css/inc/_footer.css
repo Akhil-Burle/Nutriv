@@ -52,7 +52,7 @@
 
 .footer-heading {
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   margin-bottom: 3.2rem;
   margin-bottom: 4rem;
 }
@@ -89,7 +89,7 @@
 
 .heart {
   color: #eb1708;
-  font-size: 2rem;
+  font-size: var(--general-font-size);
 }
 
 /* ---------------------------------------------------------------------------------------------*/

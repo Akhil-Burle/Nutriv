@@ -15,7 +15,7 @@ block content
         each item in cartItems
             .item
                 .buttons
-                    span.delete-btn
+                    span.delete-btn(data-cartItemId=`${item.id}`)
                     span.like-btn
                 .image
                     img(src=`img/dishes/${item.dish.imageCover}` alt='' class='fullimage')

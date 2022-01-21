@@ -156,7 +156,7 @@
   color: #000;
   font-size: 1.5rem;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: var(--general-font-weight);
   text-decoration: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -197,7 +197,7 @@
   position: relative;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  font-weight: 400;
+  font-weight: var(--general-font-weight);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   /*Add later when we use this for the button in form*/
@@ -259,7 +259,7 @@
   transition: all 0.2s;
   cursor: pointer;
   text-decoration: none;
-  font-weight: 400;
+  font-weight: var(--general-font-weight);
   border: none;
 }
 

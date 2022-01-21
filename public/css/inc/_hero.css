@@ -44,7 +44,7 @@
   display: inline-block;
   text-decoration: none;
   color: var(--color-grey-darker);
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   font-size: 1.8rem;
   transition: all 0.5s;
   cursor: pointer;
@@ -157,7 +157,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 9.6rem;
-  font-weight: 400;
+  font-weight: var(--general-font-weight);
 }
 
 .hero-image {
@@ -165,7 +165,7 @@
 }
 
 .hero-description {
-  font-size: 2rem;
+  font-size: var(--general-font-size);
   line-height: 1.6;
   margin-bottom: 4.8rem;
 }
@@ -195,7 +195,7 @@
 
 .delivered-text {
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   /* color: ; */
 }
 

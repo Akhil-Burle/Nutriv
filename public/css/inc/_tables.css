@@ -14,7 +14,7 @@
 }
 
 .nav-brand {
-  font-size: 3rem;
+  font-size: var(--medium-font-size);
   font-weight: bold;
   margin-top: 10rem;
 }
@@ -68,7 +68,7 @@
 }
 
 #site-main .container .box-nav > a {
-  font-size: 3rem;
+  font-size: var(--medium-font-size);
   padding: 0.5rem 1rem;
 }
 
@@ -87,7 +87,7 @@ table {
   vertical-align: top;
   text-align: center;
   border-top: 1px solid var(--border);
-  font-size: 2rem;
+  font-size: var(--general-font-size);
 }
 
 .table td > a.btn {
@@ -108,7 +108,7 @@ table {
   color: #fff;
   background-color: var(--dark);
   border-color: #32383e;
-  font-size: 2rem;
+  font-size: var(--general-font-size);
 }
 
 @media only screen and (max-width: 1024px) {

@@ -104,7 +104,7 @@ body {
 
 .share i {
   line-height: 50px;
-  font-size: 2rem;
+  font-size: var(--general-font-size);
 }
 
 .item-nike {
@@ -151,7 +151,7 @@ body {
 
 .item-shoeName div .item-big {
   margin-right: 10px;
-  font-size: 3rem;
+  font-size: var(--medium-font-size);
   color: #333;
   line-height: 1;
 }
@@ -168,11 +168,11 @@ body {
 }
 
 .item-shoeName .item-small {
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   color: #444;
   margin-top: 1rem;
   text-transform: capitalize;
-  font-size: 2rem;
+  font-size: var(--general-font-size);
 }
 
 .item-shoeName,
@@ -188,7 +188,7 @@ body {
 
 .item-title {
   color: #3a3a3a;
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   font-size: 1.8rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -271,7 +271,7 @@ body {
   text-align: center;
   line-height: 40px;
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   cursor: pointer;
   transition: 0.3s;
 }
@@ -298,7 +298,7 @@ body {
 
 .item-price h1 {
   font-size: 2.1rem;
-  font-weight: 600;
+  font-weight: var(--general-font-weight);
   line-height: 1;
 }
 
@@ -314,7 +314,7 @@ body {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: 500;
+  font-weight: var(--general-font-weight);
   font-size: 1.8rem;
   transition: 0.5s;
   padding: 1.3rem;
@@ -353,7 +353,7 @@ body {
 
 .item-chef-name {
   margin-right: 0.2rem;
-  font-size: 2rem;
+  font-size: var(--general-font-size);
 }
 .item-verify {
   margin-right: 1rem;
