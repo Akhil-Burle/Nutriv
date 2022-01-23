@@ -44,7 +44,7 @@ head
             li.scroll-to-link(data-target='content-get-reviews')
                 a Reviews
             li.scroll-to-link(data-target='content-errors')
-                a Errors
+                a Codes
 .content-page
     .content-code
     .content
@@ -56,7 +56,7 @@ head
                 https://{host}/api/v1
 
             p
-                | The Nutriv API contains endpoints for Dishes, Users, and Reviews.
+                | The Nutriv API contains endpoints for Dishes, Users, Reviews, Bookings and Authentication.
         #content-get-characters.overflow-hidden.content-section
             h2 Get dishes
             <pre><code class="bash">curl --location -g --request GET '{host}/api/v1/menu/</code></pre>
@@ -850,45 +850,24 @@ head
 
         #content-errors.overflow-hidden.content-section
             h2 Errors
-            p The Westeros API uses the following error codes:
+            p The Nutriv API uses the following codes:
             table
                 thead
                     tr
-                        th Error Code
+                        th Code
                         th Meaning
                 tbody
                     tr
-                        td X000
-                        td
-                            | Some parameters are missing. This error appears when you don&apos;t
-                            | pass every mandatory parameters.
+                        td 200
+                        td Request successfully completed. There aren't any errors.
                     tr
-                        td X001
-                        td
-                            | Unknown or unvalid 
-                            code.higlighted secret_key
-                            | .
-                            |                   This error appears if you use an unknow API key or if your API
-                            |                   key expired.
+                        td 201
+                        td Requested entries successfully added.
                     tr
-                        td X002
-                        td
-                            | Unvalid 
-                            code.higlighted secret_key
-                            |  for this
-                            |                   domain. This error appears if you use an API key non specified
-                            |                   for your domain. Developper or Universal API keys doesn&apos;t have
-                            |                   domain checker.
+                        td 403
+                        td Authentication invalid. Try logging in again!
                     tr
-                        td X003
-                        td
-                            | Unknown or unvalid user 
-                            code.higlighted token
-                            | .
-                            |                   This error appears if you use an unknow user
-                            code.higlighted token
-                            |  or if the user
-                            code.higlighted token
-                            |  expired.
+                        td 404
+                        td Request not found due some error in the URL.
     .content-code
 script(src='js/docs.js')
