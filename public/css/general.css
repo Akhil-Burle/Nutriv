@@ -125,12 +125,12 @@ body {
 
   /* font-family: "Roboto", sans-serif; */
   font-family: "Dancing Script", cursive;
+  /* font-family: "Raleway", sans-serif; */
+  /* font-family: "Outfit", sans-serif; */
   /* font-family: "Quicksand", sans-serif; */
   /* font-family: "Josefin Sans", sans-serif; */
   /* Only works when the parent of the over flowing element is relatively positioned if the element is absolutely positioned */
   overflow-x: hidden;
-
-  /* font-family: "Dancing Script", cursive; */
 }
 
 /* ---------------------------------------------------------------------------------------------*/
@@ -191,7 +191,7 @@ body {
 
 .heading-primary {
   font-size: 5.2rem;
-  line-height: 1.05;
+  line-height: 1.15;
   margin-bottom: 3.2rem;
 }
 

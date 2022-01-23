@@ -1,7 +1,7 @@
 doctype html
 head
     meta(charset='utf-8')
-    title API - Documentation
+    title Nutriv API - Documentation
     meta(name='description' content='')
     meta(http-equiv='cleartype' content='on')
     meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
@@ -39,6 +39,10 @@ head
                 a Users
             li.scroll-to-link(data-target='content-get-auth')
                 a Authentication
+            li.scroll-to-link(data-target='content-get-bookings')
+                a Bookings
+            li.scroll-to-link(data-target='content-get-reviews')
+                a Reviews
             li.scroll-to-link(data-target='content-errors')
                 a Errors
 .content-page
@@ -197,7 +201,7 @@ head
                 |             &quot;chefs&quot;: [chef id] 
                 br
                 | },
-        // Update tour
+        // Update dish
         #content-get-characters.overflow-hidden.content-section
             h2 Update Dish
             pre.
@@ -660,6 +664,189 @@ head
                 |             "passwordConfirm":"newPass"
                 br
                 |             }
+        #content-get-bookings.overflow-hidden.content-section
+            h2 Get All Bookings
+            pre.
+                curl --location -g --request GET '{host}/api/v1/bookings'
+
+            p To get all bookings you need to make a GET request to:
+                br
+                code.higlighted.break-word {host}/api/v1/bookings
+
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+
+        // Get Booking
+        #content-get-bookings.overflow-hidden.content-section
+            h2 Get Booking
+            pre.
+                curl --location -g --request GET '{host}/api/v1/bookings/{user_id}}'
+
+            p To get a specific booking you need to make a GET request to:
+                br
+                code.higlighted.break-word {host}/api/v1/users/login
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+        #content-get-reviews.overflow-hidden.content-section
+            h2 Get All Reviews
+            pre.
+                curl --location -g --request GET '{host}/api/v1/reviews'
+
+            p To get all reviews you need to make a GET request to:
+                br
+                code.higlighted.break-word {host}/api/v1/reviews
+
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+
+        // Get Review
+        #content-get-reviews.overflow-hidden.content-section
+            h2 Get Review
+            pre.
+                curl --location -g --request GET '{host}/api/v1/reviews/{user_id}'
+
+            p To get a specific booking you need to make a GET request to:
+                br
+                code.higlighted.break-word {host}/api/v1/reviews/{user_id}
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+        // Create new review
+        #content-get-reviews.overflow-hidden.content-section
+            h2 Create new review
+            pre.
+                curl --location -g --request POST '{host}/api/v1/reviews' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "review": "Loved it",
+                    "rating": 4,
+                    "dish": "5c88fa8cf4afda39709c2951",
+                    "user": "user_id"
+                }'
+
+            p To add new review you need to make a POST request to the following URL:
+                br
+                code.higlighted.break-word {host}/api/v1/reviews
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+            h4 Body
+            p.
+                {
+                    "review": "Loved it",
+                    "rating": 4,
+                    "dish": "5c88fa8cf4afda39709c2951",
+                    "user": "5cd14baa326b861fab416f56"
+                }
+        // Update review
+        #content-get-reviews.overflow-hidden.content-section
+            h2 Update review
+            pre.
+                curl --location -g --request PATCH '{host}/api/v1/reviews/{review_id}' \
+                --header 'Content-Type: application/json' \
+                --data-raw '{
+                    "rating": 5
+                }'
+
+            p To update review you need to make a PATCH request to the following URL:
+                br
+                code.higlighted.break-word {host}/api/v1/reviews/{review_id}
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+            h4 Headers
+            table.central-overflow-x
+                thead
+                    tr
+                        th Content-Type
+                tbody
+                    tr
+                        td application/json
+            h4 Body
+            p.
+                {
+                    "rating": 5
+                }
+        // Delete review
+        #content-get-reviews.overflow-hidden.content-section
+            h2 Delete review
+            pre.
+                curl --location -g --request DELETE '{host}/api/v1/reviews/{review_id}}'
+
+            p To delete a review you need to make a DELETE request to the following URL:
+                br
+                code.higlighted.break-word {host}/api/v1/reviews/{review_id}
+            br
+            h4 Authentication
+            table.central-overflow-x
+                thead
+                    tr
+                        th Type
+                        th Token
+                tbody
+                    tr
+                        td Bearer Token / Cookie
+                        td Unique Identity
+
 
         #content-errors.overflow-hidden.content-section
             h2 Errors
