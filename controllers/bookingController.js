@@ -35,69 +35,69 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const dish = await Dish.findById(req.params.dishId);
   // 2) Create checkout session
   const session = await stripe.checkout.sessions.create({
-    billing_address_collection: "auto",
-    line_items: [
-      {
-        price: prices.data[0].id,
-        // For metered billing, do not pass quantity
-        quantity: 1,
-      },
-    ],
-    mode: "subscription",
-    // payment_method_types: ["card"],
-    // customer_email: req.user.email,
-    // client_reference_id: req.params.dishId,
-    // shipping_address_collection: {
-    //   allowed_countries: ["US", "CA", "IN", "AU", "GB"],
-    // },
-    // allow_promotion_codes: true,
-    // shipping_options: [
-    //   {
-    //     shipping_rate_data: {
-    //       type: "fixed_amount",
-    //       fixed_amount: {
-    //         amount: 0,
-    //         currency: "inr",
-    //       },
-    //       display_name: "Standard",
-    //       delivery_estimate: {
-    //         minimum: {
-    //           unit: "hour",
-    //           value: 1,
-    //         },
-    //         maximum: {
-    //           unit: "hour",
-    //           value: 1,
-    //         },
-    //       },
-    //     },
-    //   },
-    // ],
-
+    // billing_address_collection: "auto",
     // line_items: [
     //   {
-    //     tax_rates: ["txr_1JtvInSB8CbvCgkh0EtVqYE6"],
-    //     adjustable_quantity: {
-    //       enabled: true,
-    //       minimum: 1,
-    //       maximum: 10,
-    //     },
-    //     price_data: {
-    //       currency: "inr",
-    //       product_data: {
-    //         name: `${dish.name}`,
-    //         description: dish.summary,
-    //       },
-
-    //       unit_amount: `${dish.price * 100}`,
-    //     },
+    //     price: prices.data[0].id,
+    //     // For metered billing, do not pass quantity
     //     quantity: 1,
     //   },
     // ],
-    // phone_number_collection: {
-    //   enabled: true,
-    // },
-    // mode: "payment",
+    // mode: "subscription",
+    payment_method_types: ["card"],
+    customer_email: req.user.email,
+    client_reference_id: req.params.dishId,
+    shipping_address_collection: {
+      allowed_countries: ["US", "CA", "IN", "AU", "GB"],
+    },
+    allow_promotion_codes: true,
+    shipping_options: [
+      {
+        shipping_rate_data: {
+          type: "fixed_amount",
+          fixed_amount: {
+            amount: 0,
+            currency: "inr",
+          },
+          display_name: "Standard",
+          delivery_estimate: {
+            minimum: {
+              unit: "hour",
+              value: 1,
+            },
+            maximum: {
+              unit: "hour",
+              value: 1,
+            },
+          },
+        },
+      },
+    ],
+
+    line_items: [
+      {
+        tax_rates: ["txr_1JtvInSB8CbvCgkh0EtVqYE6"],
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 1,
+          maximum: 10,
+        },
+        price_data: {
+          currency: "inr",
+          product_data: {
+            name: `${dish.name}`,
+            description: dish.summary,
+          },
+
+          unit_amount: `${dish.price * 100}`,
+        },
+        quantity: 1,
+      },
+    ],
+    phone_number_collection: {
+      enabled: true,
+    },
+    mode: "payment",
     success_url: `${req.protocol}://${req.get("host")}/my-orders?alert=booking`,
     cancel_url: `${req.protocol}://${req.get("host")}/menu/${dish.slug}`,
   });
