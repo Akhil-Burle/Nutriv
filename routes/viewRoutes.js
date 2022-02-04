@@ -17,6 +17,11 @@ router.get("/me", authController.protect, viewsController.getAccount);
 router.get("/my-orders", authController.protect, viewsController.getMyBookings);
 router.get("/verify", viewsController.getVerifyPage);
 router.get("/cart", authController.protect, viewsController.getCart);
+router.get(
+  "/subscriptions",
+  authController.protect,
+  viewsController.getSubscriptions
+);
 router.get("/verifySuccessfull", viewsController.getVerifySuccessfull);
 router.get("/forgotPassword", viewsController.getForgotPasswordForm);
 router.get("/forgotPasswordMessage", viewsController.getForgotPasswordMessage);

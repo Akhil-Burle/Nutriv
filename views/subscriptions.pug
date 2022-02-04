@@ -1,0 +1,72 @@
+extends base
+
+block append header
+    include inc/_header
+
+block content 
+    section#pricing.section-pricing
+        .container.center-text
+            span.subheading Pricing
+            h2.heading-secondary Eat well
+        .container.grid.grid--pricing
+            .pricing-plan.pricing-plan--starter
+                header.plan-header
+                    p.plan-name Starter
+                    p.plan-price Free!
+                ul.list
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Access to any dish available!
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Order from 10am and 9pm
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Delivery is free*
+                    li.list-item
+                    ion-icon.list-icon(name='close-outline')
+                .plan-signup
+                    a.btn.btn--full(href='#') Order Now!
+            .pricing-plan.pricing-plan--pro
+                header.plan-header
+                    p.plan-name Pro
+                    p.plan-price ₹100
+                ul.list
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Access to any dish available!
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span
+                            | Order 
+                            strong 24/7
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Delivery is free
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Get Exclusive Benifits!! 
+                .plan-signup
+                    a.btn.btn--full(href='#') Order Now!
+            .pricing-plan.pricing-plan--complete
+                header.plan-header
+                    p.plan-name Complete
+                    p.plan-price ₹200
+                    p.plan-text per month, That&apos;s just &#x20B9;800 per meal!
+                ul.list
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span 1 meal per day
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Order from 11am and 9pm
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Delivery is free
+                    li.list-item
+                        ion-icon.list-icon(name='checkmark-outline')
+                        span Get access to latest recipes
+                .plan-signup
+                    a.btn.btn--full(href='#') Order Now!
+        .container
+            aside.plan-details Prices include all applicable taxes. You can cancel at any time.

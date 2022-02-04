@@ -33,6 +33,7 @@ exports.getOverview = catchAsync(async (req, res, next) => {
   // Build the template for the overview:
   const dishes = await features.query;
   const discounts = await Discount.find({ isValid: true });
+  // console.log(await User.findOne({ email: "laura@nutriv.com" }));
   // Render template:
   res.status(200).render("menu", {
     title: "Our Menu",
@@ -97,6 +98,10 @@ exports.getAccount = (req, res) => {
 exports.getDocs = (req, res) => {
   res.status(200).render("docs");
 };
+exports.getSubscriptions = (req, res) => {
+  res.status(200).render("subscriptions");
+};
+
 exports.getTerms = (req, res) => {
   res.status(200).render("terms", { title: "Privacy & Terms" });
 };

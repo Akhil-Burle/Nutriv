@@ -76,6 +76,9 @@ module.exports = class Email {
   async emailVerify() {
     await this.send("verifyEmail", "Verify your email | Nutriv");
   }
+  async sendBooking() {
+    await this.send("booking", "Order placed successfully | Nutriv");
+  }
 };
 
 /* const sendEmail = (options) => {

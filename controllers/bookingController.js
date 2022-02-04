@@ -4,6 +4,8 @@ const User = require("../models/userModel.js");
 const Booking = require("../models/bookingModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const factory = require("./handlerFactory.js");
+const Email = require("./../utils/email.js");
+
 /*         "GB",
         "BE",
         "CL",
@@ -35,15 +37,6 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
   const dish = await Dish.findById(req.params.dishId);
   // 2) Create checkout session
   const session = await stripe.checkout.sessions.create({
-    // billing_address_collection: "auto",
-    // line_items: [
-    //   {
-    //     price: prices.data[0].id,
-    //     // For metered billing, do not pass quantity
-    //     quantity: 1,
-    //   },
-    // ],
-    // mode: "subscription",
     payment_method_types: ["card"],
     customer_email: req.user.email,
     client_reference_id: req.params.dishId,
@@ -80,7 +73,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
         adjustable_quantity: {
           enabled: true,
           minimum: 1,
-          maximum: 10,
+          maximum: 40,
         },
         price_data: {
           currency: "inr",
@@ -93,7 +86,26 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
         },
         quantity: 1,
       },
+      {
+        tax_rates: ["txr_1JtvInSB8CbvCgkh0EtVqYE6"],
+        adjustable_quantity: {
+          enabled: true,
+          minimum: 1,
+          maximum: 40,
+        },
+        price_data: {
+          currency: "inr",
+          product_data: {
+            name: "Dish",
+            description: "Awesome dish",
+          },
+
+          unit_amount: 9999900,
+        },
+        quantity: 1,
+      },
     ],
+
     phone_number_collection: {
       enabled: true,
     },
@@ -114,6 +126,13 @@ const createBookingCheckout = async (session) => {
   const user = (await User.findOne({ email: session.customer_email })).id;
   const price = session.amount_total / 100;
   await Booking.create({ dish, user, price });
+
+  // const fullUser = await User.findOne({ email: session.customer_email });
+  const fullUser = await User.findOne({ email: "laura@nutriv.com" });
+  console.log(fullUser);
+
+  // const url = "https://nutrivakhil.herokuapp.com/my-orders";
+  // await new Email(fullUser, url).sendBooking();
 };
 
 exports.webhookCheckout = (req, res, next) => {

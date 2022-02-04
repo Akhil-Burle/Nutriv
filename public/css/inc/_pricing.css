@@ -3,11 +3,12 @@
 /* ---------------------------------------------------------------------------------------------*/
 
 .grid--pricing {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .section-pricing {
   padding: 9.6rem 0;
+  margin-top: 6rem;
 }
 
 .pricing-plan {

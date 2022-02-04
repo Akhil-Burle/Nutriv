@@ -6,6 +6,10 @@ block append head
 block header 
     include inc/_header
 
+block append head
+    script(src="/js/cartMain.js" defer='') 
+
+
 block content 
     p.heading Your Cart
     section.section-cart
@@ -13,9 +17,9 @@ block content
         // Title
         .title Shopping Cart
         each item in cartItems
-            .item
+            .item(data-cartItemId=`${item.id}`)
                 .buttons
-                    span.delete-btn(data-cartItemId=`${item.id}`)
+                    span.delete-btn
                     span.like-btn
                 .image
                     img(src=`img/dishes/${item.dish.imageCover}` alt='' class='fullimage')

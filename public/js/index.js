@@ -227,8 +227,29 @@ if (alertMessage) showAlert("success", alertMessage, 20);
 if (addNewCartItemBtn) {
   addNewCartItemBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    const dish = event.target.dataset.dish;
+    let dish = event.target.dataset.dish;
     const user = event.target.dataset.user;
+
+    const currentDishes = [localStorage.getItem("cartDishes")];
+    currentDishes.push(dish);
+    localStorage.setItem("cartDishes", currentDishes);
+    const newCurrentDishes = [localStorage.getItem("cartDishes")];
+    const cartDishes = newCurrentDishes[0].split(",").splice(1);
+    console.log(cartDishes);
+    /* 
+    localStorage.setItem("dish", dish);
+    const cartLocalDishes = [localStorage.getItem("dish")];
+    console.log(cartLocalDishes);
+    const newDish = cartLocalDishes.push(dish);
+    console.log(newDish); 
+    console.log(JSON.stringify(currentDishes));
+      const cartDishes = [dish];
+      cartDishes.push("238uyrwioeryioweuroweyrioweru");
+      console.log(cartDishes);
+      console.log(event.target.dataset.dish);
+      localStorage.setItem("dish", cartDishes);
+      console.log(localStorage.getItem("dish"));
+      */
     addNewCartItem(dish, user);
   });
 }
