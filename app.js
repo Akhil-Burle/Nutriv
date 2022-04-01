@@ -9,6 +9,8 @@ const hpp = require("hpp");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const compression = require("compression");
+const expressip = require("express-ip");
+
 // const cors = require("cors");
 
 const appError = require("./utils/appError.js");
@@ -102,6 +104,8 @@ app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
   next();
 });
+
+app.use(expressip().getIpInfoMiddleware);
 
 // 3) ROUTES
 

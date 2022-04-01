@@ -18,6 +18,9 @@ exports.alerts = (req, res, next) => {
 
 exports.index = (req, res, next) => {
   res.status(200).render("index", { title: "Never Cook Again!" });
+  const ipInfo = req.ipInfo;
+  var message = `Hey, you are browsing from ${ipInfo.city}, ${ipInfo.country}`;
+  console.log(message);
 };
 
 exports.getOverview = catchAsync(async (req, res, next) => {

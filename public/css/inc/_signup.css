@@ -21,9 +21,15 @@
 
   background-image: linear-gradient(
     to right bottom,
-    rgba(43, 211, 233, 0.604),
-    rgba(69, 221, 241, 0.837)
+    rgba(96, 235, 253, 0.885),
+    rgba(95, 234, 252, 0.844)
   );
+  /* background: linear-gradient(
+    90deg,
+    hsla(120, 93%, 84%, 1) 0%,
+    hsla(185, 90%, 51%, 1) 100%
+  ); */
+
   overflow: hidden;
 }
 
