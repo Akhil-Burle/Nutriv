@@ -86,24 +86,6 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
         },
         quantity: 1,
       },
-      {
-        tax_rates: ["txr_1JtvInSB8CbvCgkh0EtVqYE6"],
-        adjustable_quantity: {
-          enabled: true,
-          minimum: 1,
-          maximum: 40,
-        },
-        price_data: {
-          currency: "inr",
-          product_data: {
-            name: "Dish",
-            description: "Awesome dish",
-          },
-
-          unit_amount: 9999900,
-        },
-        quantity: 1,
-      },
     ],
 
     phone_number_collection: {
